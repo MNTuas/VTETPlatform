@@ -14,6 +14,17 @@
 *.userosscache
 *.sln.docstates
 
+VTET.Business/**/bin/
+VTET.Business/**/obj/
+VTET.Common/**/bin/ 
+VTET.Common/**/obj/
+VTET.ConsoleApp/**/bin/
+VTET.ConsoleApp/**/obj/
+VTET.Data/**/bin/
+VTET.Data/**/obj/
+VTET.RazorWebApp/**/bin/
+VTET.RazorWebApp/**/obj/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
