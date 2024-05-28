@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using VTEATPlatfomr.Common;
-using VTEATPlatform.Data;
 using VTET.Business.Base;
+using VTET.Common;
+using VTET.Data;
 using VTET.Data.Models;
+
 
 namespace VTET.Business
 {

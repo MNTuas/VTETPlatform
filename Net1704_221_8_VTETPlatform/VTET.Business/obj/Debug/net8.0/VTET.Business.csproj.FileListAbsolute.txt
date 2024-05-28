@@ -13,3 +13,12 @@ D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTET
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\refint\VTET.Business.dll
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.pdb
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\ref\VTET.Business.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.csproj.AssemblyReference.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.AssemblyInfoInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.AssemblyInfo.cs
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.csproj.CoreCompileInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.sourcelink.json
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\refint\VTET.Business.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.pdb

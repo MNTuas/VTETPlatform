@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VTEATPlatform.Data.Repository;
+
 using VTET.Data.Models;
+using VTET.Data.Repository;
 
 
-namespace VTEATPlatform.Data
+namespace VTET.Data
 {
     public class UnitOfWork
     {
