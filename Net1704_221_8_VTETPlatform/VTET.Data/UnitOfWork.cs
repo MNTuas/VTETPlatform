@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VTEATPlatform.Data.Repository;
 using VTET.Data.Models;
+using VTET.Data.Repository;
 
 
-namespace VTEATPlatform.Data
+namespace VTET.Data
 {
     public class UnitOfWork
     {
         private Net1704_221_8_VTETPlatformContext _unitOfWorkContext;
         private EvaluationRepository _evaluationRepository;
+        private OrderDetailRepository _orderdetail;
+
 
         public UnitOfWork()
         {
@@ -23,6 +25,13 @@ namespace VTEATPlatform.Data
             get 
             {
                 return _evaluationRepository ??= new Repository.EvaluationRepository();
+            }
+        }
+        public OrderDetailRepository OrderDetailRepository
+        {
+            get
+            {
+                return _orderdetail ??= new Repository.OrderDetailRepository();
             }
         }
     }

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.RazorWebApp", "VTET.Ra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.ConsoleApp", "VTET.ConsoleApp\VTET.ConsoleApp.csproj", "{83CE4E69-C5FB-42B6-996F-D82BEF0117C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTET.Common", "VTET.Common\VTET.Common.csproj", "{19802BD7-A354-43AD-A321-8CF8975D10CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTET.Common", "VTET.Common\VTET.Common.csproj", "{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{83CE4E69-C5FB-42B6-996F-D82BEF0117C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83CE4E69-C5FB-42B6-996F-D82BEF0117C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83CE4E69-C5FB-42B6-996F-D82BEF0117C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19802BD7-A354-43AD-A321-8CF8975D10CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19802BD7-A354-43AD-A321-8CF8975D10CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19802BD7-A354-43AD-A321-8CF8975D10CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19802BD7-A354-43AD-A321-8CF8975D10CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
