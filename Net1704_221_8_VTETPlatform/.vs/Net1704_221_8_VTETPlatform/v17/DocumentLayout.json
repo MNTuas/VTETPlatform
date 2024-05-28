@@ -1,0 +1,257 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.business\\base\\ibusinessresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\base\\ibusinessresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.business\\evaluationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\evaluationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.business\\base\\businessresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\base\\businessresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\base\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\base\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19802BD7-A354-43AD-A321-8CF8975D10CC}|VTET.Common\\VTET.Common.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.common\\const.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19802BD7-A354-43AD-A321-8CF8975D10CC}|VTET.Common\\VTET.Common.csproj|solutionrelative:vtet.common\\const.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\repository\\evaluationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\repository\\evaluationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\vtet.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\vtet.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\base\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\dao\\evaluationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\dao\\evaluationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\models\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\models\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.data\\models\\net1704_221_8_vtetplatformcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\models\\net1704_221_8_vtetplatformcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.business\\vtet.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\vtet.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\net1704_221_8_vtetplatform\\vtet.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|solutionrelative:vtet.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IBusinessResult.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\Base\\IBusinessResult.cs",
+              "RelativeDocumentMoniker": "VTET.Business\\Base\\IBusinessResult.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\Base\\IBusinessResult.cs",
+              "RelativeToolTip": "VTET.Business\\Base\\IBusinessResult.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T04:01:45.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BusinessResult.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\Base\\BusinessResult.cs",
+              "RelativeDocumentMoniker": "VTET.Business\\Base\\BusinessResult.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\Base\\BusinessResult.cs",
+              "RelativeToolTip": "VTET.Business\\Base\\BusinessResult.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T04:01:39.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Const.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Common\\Const.cs",
+              "RelativeDocumentMoniker": "VTET.Common\\Const.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Common\\Const.cs",
+              "RelativeToolTip": "VTET.Common\\Const.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T03:59:00.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EvaluationRepository.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Repository\\EvaluationRepository.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\Repository\\EvaluationRepository.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Repository\\EvaluationRepository.cs",
+              "RelativeToolTip": "VTET.Data\\Repository\\EvaluationRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T03:53:50.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\UnitOfWork.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\UnitOfWork.cs",
+              "RelativeToolTip": "VTET.Data\\UnitOfWork.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAUwBAAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T03:53:19.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Base\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\Base\\GenericRepository.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Base\\GenericRepository.cs",
+              "RelativeToolTip": "VTET.Data\\Base\\GenericRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T03:50:45.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EvaluationBusiness.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\EvaluationBusiness.cs",
+              "RelativeDocumentMoniker": "VTET.Business\\EvaluationBusiness.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\EvaluationBusiness.cs",
+              "RelativeToolTip": "VTET.Business\\EvaluationBusiness.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T07:30:07.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EvaluationDAO.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\DAO\\EvaluationDAO.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\DAO\\EvaluationDAO.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\DAO\\EvaluationDAO.cs",
+              "RelativeToolTip": "VTET.Data\\DAO\\EvaluationDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T03:28:42.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Evaluation.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Models\\Evaluation.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\Models\\Evaluation.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Models\\Evaluation.cs",
+              "RelativeToolTip": "VTET.Data\\Models\\Evaluation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T03:48:34.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BaseDAO.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Base\\BaseDAO.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\Base\\BaseDAO.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Base\\BaseDAO.cs",
+              "RelativeToolTip": "VTET.Data\\Base\\BaseDAO.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAuwBYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T08:03:16.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Net1704_221_8_VTETPlatformContext.cs",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Models\\Net1704_221_8_VTETPlatformContext.cs",
+              "RelativeDocumentMoniker": "VTET.Data\\Models\\Net1704_221_8_VTETPlatformContext.cs",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\Models\\Net1704_221_8_VTETPlatformContext.cs",
+              "RelativeToolTip": "VTET.Data\\Models\\Net1704_221_8_VTETPlatformContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T03:32:07.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VTET.Data.csproj",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj",
+              "RelativeDocumentMoniker": "VTET.Data\\VTET.Data.csproj",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj",
+              "RelativeToolTip": "VTET.Data\\VTET.Data.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-22T08:03:14.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VTET.Business.csproj",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
+              "RelativeDocumentMoniker": "VTET.Business\\VTET.Business.csproj",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
+              "RelativeToolTip": "VTET.Business\\VTET.Business.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-22T08:03:15.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "VTET.RazorWebApp\\Pages\\Index.cshtml",
+              "ToolTip": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\Pages\\Index.cshtml",
+              "RelativeToolTip": "VTET.RazorWebApp\\Pages\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-18T06:40:42.234Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
