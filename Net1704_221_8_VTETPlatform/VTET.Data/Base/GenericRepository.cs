@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VTET.Data.Models;
 
-namespace VTEATPlatform.Data.Base
+namespace VTET.Data.Base
 {
     public class GenericRepository<T> where T : class
     {

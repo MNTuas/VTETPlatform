@@ -1,40 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using VTET.Business.Base;
 using VTET.Common;
-using VTET.Data;
 using VTET.Data.Models;
+using VTET.Data;
 
 namespace VTET.Business
 {
-    public interface IevaluationService
+    public interface IOrderDetailBusiness
     {
-        Task<IBusinessResult> Insert(Evaluation evaluation);
-        Task<IBusinessResult> Update(Evaluation evaluation);
-        Task<IBusinessResult> Delete(int evaluationID);
+        Task<IBusinessResult> Save(OrderDetail orderDetail);
+        Task<IBusinessResult> Update(OrderDetail orderDetail);
+        Task<IBusinessResult> Delete(int orderDetailID);
         Task<IBusinessResult> GetAll();
     }
-    public class evaluationBusiness : IevaluationService
+    public class OrderDetailBusiness : IOrderDetailBusiness
     {
-        //private readonly evaluationDAO _DAO;
-
         private readonly UnitOfWork _unitOfWork;
-        public evaluationBusiness()
+        public OrderDetailBusiness()
         {
-            //neu no null moi tao => tiet kiem bo nho　
+            //neu no null => tao bo nho luu tru
             _unitOfWork ??= new UnitOfWork();
         }
 
 
 
-        public async Task<IBusinessResult> Insert(Evaluation evaluation)
+        public async Task<IBusinessResult> Save(OrderDetail orderDetail)
         {
             try
             {
-                int result = await _unitOfWork.EvaluationRepository.CreateAsync(evaluation);
+                int result = await _unitOfWork.OrderDetailRepository.CreateAsync(orderDetail);
+                /*                _unitOfWork.OrderDetailRepository.PrepareCreate(orderDetail);
+                                _unitOfWork.OrderDetailRepository.SaveAsync();*/
                 if (result > 0)
                 {
                     return new BusinessResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG);
@@ -51,11 +51,11 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> Update(Evaluation evaluation)
+        public async Task<IBusinessResult> Update(OrderDetail orderDetail)
         {
             try
             {
-                int result = await _unitOfWork.EvaluationRepository.UpdateAsync(evaluation);
+                int result = await _unitOfWork.OrderDetailRepository.UpdateAsync(orderDetail);
                 if (result > 0)
                 {
                     return new BusinessResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
@@ -74,14 +74,14 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> Delete(int evaluationID)
+        public async Task<IBusinessResult> Delete(int orderDetailID)
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetByIdAsync(evaluationID);
-                if (evaluation != null)
+                var orderDetail = await _unitOfWork.OrderDetailRepository.GetByIdAsync(orderDetailID);
+                if (orderDetail != null)
                 {
-                    var result = await _unitOfWork.EvaluationRepository.RemoveAsync(evaluation);
+                    var result = await _unitOfWork.OrderDetailRepository.RemoveAsync(orderDetail);
                     if (result)
                     {
                         return new BusinessResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG);
@@ -108,14 +108,14 @@ namespace VTET.Business
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetAllAsync();
-                if (evaluation == null || !evaluation.Any())
+                var orderDetail = await _unitOfWork.OrderDetailRepository.GetAllAsync();
+                if (orderDetail == null || !orderDetail.Any())
                 {
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, evaluation);
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, orderDetail);
 
                 }
             }
@@ -125,18 +125,18 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> GetById(int evaluationid)
+        public async Task<IBusinessResult> GetById(int orderdetailid)
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetByIdAsync(evaluationid);
-                if (evaluation == null)
+                var orderdetail = await _unitOfWork.OrderDetailRepository.GetByIdAsync(orderdetailid);
+                if (orderdetail == null)
                 {
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, evaluation);
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, orderdetail);
                 }
             }
             catch (Exception ex)
