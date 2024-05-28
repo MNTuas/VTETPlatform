@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VTET.ConsoleApp
-build_property.ProjectDir = D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\
+build_property.ProjectDir = D:\PRN221\Project\Net1704_221__8_VTEAPlaform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VTET.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa065d252f87779d8e2b50659420d5ce69ee8196")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0fc2a04671e01f47a0d510076d973f10e515ab2")]
 [assembly: System.Reflection.AssemblyProductAttribute("VTET.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VTET.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,6 +14,7 @@ namespace VTET.Data
         private Net1704_221_8_VTETPlatformContext _unitOfWorkContext;
         private EvaluationRepository _evaluationRepository;
         private OrderDetailRepository _orderdetail;
+        private OrderRepository _orderRepository;
 
 
         public UnitOfWork()
@@ -32,6 +33,13 @@ namespace VTET.Data
             get
             {
                 return _orderdetail ??= new Repository.OrderDetailRepository();
+            }
+        }
+        public OrderRepository OrderRepository
+        {
+            get
+            {
+                return _orderRepository ??= new Repository.OrderRepository();
             }
         }
     }
