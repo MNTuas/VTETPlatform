@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0jz6fYKGyswpAxZp7SFuKQX8jVL/tTL2zE5lOWiPg/66mLlfxMjSOzbLLDSxjJ6oIYr4b+y+0IksB/aH2hVtCg==",
+  "dgSpecHash": "OARVLs8K8ABLK3997SBPmC7mNPGDlf87Qb1zv2RasE2M6pHhxXoinu7/9xVTbwGzhK/fgOQsvnGcTr487yHnHg==",
   "success": true,
-  "projectFilePath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
+  "projectFilePath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Morgoth\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Morgoth\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

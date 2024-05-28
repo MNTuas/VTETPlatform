@@ -105,11 +105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
+      "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
       "projectName": "VTET.RazorWebApp",
-      "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
+      "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
       "packagesPath": "C:\\Users\\Morgoth\\.nuget\\packages\\",
-      "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\obj\\",
+      "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Morgoth\\AppData\\Roaming\\NuGet\\NuGet.Config",

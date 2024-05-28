@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3bFmFuKe5H5RO1rkUIPa1F7P+CiADQkfYoF2t8jz/Gpp8AuzDiLYPwc3k2z2F1AARnnD5UdEh8gUzmyrj14I/A==",
+  "dgSpecHash": "KFrSqGOYGYFcJb62vm+1BAc+bSyiuYX2wn5EaqWDb7n2LrV/Zpng8g3Prx7CuBV+jmQAdnGg+Rz9i6vG8doG0w==",
   "success": true,
-  "projectFilePath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
+  "projectFilePath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\VTET.RazorWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Morgoth\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512"
   ],

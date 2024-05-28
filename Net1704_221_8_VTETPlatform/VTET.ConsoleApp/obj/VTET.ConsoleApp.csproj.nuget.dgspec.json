@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj": {}
+    "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj": {}
   },
   "projects": {
-    "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj": {
+    "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj",
+        "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj",
         "projectName": "VTET.ConsoleApp",
-        "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj",
+        "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\Morgoth\\.nuget\\packages\\",
-        "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\obj\\",
+        "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Morgoth\\AppData\\Roaming\\NuGet\\NuGet.Config",

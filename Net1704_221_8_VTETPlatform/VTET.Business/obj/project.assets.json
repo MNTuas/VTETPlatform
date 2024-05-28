@@ -2788,11 +2788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
+      "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
       "projectName": "VTET.Business",
-      "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
+      "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
       "packagesPath": "C:\\Users\\Morgoth\\.nuget\\packages\\",
-      "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Business\\obj\\",
+      "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Morgoth\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2809,11 +2809,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {
-              "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj"
+            "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {
+              "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj"
             },
-            "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj": {
-              "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj"
+            "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj": {
+              "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj"
             }
           }
         }
