@@ -29,7 +29,7 @@ public partial class Watch
 
     public string Status { get; set; }
 
-    public DateOnly? CreateDate { get; set; }
+    public DateTime? CreateDate { get; set; }
 
     public int? UserId { get; set; }
 
