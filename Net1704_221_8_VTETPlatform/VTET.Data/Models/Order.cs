@@ -7,7 +7,7 @@ namespace VTET.Data.Models;
 
 public partial class Order
 {
-    public int OrderId { get; set; }
+    public string OrderId { get; set; }
 
     public string Email { get; set; }
 

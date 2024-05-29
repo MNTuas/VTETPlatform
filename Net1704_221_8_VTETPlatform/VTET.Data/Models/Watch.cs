@@ -7,7 +7,7 @@ namespace VTET.Data.Models;
 
 public partial class Watch
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
 
     public string FullName { get; set; }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VTET.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0fc2a04671e01f47a0d510076d973f10e515ab2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a67d0e0cb102634fc6b59b919abed34ae2fd07b")]
 [assembly: System.Reflection.AssemblyProductAttribute("VTET.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VTET.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,32 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.business\\orderbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\orderbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.data\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.data\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72534D2E-680E-4B55-82D3-764409AEB8C7}|VTET.Data\\VTET.Data.csproj|solutionrelative:vtet.data\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.business\\evaluationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\evaluationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|e:\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.business\\orderdetailbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DE86B1F-3C5D-4BD2-9FCB-5B26C8B3CC22}|VTET.Business\\VTET.Business.csproj|solutionrelative:vtet.business\\orderdetailbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,85 +9,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "VTET.Data\\UnitOfWork.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\UnitOfWork.cs",
-              "RelativeToolTip": "VTET.Data\\UnitOfWork.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:39:39.917Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderBusiness.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\OrderBusiness.cs",
-              "RelativeDocumentMoniker": "VTET.Business\\OrderBusiness.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\OrderBusiness.cs",
-              "RelativeToolTip": "VTET.Business\\OrderBusiness.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAYwGMAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:37:26.597Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\Repository\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "VTET.Data\\Repository\\OrderRepository.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\Repository\\OrderRepository.cs",
-              "RelativeToolTip": "VTET.Data\\Repository\\OrderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:39:17.985Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderDAO.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\DAO\\OrderDAO.cs",
-              "RelativeDocumentMoniker": "VTET.Data\\DAO\\OrderDAO.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\DAO\\OrderDAO.cs",
-              "RelativeToolTip": "VTET.Data\\DAO\\OrderDAO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:38:47.305Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EvaluationBusiness.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\EvaluationBusiness.cs",
-              "RelativeDocumentMoniker": "VTET.Business\\EvaluationBusiness.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\EvaluationBusiness.cs",
-              "RelativeToolTip": "VTET.Business\\EvaluationBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:37:02.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderDetailBusiness.cs",
-              "DocumentMoniker": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\OrderDetailBusiness.cs",
-              "RelativeDocumentMoniker": "VTET.Business\\OrderDetailBusiness.cs",
-              "ToolTip": "E:\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\OrderDetailBusiness.cs",
-              "RelativeToolTip": "VTET.Business\\OrderDetailBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:36:59.698Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }

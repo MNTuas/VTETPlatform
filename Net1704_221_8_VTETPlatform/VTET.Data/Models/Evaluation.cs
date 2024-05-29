@@ -7,9 +7,9 @@ namespace VTET.Data.Models;
 
 public partial class Evaluation
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
 
-    public int? WatchId { get; set; }
+    public string WatchId { get; set; }
 
     public string Comment { get; set; }
 
