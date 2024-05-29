@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {}
   },
   "projects": {
@@ -12,9 +13,27 @@
         "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj",
         "packagesPath": "C:\\Users\\Morgoth\\.nuget\\packages\\",
         "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\obj\\",
+=======
+    "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {}
+  },
+  "projects": {
+    "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj",
+        "projectName": "VTET.Common",
+        "projectPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj",
+        "packagesPath": "C:\\Users\\Quan\\.nuget\\packages\\",
+        "outputPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\obj\\",
+>>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Morgoth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Quan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\",
   "Documents": [
     {
@@ -68,6 +69,16 @@
     {
       "AbsoluteMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|d:\\fbt\\k\u00EC 7\\prn212\\project\\net1704_221_8_vtetplatform\\source\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|solutionrelative:vtet.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+=======
+  "WorkspaceRootPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.202\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|d:\\prn221\\project\\net1704_221__8_vteaplaform\\source\\vtetplatform\\net1704_221_8_vtetplatform\\vtet.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B3114F-233D-4C26-AF27-861C5D7827CF}|VTET.RazorWebApp\\VTET.RazorWebApp.csproj|solutionrelative:vtet.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
     }
   ],
   "DocumentGroupContainers": [
@@ -77,6 +88,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -92,10 +104,24 @@
               "ViewState": "AQIAAJAVAAAAAAAAAAAnwKIVAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2024-05-28T15:28:07.797Z",
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAlwAkBAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-05-28T17:10:33.024Z",
+>>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 5,
               "Title": "VTET.ConsoleApp.csproj",
               "DocumentMoniker": "D:\\FBT\\K\u00EC 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.ConsoleApp\\VTET.ConsoleApp.csproj",
@@ -289,6 +315,18 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-18T06:40:42.234Z"
+=======
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "VTET.RazorWebApp\\Program.cs",
+              "ToolTip": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.RazorWebApp\\Program.cs",
+              "RelativeToolTip": "VTET.RazorWebApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T16:54:30.334Z",
+              "EditorCaption": ""
+>>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
             }
           ]
         }
