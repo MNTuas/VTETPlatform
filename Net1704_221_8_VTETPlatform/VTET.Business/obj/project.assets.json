@@ -2783,37 +2783,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Morgoth\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\Quan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
       "projectName": "VTET.Business",
       "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
       "packagesPath": "C:\\Users\\Morgoth\\.nuget\\packages\\",
       "outputPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\obj\\",
-=======
-      "projectUniqueName": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
-      "projectName": "VTET.Business",
-      "projectPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\VTET.Business.csproj",
-      "packagesPath": "C:\\Users\\Quan\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Business\\obj\\",
->>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
       "projectStyle": "PackageReference",
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Morgoth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Quan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2827,19 +2809,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
             "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {
               "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj"
             },
             "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj": {
               "projectPath": "D:\\FBT\\Kì 7\\PRN212\\Project\\NET1704_221_8_VTETPlatform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj"
-=======
-            "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj": {
-              "projectPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Common\\VTET.Common.csproj"
-            },
-            "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj": {
-              "projectPath": "D:\\PRN221\\Project\\Net1704_221__8_VTEAPlaform\\Source\\VTETPlatform\\Net1704_221_8_VTETPlatform\\VTET.Data\\VTET.Data.csproj"
->>>>>>> 0e5c9bbbed775b621535034348ce6c0c1873f48c
             }
           }
         }
