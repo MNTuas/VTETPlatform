@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        // Your code here
+    }
+}
+=======
 ﻿using VTET.Business;
 using VTET.Data.Models;
 
@@ -72,3 +81,4 @@ else
     var deleteResult = await orderDetailBusiness.Delete(deleteOrderDetailId);
     Console.WriteLine($"Delete: {deleteResult.Message}");*/
 }
+>>>>>>> f0fc2a04671e01f47a0d510076d973f10e515ab2
