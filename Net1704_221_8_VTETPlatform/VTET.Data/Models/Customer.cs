@@ -11,7 +11,7 @@ public partial class Customer
 
     public string FullName { get; set; }
 
-    public DateOnly? Birth { get; set; }
+    public DateTime? Birth { get; set; }
 
     public string Gender { get; set; }
 
@@ -21,7 +21,7 @@ public partial class Customer
 
     public string Role { get; set; }
 
-    public DateOnly? CreateDate { get; set; }
+    public DateTime? CreateDate { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 

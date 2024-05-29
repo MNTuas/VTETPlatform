@@ -12,21 +12,6 @@ D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTET
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.pdb
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.genruntimeconfig.cache
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\ref\VTET.Data.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.deps.json
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.runtimeconfig.json
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.csproj.AssemblyReference.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.GeneratedMSBuildEditorConfig.editorconfig
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.AssemblyInfoInputs.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.AssemblyInfo.cs
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.csproj.CoreCompileInputs.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.sourcelink.json
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\refint\VTET.Data.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\VTET.Data.genruntimeconfig.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\obj\Debug\net8.0\ref\VTET.Data.dll
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.deps.json
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.runtimeconfig.json
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Data\bin\Debug\net8.0\VTET.Data.dll

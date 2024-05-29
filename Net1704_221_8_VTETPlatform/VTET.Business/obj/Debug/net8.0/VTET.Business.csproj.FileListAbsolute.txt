@@ -13,24 +13,6 @@ D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTET
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\refint\VTET.Business.dll
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.pdb
 D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\ref\VTET.Business.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.csproj.AssemblyReference.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.GeneratedMSBuildEditorConfig.editorconfig
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.AssemblyInfoInputs.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.AssemblyInfo.cs
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.csproj.CoreCompileInputs.cache
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.sourcelink.json
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\refint\VTET.Business.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Business.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.deps.json
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Common.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Data.dll
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Common.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Data.pdb
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\VTET.Bus.72D846AB.Up2Date
-D:\PRN221\project\NET1707_221_8_VTEATPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\obj\Debug\net8.0\ref\VTET.Business.dll
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.deps.json
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.dll
 E:\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Business\bin\Debug\net8.0\VTET.Business.pdb

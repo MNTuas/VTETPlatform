@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.RazorWebApp", "VTET.Ra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.ConsoleApp", "VTET.ConsoleApp\VTET.ConsoleApp.csproj", "{83CE4E69-C5FB-42B6-996F-D82BEF0117C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTET.Common", "VTET.Common\VTET.Common.csproj", "{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.Common", "VTET.Common\VTET.Common.csproj", "{6FE39FDD-6618-46E6-A3F1-39B20E64FADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
