@@ -1,0 +1,15 @@
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\bin\Debug\net8.0\VTET.ConsoleApp.exe
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\bin\Debug\net8.0\VTET.ConsoleApp.deps.json
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\bin\Debug\net8.0\VTET.ConsoleApp.runtimeconfig.json
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\bin\Debug\net8.0\VTET.ConsoleApp.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\bin\Debug\net8.0\VTET.ConsoleApp.pdb
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.AssemblyInfoInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.AssemblyInfo.cs
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.csproj.CoreCompileInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.sourcelink.json
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\refint\VTET.ConsoleApp.dll
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.pdb
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\VTET.ConsoleApp.genruntimeconfig.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.ConsoleApp\obj\Debug\net8.0\ref\VTET.ConsoleApp.dll

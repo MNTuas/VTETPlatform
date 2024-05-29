@@ -1,0 +1,5 @@
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Common\obj\Debug\net8.0\VTET.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Common\obj\Debug\net8.0\VTET.Common.AssemblyInfoInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Common\obj\Debug\net8.0\VTET.Common.AssemblyInfo.cs
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Common\obj\Debug\net8.0\VTET.Common.csproj.CoreCompileInputs.cache
+D:\FBT\Kì 7\PRN212\Project\NET1704_221_8_VTETPlatform\Source\VTETPlatform\Net1704_221_8_VTETPlatform\VTET.Common\obj\Debug\net8.0\VTET.Common.sourcelink.json
