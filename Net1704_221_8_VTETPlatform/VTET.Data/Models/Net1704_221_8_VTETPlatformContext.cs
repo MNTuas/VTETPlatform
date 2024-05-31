@@ -10,7 +10,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("data source=MACBOOK;initial catalog=NET1704_221_8_VTETPlatform;user id=sa;password=123456;Integrated Security=True;TrustServerCertificate=True");
+        optionsBuilder.UseSqlServer("data source=TRANQUOCBAO;initial catalog=NeT1704_221_8_VTETPlatform;user id=sa;password=12345;Integrated Security=True;TrustServerCertificate=True");
         base.OnConfiguring(optionsBuilder);
     }
 

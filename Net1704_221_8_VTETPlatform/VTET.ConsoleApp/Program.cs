@@ -17,7 +17,7 @@ if (orderdetailResult.Status > 0 && orderdetailResult.Data != null)
     {
         foreach (var orderdetail in orderdetails)
         {
-            Console.WriteLine($"OrderDetailID: {orderdetail.OrderDetailId}, WatchID: {orderdetail.WatchId}, OrderID: {orderdetail.OrderId}, Price: {orderdetail.Price}, Amount: {orderdetail.Amount}");
+            Console.WriteLine($"OrderDetailID: {orderdetail.Id}, WatchID: {orderdetail.WatchId}, OrderID: {orderdetail.OrderId}, Price: {orderdetail.Price}, Amount: {orderdetail.Amount}");
         }
     }
 }
@@ -25,3 +25,9 @@ else
 {
     Console.WriteLine("Get All OrderDetail failed");
 }
+
+// Delete
+Console.WriteLine("OrderDetailBusiness.DeleteOrderDetail()");
+int deleteOrderDetailId = 4;
+var deleteResult = await orderDetailBusiness.Delete(deleteOrderDetailId);
+Console.WriteLine($"Delete: {deleteResult.Message}"); 

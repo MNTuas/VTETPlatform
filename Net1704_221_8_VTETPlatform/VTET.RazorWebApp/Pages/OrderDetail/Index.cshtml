@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <table class="table-striped table-bordered table-hover table">
+        <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr class="card-header">
                     <th class="card-title text-center">OrderDetailId</th>
@@ -43,12 +43,12 @@
                             <td>@orderdetail.Amount</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-warning" onclick="editOrderDetail(@orderdetail.Id)">Edit</button>
-                                @using (Html.BeginForm("Delete", "OrderDetail", new { id = orderdetail.Id }, FormMethod.Post))
-                                {
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@orderdetail.Id">
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                }
+                                </form>
                             </td>
                         </tr>
+
                     }
                 }
                 else
@@ -75,7 +75,7 @@
                 <div class="modal-body">
                     <div id="orderdetailModalContent">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6" id="orderDetailIdDiv">
                                 <label for="OrderDetailId">OrderDetailId</label>
                                 <input asp-for="OrderDetail.Id" class="form-control" readonly />
                             </div>
@@ -110,18 +110,26 @@
     </div>
 </div>
 
+
+
 @section scripts
 {
     <script type="text/javascript">
         function addOrderDetail() {
-            $('#frm').attr('action', '@Url.Page("/OrderDetail/Index")');
+            // Clear form fields
+            $('#frm')[0].reset();
+            $('#orderDetailIdDiv').hide(); // Hide the OrderDetailId field
+            $('#frm').attr('action', '@Url.Page("/OrderDetail/Index", new { handler = "Create" })');
             $('#orderdetailModal').modal('show');
         }
 
         function editOrderDetail(id) {
+            // Clear form fields
+            $('#frm')[0].reset();
             $.get('@Url.Page("/OrderDetail/Index", new { handler = "Edit" })', { id: id }, function (data) {
                 var result = $(data).find('#orderdetailModalContent').html();
                 $('#orderdetailModalContent').html(result);
+                $('#orderDetailIdDiv').show(); // Show the OrderDetailId field
                 $('#frm').attr('action', '@Url.Page("/OrderDetail/Index", new { handler = "Edit" })');
                 $('#orderdetailModal').modal('show');
             });
@@ -141,6 +149,38 @@
                     alert('An error occurred while saving the order detail.');
                 }
             });
+        });
+
+        // Ensure modal is reset when hidden
+        $('#orderdetailModal').on('hidden.bs.modal', function () {
+            $('#frm')[0].reset(); // Clear form fields
+            $('#orderdetailModalContent').html(`
+                        <div class="row">
+                            <div class="col-md-6" id="orderDetailIdDiv">
+                                <label for="OrderDetailId">OrderDetailId</label>
+                                <input asp-for="OrderDetail.Id" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="OrderId">OrderId</label>
+                                <input asp-for="OrderDetail.OrderId" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="WatchId">WatchId</label>
+                                <input asp-for="OrderDetail.WatchId" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Price">Price</label>
+                                <input asp-for="OrderDetail.Price" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Amount">Amount</label>
+                                <input asp-for="OrderDetail.Amount" class="form-control" />
+                            </div>
+                            <div class="col-md-12">
+                                <label>@Model.Message</label>
+                            </div>
+                        </div>
+                    `); // Reset content
         });
     </script>
 }
