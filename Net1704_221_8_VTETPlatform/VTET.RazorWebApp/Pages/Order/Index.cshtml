@@ -1,0 +1,207 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.Order.IndexModel
+@{
+    ViewData["Title"] = "Order page";
+    var orders = Model.Orders;
+}
+
+<div class="text-center">
+    <h1 class="display-6">Order management</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-end">
+        <button type="button" class="btn btn-primary" onclick="addOrder();">
+            Add
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr class="card-header">
+                    <th class="card-title text-center">OrderId</th>
+                    <th class="card-title text-center">Email</th>
+                    <th class="card-title text-center">FullName</th>
+                    <th class="card-title text-center">PhoneNumber</th>
+                    <th class="card-title text-center">Date</th>
+                    <th class="card-title text-center">TotalPrice</th>
+                    <th class="card-title text-center">CustomerId</th>
+
+                </tr>
+            </thead>
+            <tbody class="tblorderList">
+                @if (orders != null && orders.Count > 0)
+                {
+                    foreach (var order in orders)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.Email</td>
+                            <td>@order.FullName</td>
+                            <td>@order.PhoneNumber</td>
+                            <td>@order.Date</td>
+                            <td>@order.TotalPrice</td>
+                            <td>@order.CustomerId</td>
+
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-warning" onclick="editOrder(@order.Id)">Edit</button>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@order.Id">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No Order available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm("Edit", "Order", FormMethod.Post, new { name = "frm", id = "frm" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Order Transaction</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="orderModalContent">
+                        <div class="row">
+                            <div class="col-md-6" id="orderIdDiv">
+                                <label for="OrderId">OrderId</label>
+                                <input asp-for="Order.Id" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Email">Email</label>
+                                <input asp-for="Order.Email" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="FullName">FullName</label>
+                                <input asp-for="Order.FullName" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="PhoneNumber">PhoneNumber</label>
+                                <input asp-for="Order.PhoneNumber" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Date">Date</label>
+                                <input asp-for="Order.Date" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="TotalPrice">TotalPrice</label>
+                                <input asp-for="Order.TotalPrice" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="CustomerId">CustomerId</label>
+                                <input asp-for="Order.CustomerId" class="form-control" />
+                            </div>
+                            <div class="col-md-12">
+                                <label>@Model.Message</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btSave" type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        function addOrder() {
+            // Clear form fields
+            $('#frm')[0].reset();
+            $('#orderIdDiv').hide(); // Hide the OrderId field
+            $('#frm').attr('action', '@Url.Page("/Order/Index", new { handler = "Create" })');
+            $('#orderModal').modal('show');
+        }
+
+        function editOrder(id) {
+            // Clear form fields
+            $('#frm')[0].reset();
+            $.get('@Url.Page("/Order/Index", new { handler = "Edit" })', { id: id }, function (data) {
+                var result = $(data).find('#orderModalContent').html();
+                $('#orderModalContent').html(result);
+                $('#orderIdDiv').show(); // Show the OrderId field
+                $('#frm').attr('action', '@Url.Page("/Order/Index", new { handler = "Edit" })');
+                $('#orderModal').modal('show');
+            });
+        }
+
+        $('#frm').on('submit', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function (response) {
+                    $('#orderModal').modal('hide');
+                    location.reload(); // Reload the page to see the updated data
+                },
+                error: function () {
+                    alert('An error occurred while saving the order .');
+                }
+            });
+        });
+
+        // Ensure modal is reset when hidden
+        $('#orderModal').on('hidden.bs.modal', function () {
+            $('#frm')[0].reset(); // Clear form fields
+            $('#orderModalContent').html(`
+                        <div class="row">
+                                    <div class="col-md-6" id="orderIdDiv">
+                                        <label for="OrderId">OrderId</label>
+                                        <input asp-for="Order.Id" class="form-control" readonly />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="Email">Email</label>
+                                        <input asp-for="Order.Email" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="FullName">FullName</label>
+                                        <input asp-for="Order.FullName" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="PhoneNumber">PhoneNumber</label>
+                                        <input asp-for="Order.PhoneNumber" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="Date">Date</label>
+                                        <input asp-for="Order.Date" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="TotalPrice">TotalPrice</label>
+                                        <input asp-for="Order.TotalPrice" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="CustomerId">CustomerId</label>
+                                        <input asp-for="Order.CustomerId" class="form-control" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>@Model.Message</label>
+                                    </div>
+                        </div>
+                    `); // Reset content
+        });
+    </script>
+}

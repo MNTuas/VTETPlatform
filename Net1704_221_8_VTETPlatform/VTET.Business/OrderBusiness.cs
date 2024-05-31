@@ -10,16 +10,18 @@ using VTET.Data;
 
 namespace VTET.Business
 {
-    public interface IOrderService
+    public interface IOrderBusiness
     {
         Task<IBusinessResult> Save(Order order);
         Task<IBusinessResult> Update(Order order);
-        Task<IBusinessResult> Delete(string code);
+        Task<IBusinessResult> Delete(int orderID);
         Task<IBusinessResult> GetAll();
+        Task<IBusinessResult> GetById(int orderid);
+
 
     }
 
-    public class OrderBusiness : IOrderService
+    public class OrderBusiness : IOrderBusiness
     {
         private readonly UnitOfWork _unitOfWork;
         public OrderBusiness()
@@ -73,13 +75,13 @@ namespace VTET.Business
         }
 
         // Delete an Order from the database by its ID
-        public async Task<IBusinessResult> Delete(string code)
+        public async Task<IBusinessResult> Delete(int orderID)
         {
             try
             {
 
 
-                var order = await _unitOfWork.OrderRepository.GetByIdAsync(code);
+                var order = await _unitOfWork.OrderRepository.GetByIdAsync(orderID);
                 if (order != null)
                 {
                     var result = await _unitOfWork.OrderRepository.RemoveAsync(order);
