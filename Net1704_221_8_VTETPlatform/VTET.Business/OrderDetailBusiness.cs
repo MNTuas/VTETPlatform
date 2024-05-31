@@ -14,9 +14,9 @@ namespace VTET.Business
     {
         Task<IBusinessResult> Save(OrderDetail orderDetail);
         Task<IBusinessResult> Update(OrderDetail orderDetail);
-        Task<IBusinessResult> Delete(string orderDetailID);
+        Task<IBusinessResult> Delete(int orderDetailID);
         Task<IBusinessResult> GetAll();
-        Task<IBusinessResult> GetById(string orderdetailid);
+        Task<IBusinessResult> GetById(int orderdetailid);
     }
     public class OrderDetailBusiness : IOrderDetailBusiness
     {
@@ -75,7 +75,7 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> Delete(string orderDetailID)
+        public async Task<IBusinessResult> Delete(int orderDetailID)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> GetById(string orderdetailid)
+        public async Task<IBusinessResult> GetById(int orderdetailid)
         {
             try
             {

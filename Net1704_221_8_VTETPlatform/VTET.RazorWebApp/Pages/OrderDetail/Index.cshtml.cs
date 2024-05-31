@@ -30,7 +30,7 @@ namespace VTET.RazorWebApp.Pages.OrderDetail
             return RedirectToPage("./Index");
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync(string id)
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             await this.DeleteOrderDetail(id);
             return RedirectToPage("./Index");
@@ -58,7 +58,7 @@ namespace VTET.RazorWebApp.Pages.OrderDetail
             }
             return new List<Models.OrderDetail>();
         }
-        public async Task<IActionResult> OnGetEditAsync(string id)
+        public async Task<IActionResult> OnGetEditAsync(int id)
         {
             var orderDetailResult =  _orderDetailBusiness.GetById(id);
             if (orderDetailResult.Status > 0 && orderDetailResult.Result.Data != null)
@@ -94,10 +94,9 @@ namespace VTET.RazorWebApp.Pages.OrderDetail
                 this.Message = "Error system";
             }
         }
-        private async Task DeleteOrderDetail(string id)
+        private async Task DeleteOrderDetail(int id)
         {
             var result = await _orderDetailBusiness.Delete(id);
-
             if (result != null)
             {
                 this.Message = result.Message;
