@@ -7,7 +7,7 @@ namespace VTET.Data.Models;
 
 public partial class Watch
 {
-    public string Id { get; set; }
+    public int Id { get; set; }
 
     public string FullName { get; set; }
 
@@ -21,8 +21,6 @@ public partial class Watch
 
     public string Condition { get; set; }
 
-    public string Description { get; set; }
-
     public string Location { get; set; }
 
     public string Brand { get; set; }
@@ -31,11 +29,11 @@ public partial class Watch
 
     public DateTime? CreateDate { get; set; }
 
-    public int? UserId { get; set; }
+    public int? CustomerId { get; set; }
+
+    public virtual Customer Customer { get; set; }
 
     public virtual ICollection<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-
-    public virtual Customer User { get; set; }
 }

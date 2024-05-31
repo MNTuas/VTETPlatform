@@ -11,14 +11,14 @@ using VTET.Data.Models;
 
 namespace VTET.Business
 {
-    public interface IevaluationService
+    public interface IEvaluationBusiness
     {
-        Task<IBusinessResult> Insert(Evaluation evaluation);
+        Task<IBusinessResult> Save(Evaluation evaluation);
         Task<IBusinessResult> Update(Evaluation evaluation);
         Task<IBusinessResult> Delete(int evaluationID);
         Task<IBusinessResult> GetAll();
     }
-    public class evaluationBusiness : IevaluationService
+    public class evaluationBusiness : IEvaluationBusiness
     {
         //private readonly evaluationDAO _DAO;
 
@@ -31,7 +31,7 @@ namespace VTET.Business
 
 
 
-        public async Task<IBusinessResult> Insert(Evaluation evaluation)
+        public async Task<IBusinessResult> Save(Evaluation evaluation)
         {
             try
             {
