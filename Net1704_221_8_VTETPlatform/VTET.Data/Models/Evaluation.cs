@@ -7,9 +7,7 @@ namespace VTET.Data.Models;
 
 public partial class Evaluation
 {
-    public string Id { get; set; }
-
-    public string WatchId { get; set; }
+    public int Id { get; set; }
 
     public string Comment { get; set; }
 
@@ -20,6 +18,8 @@ public partial class Evaluation
     public DateTime? CreateDate { get; set; }
 
     public string CreateBy { get; set; }
+
+    public int? WatchId { get; set; }
 
     public virtual Watch Watch { get; set; }
 }

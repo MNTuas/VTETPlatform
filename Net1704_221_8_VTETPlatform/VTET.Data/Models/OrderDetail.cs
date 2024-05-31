@@ -7,13 +7,13 @@ namespace VTET.Data.Models;
 
 public partial class OrderDetail
 {
-    public string OrderDetailId { get; set; }
+    public int Id { get; set; }
 
-    public string WatchId { get; set; }
+    public int? WatchId { get; set; }
 
-    public string OrderId { get; set; }
+    public int? OrderId { get; set; }
 
-    public decimal? Price { get; set; }
+    public int? Price { get; set; }
 
     public int? Amount { get; set; }
 
