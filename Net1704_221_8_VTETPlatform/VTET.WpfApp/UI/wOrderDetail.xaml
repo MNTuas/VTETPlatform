@@ -1,0 +1,69 @@
+﻿<Window x:Class="VTET.WpfApp.UI.wOrderDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VTET.WpfApp.UI"
+        mc:Ignorable="d"
+        Title="wOrderDetail" Height="450" Width="1000">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <GroupBox Header="Order Detail Form" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- First Row -->
+                    <Label Grid.Column="0" Grid.Row="0" Content="OrderDetailId" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtOrderDetailId" Height="25" Margin="5" Width="190" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="0" Content="OrderId" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="3" Grid.Row="0" x:Name="txtOrderId" Height="25" Margin="5" Width="190" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="4" Grid.Row="0" Content="WatchId" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="5" Grid.Row="0" x:Name="txtWatchId" Height="25" Margin="5" Width="190" HorizontalAlignment="Left"/>
+
+                    <!-- Second Row -->
+                    <Label Grid.Column="0" Grid.Row="1" Content="Price" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPrice" Height="25" Margin="5" Width="190" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="1" Content="Amount" HorizontalAlignment="Left" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Column="3" Grid.Row="1" x:Name="txtAmount" Height="25" Margin="5" Width="190" HorizontalAlignment="Left"/>
+                </Grid>
+            </GroupBox>
+            <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="ButtonSave" Content="Save" Height="30" Width="80" Click="ButtonSave_Click"/>
+                <Button x:Name="ButtonCancel" Content="Cancel" Height="30" Width="80" Click="ButtonCancel_Click"/>
+            </StackPanel>
+            <StackPanel Height="210">
+                <DataGrid x:Name="grdOrderDetail" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetail}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdOrderDetail_MouseDoubleClick" SelectionMode="Single" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="OrderDetailId" Binding="{Binding Path=Id}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="OrderId" Binding="{Binding Path=OrderId}" Width="55" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="WatchId" Binding="{Binding Path=WatchId}" Width="55" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Path=Price}" Width="55" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Amount" Binding="{Binding Path=Amount}" Width="55" IsReadOnly="True"/>
+
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" x:Name="ButtonDelete" CommandParameter="{Binding Path=Id}" Click="grdOrderDetail_ButtonDelete_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

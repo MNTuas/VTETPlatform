@@ -27,7 +27,7 @@ else
 }
 
 // Delete
-Console.WriteLine("OrderDetailBusiness.DeleteOrderDetail()");
+/*Console.WriteLine("OrderDetailBusiness.DeleteOrderDetail()");
 int deleteOrderDetailId = 4;
 var deleteResult = await orderDetailBusiness.Delete(deleteOrderDetailId);
-Console.WriteLine($"Delete: {deleteResult.Message}"); 
+Console.WriteLine($"Delete: {deleteResult.Message}"); */
