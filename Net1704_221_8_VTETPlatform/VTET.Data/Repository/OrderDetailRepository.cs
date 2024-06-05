@@ -14,5 +14,6 @@ namespace VTET.Data.Repository
         {
 
         }
+        public OrderDetailRepository(Net1704_221_8_VTETPlatformContext context) => _context = context;
     }
 }
