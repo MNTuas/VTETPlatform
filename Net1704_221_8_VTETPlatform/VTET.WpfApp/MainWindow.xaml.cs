@@ -28,6 +28,8 @@ namespace VTET.WpfApp
         private async void Open_wOrderDetail_Click(object sender, RoutedEventArgs e)
         {
             var p = new wOrderDetail();
+            p.Owner = this;
+            p.Show();
         }
 
 
