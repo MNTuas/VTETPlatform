@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.Common", "VTET.Common\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.ConsoleApp", "VTET.ConsoleApp\VTET.ConsoleApp.csproj", "{F570E706-D265-4382-AEAC-178A6DF96374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTET.WpfApp", "VTET.WpfApp\VTET.WpfApp.csproj", "{5663DD90-4E58-45E0-BECD-C478EACCBC1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTET.WpfApp", "VTET.WpfApp\VTET.WpfApp.csproj", "{5663DD90-4E58-45E0-BECD-C478EACCBC1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
