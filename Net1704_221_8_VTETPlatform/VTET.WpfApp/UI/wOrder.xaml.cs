@@ -72,7 +72,7 @@ namespace VTET.WpfApp.UI
                         PhoneNumber = PhoneNumber.Text,
                         Date = Date.SelectedDate,
                         TotalPrice = string.IsNullOrEmpty(TotalPrice.Text) ? (decimal?)null : decimal.Parse(TotalPrice.Text),
-                        //CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text)
+                        CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text)
                     };
                     var result = await _orderbusiness.Save(order);
                     MessageBox.Show(result.Message, "Save");
@@ -85,7 +85,7 @@ namespace VTET.WpfApp.UI
                     order.PhoneNumber = PhoneNumber.Text;
                     order.Date = Date.SelectedDate;
                     order.TotalPrice = string.IsNullOrEmpty(TotalPrice.Text) ? (decimal?)null : decimal.Parse(TotalPrice.Text);
-                    //order.CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text);
+                    order.CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text);
 
                     var result = await _orderbusiness.Update(order);
                     MessageBox.Show(result.Message, "Update");
