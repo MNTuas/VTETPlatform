@@ -15,7 +15,8 @@ namespace VTET.Data
         private EvaluationRepository _evaluationRepository;
         private OrderDetailRepository _orderdetail;
         private OrderRepository _orderRepository;
-
+        private WatchRepository _watchRepository;
+        private CustomerRepository _customerRepository;
 
         public UnitOfWork()
         {
@@ -46,6 +47,21 @@ namespace VTET.Data
                 return _orderRepository ??= new Repository.OrderRepository();
             }
         }
+        public WatchRepository WatchRepository
+        {
+            get
+            {
+                return _watchRepository ??= new Repository.WatchRepository();
+            }
+        }
+        public CustomerRepository CustomerRepository
+        {
+            get
+            {
+                return _customerRepository ??= new Repository.CustomerRepository();
+            }
+        }
+
         ////TO-DO CODE HERE/////////////////
 
         #region Set transaction isolation levels

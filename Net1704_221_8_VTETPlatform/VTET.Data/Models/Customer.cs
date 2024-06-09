@@ -23,6 +23,8 @@ public partial class Customer
 
     public DateTime? CreateDate { get; set; }
 
+    public string Password { get; set; }
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual ICollection<Watch> Watches { get; set; } = new List<Watch>();

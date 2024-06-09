@@ -1,0 +1,76 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.WatchDetailModel
+@{
+    ViewData["Title"] = "WatchDetail";
+}
+
+<div class="text-center">
+    <h1 class="display-6">WATCH DETAIL </h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-striped table-bordered table-hover table">
+            <thead>
+                <tr class="card-header">
+                    <th class="card-title text-center">WatchId</th>
+                    <th class="card-title text-center">FullName</th>
+                    <th class="card-title text-center">Price</th>
+                    <th class="card-title text-center">EstimatePrice</th>
+                    <th class="card-title text-center">Condition</th>
+                    <th class="card-title text-center">Location</th>
+                </tr>
+            </thead>
+            <tbody class="tblwatchList">
+                <tr>
+                    <td><input asp-for="Watches.Id" class="form-control" readonly /></td>
+                    <td><input asp-for="Watches.FullName" class="form-control" readonly /></td>
+                    <td><input asp-for="Watches.Price" class="form-control" readonly /></td>
+                    <td><input asp-for="Watches.EstimatePrice" class="form-control" readonly /></td>
+                    <td><input asp-for="Watches.Condition" class="form-control" readonly /></td>
+                    <td><input asp-for="Watches.Location" class="form-control" readonly /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* FORM ADD Evaluation *@
+<h2>Add Evaluation</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Evaluations.Comment" class="control-label"></label>
+                <input asp-for="Evaluations.Comment" class="form-control" />
+                <span asp-validation-for="Evaluations.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Evaluations.Rate" class="control-label"></label>
+                <input asp-for="Evaluations.Rate" class="form-control" />
+                <span asp-validation-for="Evaluations.Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Evaluations.EstimatePrice" class="control-label"></label>
+                <input asp-for="Evaluations.EstimatePrice" class="form-control" />
+                <span asp-validation-for="Evaluations.EstimatePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Evaluations.WatchId" class="control-label"></label>
+                <input asp-for="Evaluations.WatchId" class="form-control" readonly value="@Model.Watches.Id" />
+                <span asp-validation-for="Evaluations.WatchId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-success" asp-page="Evaluation">BackToEvaluation</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

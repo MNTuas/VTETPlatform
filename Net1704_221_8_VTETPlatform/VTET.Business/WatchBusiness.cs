@@ -1,41 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using VTET.Business.Base;
 using VTET.Common;
-using VTET.Data;
 using VTET.Data.Models;
-
+using VTET.Data;
 
 namespace VTET.Business
 {
-    public interface IEvaluationBusiness
+    public interface IWatchBusiness
     {
-        Task<IBusinessResult> Save(Evaluation evaluation);
-        Task<IBusinessResult> Update(Evaluation evaluation);
-        Task<IBusinessResult> Delete(int evaluationID);
+        Task<IBusinessResult> Save(Watch watch);
+        Task<IBusinessResult> Update(Watch watch);
+        Task<IBusinessResult> Delete(int watchID);
         Task<IBusinessResult> GetAll();
-        Task<IBusinessResult> GetById(int evaluationid);
+        Task<IBusinessResult> GetById(int watchid);
+        Task<IBusinessResult> GetByIdAsync(int watchid);
     }
-    public class evaluationBusiness : IEvaluationBusiness
+    public class watchBusiness : IWatchBusiness
     {
-        //private readonly evaluationDAO _DAO;
+        //private readonly watchDAO _DAO;
 
         private readonly UnitOfWork _unitOfWork;
-
-        public evaluationBusiness()
+        public watchBusiness()
         {
             //neu no null moi tao => tiet kiem bo nho　
             _unitOfWork ??= new UnitOfWork();
         }
-        public async Task<IBusinessResult> Save(Evaluation evaluation)
+
+
+
+        public async Task<IBusinessResult> Save(Watch watch)
         {
             try
             {
-
-                int result = await _unitOfWork.EvaluationRepository.CreateAsync(evaluation);
+                int result = await _unitOfWork.WatchRepository.CreateAsync(watch);
 
                 if (result > 0)
                 {
@@ -53,12 +54,12 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> Update(Evaluation evaluation)
+        public async Task<IBusinessResult> Update(Watch watch)
         {
             try
             {
 
-                int result = await _unitOfWork.EvaluationRepository.UpdateAsync(evaluation);
+                int result = await _unitOfWork.WatchRepository.UpdateAsync(watch);
                 if (result > 0)
                 {
                     return new BusinessResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
@@ -77,14 +78,14 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> Delete(int evaluationID)
+        public async Task<IBusinessResult> Delete(int watchID)
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetByIdAsync(evaluationID);
-                if (evaluation != null)
+                var watch = await _unitOfWork.WatchRepository.GetByIdAsync(watchID);
+                if (watch != null)
                 {
-                    var result = await _unitOfWork.EvaluationRepository.RemoveAsync(evaluation);
+                    var result = await _unitOfWork.WatchRepository.RemoveAsync(watch);
                     if (result)
                     {
                         return new BusinessResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG);
@@ -111,14 +112,14 @@ namespace VTET.Business
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetAllAsync();
-                if (evaluation == null || !evaluation.Any())
+                var watch = await _unitOfWork.WatchRepository.GetAllAsync();
+                if (watch == null || !watch.Any())
                 {
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, evaluation);
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
 
                 }
             }
@@ -128,18 +129,18 @@ namespace VTET.Business
             }
         }
 
-        public async Task<IBusinessResult> GetById(int evaluationid)
+        public async Task<IBusinessResult> GetById(int watchid)
         {
             try
             {
-                var evaluation = await _unitOfWork.EvaluationRepository.GetByIdAsync(evaluationid);
-                if (evaluation == null)
+                var watch = await _unitOfWork.WatchRepository.GetByIdAsync(watchid);
+                if (watch == null)
                 {
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, evaluation);
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
                 }
             }
             catch (Exception ex)
@@ -147,6 +148,26 @@ namespace VTET.Business
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
-        
+
+        public async Task<IBusinessResult> GetByIdAsync(int watchid)
+        {
+            try
+            {
+                var watch = await _unitOfWork.WatchRepository.FirstOrDefaultAsync(m => m.Id == watchid);
+                if (watch == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+
     }
 }

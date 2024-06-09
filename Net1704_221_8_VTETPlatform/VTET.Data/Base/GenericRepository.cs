@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using VTET.Data.Models;
@@ -11,8 +12,8 @@ namespace VTET.Data.Base
     public class GenericRepository<T> where T : class
     {
         protected Net1704_221_8_VTETPlatformContext _context;
-/*        protected readonly DbSet<T> _dbSet;
-*/
+        protected readonly DbSet<T> _dbSet;
+
         public GenericRepository()
         {
             _context ??= new Net1704_221_8_VTETPlatformContext();
@@ -127,5 +128,15 @@ namespace VTET.Data.Base
         {
             return await _context.Set<T>().FindAsync(code);
         }
+        public T GetById(Guid code)
+        {
+            return _context.Set<T>().Find(code);
+        }
+        
+        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> code)
+        {
+            return await _context.Set<T>().FirstOrDefaultAsync(code);
+        }
+
     }
 }

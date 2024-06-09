@@ -1,0 +1,120 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - VTET</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6B73FF 0%,  100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .login-container h1 {
+                margin-bottom: 30px;
+                font-size: 2.5rem;
+                color: #333;
+            }
+
+        .form-control {
+            border-radius: 30px;
+        }
+
+        .btn-primary {
+            border-radius: 30px;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #000DFF 0%, #6B73FF 100%);
+            }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #666;
+        }
+
+            .forgot-password:hover {
+                color: #333;
+                text-decoration: underline;
+            }
+
+        .social-login {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+            .social-login a {
+                font-size: 1.5rem;
+                color: #fff;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 50%;
+            }
+
+                .social-login a.facebook {
+                    background: #3b5998;
+                }
+
+                .social-login a.twitter {
+                    background: #1da1f2;
+                }
+
+                .social-login a.google {
+                    background: #db4437;
+                }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post">
+            <div class="form-group">
+                <input asp-for="Model.Email" class="form-control" placeholder="Email address" required>
+                <span asp-validation-for="Model.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Model.Password" type="password" class="form-control" placeholder="Password" required>
+                <span asp-validation-for="Model.Password" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a href="#" class="forgot-password">Forgot password?</a>
+        </form>
+        <div class="social-login">
+            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="google"><i class="fab fa-google"></i></a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

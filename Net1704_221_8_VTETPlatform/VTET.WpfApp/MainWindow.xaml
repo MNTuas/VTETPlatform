@@ -16,6 +16,9 @@
                 <MenuItem Header="Order" IsCheckable="False" FontSize="12" Click="Open_wOrder_Click">
 
                 </MenuItem>
+                <MenuItem Header="Evaluation" IsCheckable="False" FontSize="12" Click="Open_wEvaluation_Click">
+
+                </MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

@@ -17,8 +17,6 @@ public partial class Evaluation
 
     public DateTime? CreateDate { get; set; }
 
-    public string CreateBy { get; set; }
-
     public int? WatchId { get; set; }
 
     public virtual Watch Watch { get; set; }

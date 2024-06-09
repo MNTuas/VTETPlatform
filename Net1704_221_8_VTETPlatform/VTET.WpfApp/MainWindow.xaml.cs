@@ -31,6 +31,12 @@ namespace VTET.WpfApp
             p.Owner = this;
             p.Show();
         }
+        private async void Open_wEvaluation_Click(object sender, RoutedEventArgs e)
+        {
+            var p = new wEvaluation();
+            p.Owner = this;
+            p.Show();
+        }
 
 
         private async void Open_wOrder_Click(object sender, RoutedEventArgs e)
