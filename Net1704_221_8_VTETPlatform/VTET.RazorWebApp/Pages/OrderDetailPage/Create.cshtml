@@ -1,0 +1,47 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.OrderDetailPage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>OrderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderDetail.WatchId" class="control-label"></label>
+                <select asp-for="OrderDetail.WatchId" class="form-control" asp-items="@(ViewData["WatchId"] as SelectList)"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderDetail.OrderId" class="control-label"></label>
+                <select asp-for="OrderDetail.OrderId" class="form-control" asp-items="@(ViewData["OrderId"] as SelectList)"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderDetail.Price" class="control-label"></label>
+                <input asp-for="OrderDetail.Price" class="form-control" />
+                <span asp-validation-for="OrderDetail.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderDetail.Amount" class="control-label"></label>
+                <input asp-for="OrderDetail.Amount" class="form-control" />
+                <span asp-validation-for="OrderDetail.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
