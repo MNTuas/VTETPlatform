@@ -27,37 +27,23 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var ordersResult = await _orderBusiness.GetAll();
-
-            // Check if the result is successful and has data
-            if (ordersResult.Status == Const.SUCCESS_READ_CODE && ordersResult.Data is List<Models.Order> orders)
-            {
-                ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
-            }
-            else
-            {
-                // Handle error or no data case if needed
-                // For example, you might want to log the error or set ViewData["OrderId"] to an empty list
-                ViewData["OrderId"] = new SelectList(new List<Models.Order>(), "Id", "Id");
-            }
             var customerResult = await _customerBusiness.GetAll();
 
             // Check if the result is successful and has data
-           /* if (customerBusiness.Status == Const.SUCCESS_READ_CODE && watchResult.Data is List<Models.Watch> watchs)
+            if (customerResult.Status == Const.SUCCESS_READ_CODE && customerResult.Data is List<Models.Customer> customers)
             {
-                ViewData["WatchId"] = new SelectList(watchs, "Id", "FullName");
+                ViewData["CustomerId"] = new SelectList(customers, "Id", "FullName");
             }
             else
             {
                 // Handle error or no data case if needed
                 // For example, you might want to log the error or set ViewData["OrderId"] to an empty list
-                ViewData["WatchId"] = new SelectList(new List<Models.Watch>(), "Id", "FullName");
-            }*/
+                ViewData["CustomerId"] = new SelectList(new List<Models.Customer>(), "Id", "FullName");
+            }
             return Page();
         }
 
         [BindProperty]
-        public Models.OrderDetail OrderDetail { get; set; } = default!;
         public Models.Order Order { get; set; } = default!;
 
 

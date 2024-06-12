@@ -10,6 +10,9 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+@if (Model.Order != null && Model.Order.Count > 0)
+{
 <table class="table">
     <thead>
         <tr>
@@ -64,3 +67,8 @@
 }
     </tbody>
 </table>
+}
+else
+{
+    <p>No order details available.</p>
+}
