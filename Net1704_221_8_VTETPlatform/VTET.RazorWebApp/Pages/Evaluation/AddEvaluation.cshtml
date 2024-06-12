@@ -1,8 +1,30 @@
 ﻿@page
-@model VTET.RazorWebApp.Pages.WatchDetailModel
+@model AddEvaluationModel
 @{
-    ViewData["Title"] = "WatchDetail";
+    ViewData["Title"] = "AddEvaluationModel";
 }
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse d-flex justify-content-center align-items-center collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/AddEvaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetail/Index">OrderDetail</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="text-center">
     <h1 class="display-6">WATCH DETAIL </h1>

@@ -17,8 +17,7 @@ namespace VTET.Data.Base
         public GenericRepository()
         {
             _context ??= new Net1704_221_8_VTETPlatformContext();
-/*            _dbSet = _context.Set<T>();
-*/        }
+        }
 
         public async Task<T> GetByIdAsync(Guid code)
         {
@@ -68,25 +67,24 @@ namespace VTET.Data.Base
         {
             return await _context.Set<T>().ToListAsync();
         }
+        
         public void Create(T entity)
         {
             _context.Add(entity);
             _context.SaveChanges();
         }
-
         public async Task<int> CreateAsync(T entity)
         {
             _context.AddAsync(entity);
             return await _context.SaveChangesAsync();
         }
-
+        
         public void Update(T entity)
         {
             var tracker = _context.Attach(entity);
             tracker.State = EntityState.Modified;
             _context.SaveChanges();
         }
-
         public async Task<int> UpdateAsync(T entity)
         {
             var tracker = _context.Attach(entity);
@@ -94,36 +92,32 @@ namespace VTET.Data.Base
 
             return await _context.SaveChangesAsync();
         }
-
+       
         public bool Remove(T entity)
         {
             _context.Remove(entity);
             _context.SaveChanges();
             return true;
         }
-
         public async Task<bool> RemoveAsync(T entity)
         {
             _context.Remove(entity);
             await _context.SaveChangesAsync();
             return true;
         }
-
+        
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }
-
         public async Task<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
-
         public T GetById(string code)
         {
             return _context.Set<T>().Find(code);
         }
-
         public async Task<T> GetByIdAsync(string code)
         {
             return await _context.Set<T>().FindAsync(code);

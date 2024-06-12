@@ -2,43 +2,60 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using VTET.Business;
+using VTET.Common;
 using VTET.Data.Models;
+using static VTET.Business.CustomerBusiness;
 
 namespace VTET.RazorWebApp.Pages
 {
     public class LoginModel : PageModel
     {
-        private readonly Net1704_221_8_VTETPlatformContext _context;
-
-        public LoginModel(Net1704_221_8_VTETPlatformContext context)
+        private readonly ICustomerBusiness _customerBusiness;
+        public LoginModel(ICustomerBusiness customerBusiness)
         {
-            _context = context;
+            _customerBusiness = customerBusiness;
         }
 
-        [BindProperty]
-        public Customer Model { get; set; }
+        //[BindProperty]
+        //public Customer Model { get; set; }
 
+        [BindProperty]
+        public string Email { get; set; }
+        [BindProperty]
+        public string Password { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
-            var email = Model.Email;
-            var password = Model.Password   ;
-            // Assuming you're querying for a customer based on email and password
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Email == email && c.Password == password);
-
-
-            if (customer != null)
+            if (!ModelState.IsValid)
             {
-                HttpContext.Session.SetString("email", email);
-                if (customer.Role == "Customer")
+                return Page();
+            }
+
+            var customerResult = await _customerBusiness.Login(Email, Password);
+
+
+            if (customerResult.Status == Const.SUCCESS_READ_CODE)
+            {
+                HttpContext.Session.SetString("email", Email);
+                var userData = (dynamic)customerResult.Data;
+                var role = userData.Role;
+                if (role == "Admin")
                 {
-                    return RedirectToPage("/Order/Index");
+                   return RedirectToPage("/HomePage");
                 }
-                else if (customer.Role == "Admin")
+                else if (role == "Customer")
                 {
                     return RedirectToPage("/Evaluation");
                 }
-            } 
-                return RedirectToPage("/Login");
+                // Optionally set session or other actions on successful login
+                
+                
+            }
+
+            // Optionally add an error message to ModelState
+            ModelState.AddModelError(string.Empty, customerResult.Message);
+            return Page(); // Stay on the same page to show error message
+
         }
 
     }
