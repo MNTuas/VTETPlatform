@@ -3,16 +3,24 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace VTET.Data.Models;
 
 public partial class Net1704_221_8_VTETPlatformContext : DbContext
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public static string GetConnectionString(string connectionStringName)
     {
-        optionsBuilder.UseSqlServer("data source=MACBOOK;initial catalog=NeT1704_221_8_VTETPlatform;user id=sa;password=123456;Integrated Security=True;TrustServerCertificate=True");
-        base.OnConfiguring(optionsBuilder);
+        var config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        string connectionString = config.GetConnectionString(connectionStringName);
+        return connectionString;
     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
 
     public virtual DbSet<Customer> Customers { get; set; }
 
