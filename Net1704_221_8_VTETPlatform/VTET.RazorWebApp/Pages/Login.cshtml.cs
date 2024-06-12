@@ -31,7 +31,7 @@ namespace VTET.RazorWebApp.Pages
                 return Page();
             }
 
-            var customerResult = await _customerBusiness.Login(Email, Password);
+                var customerResult = await _customerBusiness.Login(Email, Password);
 
 
             if (customerResult.Status == Const.SUCCESS_READ_CODE)
