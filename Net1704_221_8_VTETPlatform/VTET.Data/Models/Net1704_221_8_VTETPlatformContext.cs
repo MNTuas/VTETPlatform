@@ -18,6 +18,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         string connectionString = config.GetConnectionString(connectionStringName);
         return connectionString;
+
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
@@ -36,7 +37,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
     {
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC071E8247A6");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC073F784E66");
 
             entity.ToTable("Customer");
 
@@ -56,7 +57,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Evaluation>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC079C9BBD5E");
+            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC07C3747B29");
 
             entity.Property(e => e.CreateDate)
                 .HasDefaultValueSql("(getdate())")
@@ -71,7 +72,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC073AD86EBB");
+            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC07C1B709EE");
 
             entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
             entity.Property(e => e.Date).HasColumnType("date");
@@ -87,7 +88,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC071D02AE5C");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC073D999270");
 
             entity.ToTable("OrderDetail");
 
@@ -106,7 +107,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Watch>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC071E712592");
+            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC076A9C1F03");
 
             entity.ToTable("Watch");
 

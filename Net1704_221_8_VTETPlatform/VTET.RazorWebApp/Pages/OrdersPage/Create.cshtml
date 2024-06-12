@@ -1,0 +1,58 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.OrdersPage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Order.Email" class="control-label"></label>
+                <input asp-for="Order.Email" class="form-control" />
+                <span asp-validation-for="Order.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.FullName" class="control-label"></label>
+                <input asp-for="Order.FullName" class="form-control" />
+                <span asp-validation-for="Order.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.PhoneNumber" class="control-label"></label>
+                <input asp-for="Order.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Order.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Date" class="control-label"></label>
+                <input asp-for="Order.Date" class="form-control" />
+                <span asp-validation-for="Order.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.TotalPrice" class="control-label"></label>
+                <input asp-for="Order.TotalPrice" class="form-control" />
+                <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CustomerId" class="control-label"></label>
+                <select asp-for="Order.CustomerId" class="form-control" asp-items="@(ViewData["CustomerId"] as SelectList)"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
