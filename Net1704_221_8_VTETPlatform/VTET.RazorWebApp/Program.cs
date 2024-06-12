@@ -1,5 +1,6 @@
 using VTET.Business;
 using VTET.Data.Models;
+using static VTET.Business.CustomerBusiness;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ builder.Services.AddScoped<IOrderDetailBusiness, OrderDetailBusiness>();
 builder.Services.AddDbContext<Net1704_221_8_VTETPlatformContext>();
 builder.Services.AddScoped< IWatchBusiness,watchBusiness > ();
 builder.Services.AddScoped<IEvaluationBusiness, evaluationBusiness>();
+builder.Services.AddScoped< ICustomerBusiness, customerBusiness > ();
+
 var app = builder.Build();
 
 app.UseSession();

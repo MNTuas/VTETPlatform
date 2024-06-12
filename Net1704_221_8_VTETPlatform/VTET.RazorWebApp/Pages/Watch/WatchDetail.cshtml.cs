@@ -1,27 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using VTET.Business;
 using VTET.Data.Models;
-
-namespace VTET.RazorWebApp.Pages
+using Models = VTET.Data.Models;
+namespace VTET.RazorWebApp.Pages.Watch
 {
     public class WatchDetailModel : PageModel
     {
-        private readonly Net1704_221_8_VTETPlatformContext _context;
         private readonly IEvaluationBusiness _evaluationBusiness;
         private readonly IWatchBusiness _watchBusiness;
         public string Message { get; set; } = default;
-        public WatchDetailModel(Net1704_221_8_VTETPlatformContext context, IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
+        public WatchDetailModel(IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
         {
-            _context = context;
+
             _evaluationBusiness = evaluationBusiness;
             _watchBusiness = watchBusiness;
         }
 
-        public Watch Watches { get; set; } 
+        public Models.Watch Watches { get; set; }
         [BindProperty]
-        public Evaluation Evaluations { get; set; }
+        public Models.Evaluation Evaluations { get; set; }
         //watch detail here
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -31,7 +29,7 @@ namespace VTET.RazorWebApp.Pages
                 return NotFound();
             }
 
-            Watches = watchResult.Data as Watch;
+            Watches = watchResult.Data as Models.Watch;
 
             return Page();
         }
@@ -52,7 +50,7 @@ namespace VTET.RazorWebApp.Pages
         }
         private async Task SaveEvaluation()
         {
-           
+
 
             // Assuming the Save method accepts email as an additional parameter
             var evaluationResult = await _evaluationBusiness.Save(this.Evaluations);
@@ -68,3 +66,4 @@ namespace VTET.RazorWebApp.Pages
         }
     }
 }
+

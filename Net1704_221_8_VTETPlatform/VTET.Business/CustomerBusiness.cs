@@ -19,6 +19,7 @@ namespace VTET.Business
             Task<IBusinessResult> Delete(int customerID);
             Task<IBusinessResult> GetAll();
             Task<IBusinessResult> GetById(int customerid);
+            Task<IBusinessResult> Login(string email, string password);
         }
         public class customerBusiness : ICustomerBusiness
         {
@@ -141,6 +142,28 @@ namespace VTET.Business
                     else
                     {
                         return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, customer);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+                }
+            }
+
+            public async Task<IBusinessResult> Login(string email, string password) 
+            {
+                try
+                {
+                    var watch = await _unitOfWork.CustomerRepository.FirstOrDefaultAsync(c => c.Email == email && c.Password == password);
+                    
+                    if (watch == null)
+                    {
+                        return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                    }
+                    else
+                    {
+
+                        return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
                     }
                 }
                 catch (Exception ex)

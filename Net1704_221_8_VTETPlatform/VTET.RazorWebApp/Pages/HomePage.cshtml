@@ -1,0 +1,118 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.HomePageModel
+@{
+    var watchs = Model.Watches;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        .bg-dark {
+            background-image: url('https://i.pinimg.com/736x/cf/aa/35/cfaa35e5bcfe32fdf9072bb298b1c4b7.jpg'); /* Đường dẫn đến ảnh nền */
+            background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ phần tử */
+            background-position: center; /* Canh giữa ảnh nền */
+            background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+            color: white; /* Đặt màu chữ thành màu trắng để dễ đọc trên nền tối */
+        }
+
+        .py-5 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="px-4 px-lg-5 container">
+            <a class="navbar-brand" href="#!">VTET PLATFORM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                    </li>
+                    
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="px-4 px-lg-5 my-5 container">
+            <div class="text-white text-center">
+                <h1 class="display-4 fw-bolder">NEW ARRIVAL</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Shop Now</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="px-4 px-lg-5 mt-5 container">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @if (watchs != null && watchs.Count > 0)
+                {
+                    foreach (var watch in watchs)
+                    {
+                        <div class="col mb-5 d-flex">
+                            <div class="card h-100 d-flex flex-column">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuXCGC0oDqzWgNQxiD-EzF18vt2DGvPHreaA&s" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">@watch.FullName</h5>
+                                        <!-- Product price-->
+                                        <p>@watch.Price - @watch.EstimatePrice</p>
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark mt-auto" asp-page="./Order/Index" asp-route-id="@watch.Id">Buy</a>
+                                        <a class="btn btn-outline-dark mt-auto" asp-page="./Evaluation/AddEvaluation" asp-route-id="@watch.Id">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-white text-center">Copyright &copy; Your Website 2023</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
