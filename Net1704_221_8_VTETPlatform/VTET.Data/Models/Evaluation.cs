@@ -11,6 +11,14 @@ public partial class Evaluation
 
     public string Comment { get; set; }
 
+    public string Status { get; set; }
+
+    public int? Rarity { get; set; }
+
+    public string Attachments { get; set; }
+
+    public string EvaluationType { get; set; }
+
     public int? Rate { get; set; }
 
     public decimal? EstimatePrice { get; set; }

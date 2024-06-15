@@ -18,7 +18,6 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         string connectionString = config.GetConnectionString(connectionStringName);
         return connectionString;
-
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
@@ -37,7 +36,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
     {
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC073F784E66");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC0729D180AE");
 
             entity.ToTable("Customer");
 
@@ -57,57 +56,67 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Evaluation>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC07C3747B29");
+            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC072EA84939");
 
             entity.Property(e => e.CreateDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date");
             entity.Property(e => e.EstimatePrice).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EvaluationType).HasMaxLength(50);
+            entity.Property(e => e.Status).HasMaxLength(20);
             entity.Property(e => e.WatchId).HasColumnName("Watch_ID");
 
             entity.HasOne(d => d.Watch).WithMany(p => p.Evaluations)
                 .HasForeignKey(d => d.WatchId)
-                .HasConstraintName("FK__Evaluatio__Watch__5441852A");
+                .HasConstraintName("FK__Evaluatio__Watch__208CD6FA");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC07C1B709EE");
+            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC0716557269");
 
+            entity.Property(e => e.Address).HasMaxLength(50);
             entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
             entity.Property(e => e.Date).HasColumnType("date");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.FullName).HasMaxLength(50);
+            entity.Property(e => e.Notes).HasMaxLength(250);
+            entity.Property(e => e.PaymentMethod).HasMaxLength(20);
             entity.Property(e => e.PhoneNumber).HasMaxLength(20);
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Orders__Customer__571DF1D5");
+                .HasConstraintName("FK__Orders__Customer__236943A5");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC073D999270");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC07C9519881");
 
             entity.ToTable("OrderDetail");
 
+            entity.Property(e => e.Discount).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EstimatedDeliveryDate).HasColumnType("date");
             entity.Property(e => e.OrderId).HasColumnName("Order_ID");
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.ShipmentDate).HasColumnType("date");
+            entity.Property(e => e.ShippingCost).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Tax).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.WatchId).HasColumnName("Watch_ID");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__OrderDeta__Order__5535A963");
+                .HasConstraintName("FK__OrderDeta__Order__2180FB33");
 
             entity.HasOne(d => d.Watch).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.WatchId)
-                .HasConstraintName("FK__OrderDeta__Watch__5629CD9C");
+                .HasConstraintName("FK__OrderDeta__Watch__22751F6C");
         });
 
         modelBuilder.Entity<Watch>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC076A9C1F03");
+            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC07C1CBDBD2");
 
             entity.ToTable("Watch");
 
@@ -128,7 +137,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Watches)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Watch__Customer___5812160E");
+                .HasConstraintName("FK__Watch__Customer___245D67DE");
         });
 
         OnModelCreatingPartial(modelBuilder);
