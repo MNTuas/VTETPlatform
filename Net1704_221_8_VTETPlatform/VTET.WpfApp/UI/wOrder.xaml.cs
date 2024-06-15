@@ -72,7 +72,10 @@ namespace VTET.WpfApp.UI
                         PhoneNumber = PhoneNumber.Text,
                         Date = Date.SelectedDate,
                         TotalPrice = string.IsNullOrEmpty(TotalPrice.Text) ? (decimal?)null : decimal.Parse(TotalPrice.Text),
-                        CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text)
+                        CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text),
+                        Address = Address.Text, // Thêm trường Address
+                        Notes = Notes.Text, // Thêm trường Notes
+                        PaymentMethod = PaymentMethod.Text // Thêm trường PaymentMethod
                     };
                     var result = await _orderbusiness.Save(order);
                     MessageBox.Show(result.Message, "Save");
@@ -86,6 +89,9 @@ namespace VTET.WpfApp.UI
                     order.Date = Date.SelectedDate;
                     order.TotalPrice = string.IsNullOrEmpty(TotalPrice.Text) ? (decimal?)null : decimal.Parse(TotalPrice.Text);
                     order.CustomerId = string.IsNullOrEmpty(Customer_ID.Text) ? (int?)null : int.Parse(Customer_ID.Text);
+                    order.Address = Address.Text; // Thêm trường Address
+                    order.Notes = Notes.Text; // Thêm trường Notes
+                    order.PaymentMethod = PaymentMethod.Text; // Thêm trường PaymentMethod
 
                     var result = await _orderbusiness.Update(order);
                     MessageBox.Show(result.Message, "Update");
@@ -97,6 +103,9 @@ namespace VTET.WpfApp.UI
                 Date.SelectedDate = null;
                 TotalPrice.Text = string.Empty;
                 Customer_ID.Text = string.Empty;
+                Address.Text = string.Empty; // Xóa dữ liệu trong trường Address
+                Notes.Text = string.Empty; // Xóa dữ liệu trong trường Notes
+                PaymentMethod.Text = string.Empty; // Xóa dữ liệu trong trường PaymentMethod
 
                 this.LoadGrdOrder();
 
@@ -109,7 +118,6 @@ namespace VTET.WpfApp.UI
             }
         }
 
-
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             // Clear các trường nhập liệu
@@ -120,6 +128,9 @@ namespace VTET.WpfApp.UI
             Date.SelectedDate = null;
             TotalPrice.Text = string.Empty;
             Customer_ID.Text = string.Empty;
+            Address.Text = string.Empty; // Xóa dữ liệu trong trường Address
+            Notes.Text = string.Empty; // Xóa dữ liệu trong trường Notes
+            PaymentMethod.Text = string.Empty; // Xóa dữ liệu trong trường PaymentMethod
         }
 
         private async void grdOrder_ButtonDelete_Click(object sender, RoutedEventArgs e)
@@ -157,7 +168,18 @@ namespace VTET.WpfApp.UI
                 PhoneNumber.Text = selectedOrder.PhoneNumber;
                 TotalPrice.Text = selectedOrder.TotalPrice.ToString();
                 Customer_ID.Text = selectedOrder.CustomerId.ToString();
+                Address.Text = selectedOrder.Address; // Hiển thị dữ liệu trong trường Address
+                Notes.Text = selectedOrder.Notes; // Hiển thị dữ liệu trong trường Notes
+                PaymentMethod.Text = selectedOrder.PaymentMethod; // Hiển thị dữ liệu trong trường PaymentMethod
             }
+        }
+
+
+      
+
+        private void grdOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
