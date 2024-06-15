@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VTET.WpfApp.UI"
         mc:Ignorable="d"
-        Title="wOrder" Height="450" Width="800">
+        Title="wOrder" Height="450" Width="874">
     <Grid>
         <StackPanel Orientation="Vertical">
             <GroupBox Header="Order Form" Margin="10">
@@ -48,6 +48,15 @@
 
                     <Label Grid.Column="0" Grid.Row="2" Content="Customer_ID" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
                     <TextBox Grid.Column="1" Grid.Row="2" x:Name="Customer_ID" Height="25" Text="{Binding Path=Order.CustomerId, Mode=OneWay}" Margin="5" Width="180" HorizontalAlignment="Left" />
+
+                    <Label Grid.Column="4" Grid.Row="0" Content="Address" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+                    <TextBox Grid.Row="0" Grid.Column="5" x:Name="Address" Height="25" Text="{Binding Path=Order.Address, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="4" Grid.Row="1" Content="Notes" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+                    <TextBox Grid.Row="1" Grid.Column="5" x:Name="Notes" Height="25" Text="{Binding Path=Order.Notes, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="4" Grid.Row="2" Content="PaymentMethod" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+                    <TextBox Grid.Row="2" Grid.Column="5" x:Name="PaymentMethod" Height="25" Text="{Binding Path=Order.PaymentMethod, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
                 </Grid>
             </GroupBox>
             <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -55,7 +64,7 @@
                 <Button x:Name="ButtonCancel" Content="Cancel" Height="30" Width="80" Click="ButtonCancel_Click"/>
             </StackPanel>
             <StackPanel Height="210">
-                <DataGrid x:Name="grdOrder" AutoGenerateColumns="False" ItemsSource="{Binding Order}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdOrder_MouseDouble_Click" SelectionMode="Single" SelectionUnit="FullRow">
+                <DataGrid x:Name="grdOrder" AutoGenerateColumns="False" ItemsSource="{Binding Order}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdOrder_MouseDouble_Click" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="grdOrder_SelectionChanged">
                     <DataGrid.Columns>
                         <!--<DataGridTextColumn Header="Code" Binding="{Binding Path=Id}" Visibility="Hidden"/>-->
                         <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" Visibility="Visible"/>
@@ -67,6 +76,10 @@
                         <DataGridTextColumn Header="TotalPrice" Binding="{Binding Path=TotalPrice}" Width="50"  IsReadOnly="True"/>
 
                         <DataGridTextColumn Header="CustomerId" Binding="{Binding Path=CustomerId}" Width="50"  IsReadOnly="True"/>
+
+                        <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="Notes" Binding="{Binding Path=Notes}" Visibility="Visible"/>
+                        <DataGridTextColumn Header="PaymentMethod" Binding="{Binding Path=PaymentMethod}" Visibility="Visible"/>
 
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
