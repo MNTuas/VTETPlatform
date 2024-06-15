@@ -49,7 +49,9 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
                             var watchResult = await _watchbusiness.GetById(item.WatchId.Value);
                             if (watchResult != null && watchResult.Status > 0 && watchResult.Data != null)
                             {
+
                                 item.Watch = watchResult.Data as Models.Watch;
+
                             }
                         }
                     }
