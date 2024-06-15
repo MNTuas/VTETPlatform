@@ -1,74 +1,123 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.OrdersPage.IndexModel
-
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
+<!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">VTET PLATFORM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-light text-dark ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<h1>Order </h1>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-
 @if (Model.Order != null && Model.Order.Count > 0)
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Customer)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Order) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.FullName)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].Customer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].Notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order[0].PaymentMethod)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Order)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentMethod)
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="location.href='@Url.Page("./Edit", new { id = item.Id })'">Edit</button> |
+                        <button class="btn btn-sm btn-info" onclick="location.href='@Url.Page("./Details", new { id = item.Id })'">Details</button> |
+                        <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 else
 {
     <p>No order details available.</p>
-}
+} 

@@ -1,12 +1,9 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.OrdersPage.DetailsModel
-
 @{
     ViewData["Title"] = "Details";
 }
-
 <h1>Details</h1>
-
 <div>
     <h4>Order</h4>
     <hr />
@@ -47,9 +44,27 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Order.Customer.FullName)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Notes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.PaymentMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.PaymentMethod)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Order.Id">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Order.Id" class="btn btn-sm btn-warning">Edit</a>
     <a asp-page="./Index">Back to List</a>
 </div>

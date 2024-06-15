@@ -1,12 +1,9 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.OrdersPage.CreateModel
-
 @{
     ViewData["Title"] = "Create";
 }
-
 <h1>Create</h1>
-
 <h4>Order</h4>
 <hr />
 <div class="row">
@@ -43,16 +40,31 @@
                 <select asp-for="Order.CustomerId" class="form-control" asp-items="@(ViewData["CustomerId"] as SelectList)"></select>
             </div>
             <div class="form-group">
+                <label asp-for="Order.Address" class="control-label"></label>
+                <input asp-for="Order.Address" class="form-control" />
+                <span asp-validation-for="Order.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Notes" class="control-label"></label>
+                <input asp-for="Order.Notes" class="form-control" />
+                <span asp-validation-for="Order.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.PaymentMethod" class="control-label"></label>
+                <input asp-for="Order.PaymentMethod" class="form-control" />
+                <span asp-validation-for="Order.PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
