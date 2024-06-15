@@ -7,82 +7,85 @@
 }
 
 
-<div class="text-center">
-    <h1 class="display-6">Welcome @Model.Fullname</h1>
-</div>
-<div class="text-center">
-    <h1 class="display-6">Evaluation management</h1>
-</div>
 
 
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="#!">Evaluation Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse d-flex justify-content-center align-items-center collapse">
-            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation/Evaluation">Evaluation</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetail/Index">OrderDetail</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
                 </li>
+
             </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Welcome @Model.Fullname
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+
         </div>
     </div>
 </nav>
 
 
 
-    <div class="col-md-12">
-        <table class="table-striped table-bordered table-hover table">
-            <thead>
-                <tr class="card-header">
-                    <th class="card-title text-center">WatchId</th>
-                    <th class="card-title text-center">Comment</th>
-                    <th class="card-title text-center">Rate</th>
-                    <th class="card-title text-center">EstimatePrice</th>
-                    <th class="card-title text-center">CreateDate</th>
-                    <th class="card-title text-center">CreateBy</th>
-                    
-                </tr>
-            </thead>
-            <tbody class="tblevaluationList">
-                @if (evaluations != null && evaluations.Count > 0)
-                {
-                    foreach (var evaluation in evaluations)
-                    {
-                        <tr>
-                            <td>@evaluation.WatchId</td>
-                            <td>@evaluation.Comment</td>
-                            <td>@evaluation.Rate</td>
-                            <td>@evaluation.EstimatePrice</td>
-                            <td>@evaluation.CreateDate</td>
-       
-                            <td class="text-center">
-                                <button class="btn btn-sm btn-warning" onclick="editEvaluation(@evaluation.Id)">Edit</button>
-                                <form method="post" asp-page-handler="Delete" asp-route-id="@evaluation.Id">
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
+<div class="col-md-12">
+    <table class="table-striped table-bordered table-hover table">
+        <thead>
+            <tr class="card-header">
+                <th class="card-title text-center">WatchId</th>
+                <th class="card-title text-center">Comment</th>
+                <th class="card-title text-center">Rate</th>
+                <th class="card-title text-center">EstimatePrice</th>
+                <th class="card-title text-center">CreateDate</th>
+                <th class="card-title text-center">CreateBy</th>
+
+            </tr>
+        </thead>
+        <tbody class="tblevaluationList">
+            @if (evaluations != null && evaluations.Count > 0)
+            {
+                foreach (var evaluation in evaluations)
                 {
                     <tr>
-                        <td colspan="6" class="text-center">No Order Details available.</td>
+                        <td>@evaluation.WatchId</td>
+                        <td>@evaluation.Comment</td>
+                        <td>@evaluation.Rate</td>
+                        <td>@evaluation.EstimatePrice</td>
+                        <td>@evaluation.CreateDate</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-warning" onclick="editEvaluation(@evaluation.Id)">Edit</button>
+                            <a class="btn btn-outline-dark mt-auto" asp-page="./Evaluation/DetailEvaluation" asp-route-id="@evaluation.Id">Detail</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@evaluation.Id" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 }
-            </tbody>
-        </table>
-    </div>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No Order Details available.</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
 </div>
 
 @* WATCH HERE *@
@@ -92,7 +95,7 @@
 </div>
 
 
-<section class="py-5">
+<section class="">
     <div class="px-4 px-lg-5 mt-5 container">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             @if (watchs != null && watchs.Count > 0)
@@ -162,7 +165,7 @@
                                 <label for="evaluationId">EstimatePrice</label>
                                 <input asp-for="Evaluation.EstimatePrice" class="form-control" />
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <label>@Model.Message</label>
                             </div>
@@ -198,39 +201,38 @@
             // Reset form khi modal bị ẩn
             $('#frm')[0].reset();
             $('#evaluationModalContent').html(`
-                        <div class="row">
-                                 <div class="col-md-6">
-                                        <label for="evaluationId">ID</label>
-                                        <input type="text" id="Evaluation_Id" name="Evaluation.Id" class="form-control" readonly />
+                                <div class="row">
+                                         <div class="col-md-6">
+                                                <label for="evaluationId">ID</label>
+                                                <input type="text" id="Evaluation_Id" name="Evaluation.Id" class="form-control" readonly />
+                                            </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Watch_ID</label>
+                                        <input type="text" id="Evaluation_WatchId" name="Evaluation.WatchId" class="form-control"  />
                                     </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Watch_ID</label>
-                                <input type="text" id="Evaluation_WatchId" name="Evaluation.WatchId" class="form-control"  />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Comment</label>
-                                <input type="text" id="Evaluation_Comment" name="Evaluation.Comment" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Rate</label>
-                                <input type="text" id="Evaluation_Rate" name="Evaluation.Rate" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">EstimatePrice</label>
-                                <input type="text" id="Evaluation_EstimatePrice" name="Evaluation.EstimatePrice" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">CreateDate</label>
-                                <input type="text" id="Evaluation_CreateDate" name="Evaluation.CreateDate" class="form-control" />
-                            </div>
-                            <div class="col-md-12">
-                                <label>@Model.Message</label>
-                            </div>
-                        </div>
-                    `); // Reset content
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Comment</label>
+                                        <input type="text" id="Evaluation_Comment" name="Evaluation.Comment" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Rate</label>
+                                        <input type="text" id="Evaluation_Rate" name="Evaluation.Rate" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">EstimatePrice</label>
+                                        <input type="text" id="Evaluation_EstimatePrice" name="Evaluation.EstimatePrice" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">CreateDate</label>
+                                        <input type="text" id="Evaluation_CreateDate" name="Evaluation.CreateDate" class="form-control" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>@Model.Message</label>
+                                    </div>
+                                </div>
+                            `); // Reset content
         });
 
 
     </script>
 }
-

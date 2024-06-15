@@ -17,6 +17,16 @@ public partial class OrderDetail
 
     public int? Amount { get; set; }
 
+    public decimal? Discount { get; set; }
+
+    public decimal? Tax { get; set; }
+
+    public decimal? ShippingCost { get; set; }
+
+    public DateTime? ShipmentDate { get; set; }
+
+    public DateTime? EstimatedDeliveryDate { get; set; }
+
     public virtual Order Order { get; set; }
 
     public virtual Watch Watch { get; set; }

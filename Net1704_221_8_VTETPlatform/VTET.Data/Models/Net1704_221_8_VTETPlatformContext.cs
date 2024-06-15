@@ -3,16 +3,25 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace VTET.Data.Models;
 
 public partial class Net1704_221_8_VTETPlatformContext : DbContext
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public static string GetConnectionString(string connectionStringName)
     {
-        optionsBuilder.UseSqlServer("data source=MACBOOK;initial catalog=NeT1704_221_8_VTETPlatform;user id=sa;password=123456;Integrated Security=True;TrustServerCertificate=True");
-        base.OnConfiguring(optionsBuilder);
+        var config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        string connectionString = config.GetConnectionString(connectionStringName);
+        return connectionString;
     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+      => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
+
 
     public virtual DbSet<Customer> Customers { get; set; }
 
@@ -28,7 +37,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
     {
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC071E8247A6");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC075E2FB946");
 
             entity.ToTable("Customer");
 
@@ -48,12 +57,14 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Evaluation>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC079C9BBD5E");
+            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC07CF11ECBE");
 
             entity.Property(e => e.CreateDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date");
             entity.Property(e => e.EstimatePrice).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EvaluationType).HasMaxLength(50);
+            entity.Property(e => e.Status).HasMaxLength(20);
             entity.Property(e => e.WatchId).HasColumnName("Watch_ID");
 
             entity.HasOne(d => d.Watch).WithMany(p => p.Evaluations)
@@ -63,12 +74,15 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC073AD86EBB");
+            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC077AC77A5D");
 
+            entity.Property(e => e.Address).HasMaxLength(50);
             entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
             entity.Property(e => e.Date).HasColumnType("date");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.FullName).HasMaxLength(50);
+            entity.Property(e => e.Notes).HasMaxLength(250);
+            entity.Property(e => e.PaymentMethod).HasMaxLength(20);
             entity.Property(e => e.PhoneNumber).HasMaxLength(20);
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
 
@@ -79,12 +93,17 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC071D02AE5C");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC079619EFB3");
 
             entity.ToTable("OrderDetail");
 
+            entity.Property(e => e.Discount).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EstimatedDeliveryDate).HasColumnType("date");
             entity.Property(e => e.OrderId).HasColumnName("Order_ID");
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.ShipmentDate).HasColumnType("date");
+            entity.Property(e => e.ShippingCost).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Tax).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.WatchId).HasColumnName("Watch_ID");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
@@ -98,7 +117,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Watch>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC071E712592");
+            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC07CA0A01AA");
 
             entity.ToTable("Watch");
 

@@ -18,6 +18,7 @@ namespace VTET.Business
         Task<IBusinessResult> Delete(int evaluationID);
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(int evaluationid);
+        Task<IBusinessResult> GetByIdAsync(int evaluationid);
     }
     public class evaluationBusiness : IEvaluationBusiness
     {
@@ -147,6 +148,26 @@ namespace VTET.Business
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
-        
+
+        public async Task<IBusinessResult> GetByIdAsync(int evaluationid)
+        {
+            try
+            {
+                var watch = await _unitOfWork.EvaluationRepository.FirstOrDefaultAsync(m => m.Id == evaluationid);
+                if (watch == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+
     }
 }
