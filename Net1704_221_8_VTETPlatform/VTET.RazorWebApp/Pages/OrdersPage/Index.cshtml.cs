@@ -27,17 +27,21 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchField { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
         public int PageSize { get; set; } = 10;
         public IList<Models.Order> Order { get; set; } = default!;
         public int TotalPages { get; set; }
 
-        public async Task OnGetAsync(string searchField = null, string searchTerm = null, int? pageIndex = 1)
+        public async Task OnGetAsync()
         {
             var result = await _orderBusiness.GetAll();
             if (result != null && result.Status > 0 && result.Data != null)
             {
-
-
                 Order = result.Data as List<Models.Order>;
                 if (Order != null)
                 {
@@ -54,37 +58,37 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                             }
                         }
                     }
-                    if (!string.IsNullOrEmpty(searchTerm) && !string.IsNullOrEmpty(searchField))
+                    if (!string.IsNullOrEmpty(SearchTerm) && !string.IsNullOrEmpty(SearchField))
                     {
-                        switch (searchField)
+                        switch (SearchField)
                         {
                             case "OrderEmail":
-                                Order = Order.Where(od => od.Email != null && od.Email != null && od.Email.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.Email != null && od.Email != null && od.Email.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "OrderFullName":
-                                Order = Order.Where(od => od.FullName != null && od.FullName != null && od.FullName.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.FullName != null && od.FullName != null && od.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "Customer":
-                                Order = Order.Where(od => od.Customer != null && !string.IsNullOrEmpty(od.Customer.FullName) && od.Customer.FullName.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.Customer != null && !string.IsNullOrEmpty(od.Customer.FullName) && od.Customer.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "Amount":
-                                Order = Order.Where(od => od.PhoneNumber != null && od.PhoneNumber.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.PhoneNumber != null && od.PhoneNumber.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "Price":
-                                Order = Order.Where(od => od.TotalPrice != null && od.TotalPrice.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.TotalPrice != null && od.TotalPrice.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                            
                             case "Date":
-                                Order = Order.Where(od => od.Date != null && od.Date.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.Date != null && od.Date.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "Address":
-                                Order = Order.Where(od => od.Address != null && od.Address != null && od.Address.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.Address != null && od.Address != null && od.Address.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "Notes":
-                                Order = Order.Where(od => od.Notes != null && od.Notes != null && od.Notes.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.Notes != null && od.Notes != null && od.Notes.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                             case "PaymentMethod":
-                                Order = Order.Where(od => od.PaymentMethod != null && od.PaymentMethod != null && od.PaymentMethod.ToLower().Contains(searchTerm.ToLower())).ToList();
+                                Order = Order.Where(od => od.PaymentMethod != null && od.PaymentMethod != null && od.PaymentMethod.ToLower().Contains(SearchTerm.ToLower())).ToList();
                                 break;
                         }
                     }

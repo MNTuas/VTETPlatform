@@ -41,7 +41,7 @@
 
 <form method="get" class="row">
     <div class="form-group col-md-2">
-        <label for="searchField">Filter</label>
+        <label for="searchField">Filter: </label>
         <select name="searchField" id="searchField" class="form-control">
             <option value="OrderEmail">Email</option>
             <option value="OrderFullName">FullName</option>
@@ -63,8 +63,9 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </div>
 </form> 
-<a asp-page="Create" class="btn btn-success">Create New</a>
-
+<div class="text-end my-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</div>
 @if (Model.Order != null && Model.Order.Count > 0)
 {
     <table class="table">
@@ -140,19 +141,19 @@
             }
         </tbody>
     </table>
-     <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item @(Model.PageIndex == 1 ? "disabled" : "")">
-                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Previous</a>
             </li>
             @for (var i = 1; i <= Model.TotalPages; i++)
             {
                 <li class="page-item @(i == Model.PageIndex ? "active" : "")">
-                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i">@i</a>
+                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">@i</a>
                 </li>
             }
             <li class="page-item @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")">
-                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Next</a>
             </li>
         </ul>
     </nav>
