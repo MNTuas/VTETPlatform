@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VTET.Business.Base;
@@ -19,13 +20,14 @@ namespace VTET.Business
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(int evaluationid);
         Task<IBusinessResult> GetByIdAsync(int evaluationid);
+        Task<List<Evaluation>> SearchEvaluationAsync(string searchString);
     }
     public class evaluationBusiness : IEvaluationBusiness
     {
         //private readonly evaluationDAO _DAO;
 
         private readonly UnitOfWork _unitOfWork;
-
+        private List<Evaluation> _evaluationList;
         public evaluationBusiness()
         {
             //neu no null moi tao => tiet kiem bo nho　
@@ -115,6 +117,7 @@ namespace VTET.Business
                 var evaluation = await _unitOfWork.EvaluationRepository.GetAllAsync();
                 if (evaluation == null || !evaluation.Any())
                 {
+
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
@@ -168,6 +171,21 @@ namespace VTET.Business
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
+
+        // Assuming MovieRepository is an instance of GenericRepository<Movie>
+
+        public async Task<List<Evaluation>> SearchEvaluationAsync(string searchString)
+        {
+            Expression<Func<Evaluation, bool>> predicate = null;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                predicate = m => m.Comment.Contains(searchString);
+            }
+
+            return await _unitOfWork.EvaluationRepository.SearchAsync(predicate);
+        }
+
 
     }
 }
