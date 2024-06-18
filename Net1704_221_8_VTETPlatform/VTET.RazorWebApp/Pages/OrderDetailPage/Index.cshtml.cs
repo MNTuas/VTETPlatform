@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -27,47 +26,25 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchField { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
         public int PageSize { get; set; } = 10;
         public IList<Models.OrderDetail> OrderDetail { get; set; } = default!;
         public int TotalPages { get; set; }
 
-        public async Task OnGetAsync(string searchField = null, string searchTerm = null, int? pageIndex = 1)
+        public async Task OnGetAsync()
         {
-
-
             var result = await _orderdetailbusiness.GetAll();
             if (result != null && result.Status > 0 && result.Data != null)
             {
                 OrderDetail = result.Data as List<Models.OrderDetail>;
                 if (OrderDetail != null)
                 {
-                    if (!string.IsNullOrEmpty(searchTerm) && !string.IsNullOrEmpty(searchField))
-                    {
-                        switch (searchField)
-                        {
-                            case "OrderFullName":
-                                OrderDetail = OrderDetail.Where(od => od.Order != null && od.Order.FullName != null && od.Order.FullName.ToLower().Contains(searchTerm.ToLower())).ToList();
-                                break;
-                            case "WatchFullName":
-                                OrderDetail = OrderDetail.Where(od => od.Watch != null && od.Watch.FullName != null && od.Watch.FullName.ToLower().Contains(searchTerm.ToLower())).ToList();
-                                break;
-                            case "Amount":
-                                OrderDetail = OrderDetail.Where(od => od.Amount != null && od.Amount.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
-                                break;
-                            case "Price":
-                                OrderDetail = OrderDetail.Where(od => od.Price != null && od.Price.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
-                                break;
-                            case "ShipmentDate":
-                                OrderDetail = OrderDetail.Where(od => od.ShipmentDate != null && od.ShipmentDate.ToString().ToLower().Contains(searchTerm.ToLower())).ToList();
-                                break;
-                        }
-                    }
-                    TotalPages = (int)Math.Ceiling(OrderDetail.Count / (double)PageSize);
-
-                    // Lấy chỉ mục trang hiện tại
-                    int startIndex = (PageIndex - 1) * PageSize;
-                    OrderDetail = OrderDetail.Skip(startIndex).Take(PageSize).ToList();
-
+                    // Nạp dữ liệu Order và Watch trước khi tìm kiếm
                     foreach (var item in OrderDetail)
                     {
                         if (item.OrderId.HasValue)
@@ -87,6 +64,34 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
                             }
                         }
                     }
+
+                    if (!string.IsNullOrEmpty(SearchTerm) && !string.IsNullOrEmpty(SearchField))
+                    {
+                        switch (SearchField)
+                        {
+                            case "OrderFullName":
+                                OrderDetail = OrderDetail.Where(od => od.Order != null && od.Order.FullName != null && od.Order.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "WatchFullName":
+                                OrderDetail = OrderDetail.Where(od => od.Watch != null && od.Watch.FullName != null && od.Watch.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Amount":
+                                OrderDetail = OrderDetail.Where(od => od.Amount.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Price":
+                                OrderDetail = OrderDetail.Where(od => od.Price.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "ShipmentDate":
+                                OrderDetail = OrderDetail.Where(od => od.ShipmentDate.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                        }
+                    }
+
+                    TotalPages = (int)Math.Ceiling(OrderDetail.Count / (double)PageSize);
+
+                    // Lấy chỉ mục trang hiện tại
+                    int startIndex = (PageIndex - 1) * PageSize;
+                    OrderDetail = OrderDetail.Skip(startIndex).Take(PageSize).ToList();
                 }
             }
         }
