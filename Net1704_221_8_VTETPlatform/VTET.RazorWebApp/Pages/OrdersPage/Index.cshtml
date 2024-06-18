@@ -38,6 +38,40 @@
     </nav>
 </header>
 <h1>Order </h1>
+
+<form method="get" class="row">
+    <div class="form-group col-md-4">
+        <label for="searchField">Search Field</label>
+        <select name="searchField" id="searchField" class="form-control">
+            <option value="OrderEmail">Email</option>
+            <option value="OrderFullName">FullName</option>
+            <option value="Amount">Amount</option>
+            <option value="Price">Price</option>
+            <option value="Date">Date</option>
+            <option value="Customer">Customer</option>
+            <option value="Address">Address</option>
+            <option value="Notes">Notes</option>
+            <option value="PaymentMethod">PaymentMethod</option>
+
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="searchTerm">Search Term</label>
+        <input type="text" name="searchTerm" id="searchTerm" value="@Request.Query["searchTerm"]" class="form-control" />
+    </div>
+    <div class="form-group col-md-2 align-self-end">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -116,6 +150,22 @@
             }
         </tbody>
     </table>
+     <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageIndex == 1 ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+            @for (var i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        </ul>
+    </nav>
 }
 else
 {
