@@ -24,8 +24,18 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             _customerBusiness ??= new customerBusiness();
         }
 
+        [BindProperty(SupportsGet = true)]
+        public int PageIndex { get; set; } = 1;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchField { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
+        public int PageSize { get; set; } = 10;
         public IList<Models.Order> Order { get; set; } = default!;
+        public int TotalPages { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -39,15 +49,55 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                     {
                         if (item.CustomerId.HasValue)
                         {
-                            var watchResult = await _customerBusiness.GetById(item.CustomerId.Value);
-                            if (watchResult != null && watchResult.Status > 0 && watchResult.Data != null)
+                            var customerResult = await _customerBusiness.GetById(item.CustomerId.Value);
+                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
                             {
 
-                                item.Customer = watchResult.Data as Models.Customer;
+                                item.Customer = customerResult.Data as Models.Customer;
 
                             }
                         }
                     }
+                    if (!string.IsNullOrEmpty(SearchTerm) && !string.IsNullOrEmpty(SearchField))
+                    {
+                        switch (SearchField)
+                        {
+                            case "OrderEmail":
+                                Order = Order.Where(od => od.Email != null && od.Email != null && od.Email.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "OrderFullName":
+                                Order = Order.Where(od => od.FullName != null && od.FullName != null && od.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Customer":
+                                Order = Order.Where(od => od.Customer != null && !string.IsNullOrEmpty(od.Customer.FullName) && od.Customer.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Amount":
+                                Order = Order.Where(od => od.PhoneNumber != null && od.PhoneNumber.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Price":
+                                Order = Order.Where(od => od.TotalPrice != null && od.TotalPrice.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                           
+                            case "Date":
+                                Order = Order.Where(od => od.Date != null && od.Date.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Address":
+                                Order = Order.Where(od => od.Address != null && od.Address != null && od.Address.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "Notes":
+                                Order = Order.Where(od => od.Notes != null && od.Notes != null && od.Notes.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                            case "PaymentMethod":
+                                Order = Order.Where(od => od.PaymentMethod != null && od.PaymentMethod != null && od.PaymentMethod.ToLower().Contains(SearchTerm.ToLower())).ToList();
+                                break;
+                        }
+                    }
+                    TotalPages = (int)Math.Ceiling(Order.Count / (double)PageSize);
+
+                    
+                    int startIndex = (PageIndex - 1) * PageSize;
+                    Order = Order.Skip(startIndex).Take(PageSize).ToList();
+                    
                 }
             }
         }
