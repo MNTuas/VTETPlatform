@@ -36,10 +36,24 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             var result = await _orderBusiness.GetAll();
             if (result != null && result.Status > 0 && result.Data != null)
             {
+
+
                 Order = result.Data as List<Models.Order>;
                 if (Order != null)
                 {
+                    foreach (var item in Order)
+                    {
+                        if (item.CustomerId.HasValue)
+                        {
+                            var customerResult = await _customerBusiness.GetById(item.CustomerId.Value);
+                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
+                            {
 
+                                item.Customer = customerResult.Data as Models.Customer;
+
+                            }
+                        }
+                    }
                     if (!string.IsNullOrEmpty(searchTerm) && !string.IsNullOrEmpty(searchField))
                     {
                         switch (searchField)
@@ -79,19 +93,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                     
                     int startIndex = (PageIndex - 1) * PageSize;
                     Order = Order.Skip(startIndex).Take(PageSize).ToList();
-                    foreach (var item in Order)
-                    {
-                        if (item.CustomerId.HasValue)
-                        {
-                            var customerResult = await _customerBusiness.GetById(item.CustomerId.Value);
-                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
-                            {
-
-                                item.Customer = customerResult.Data as Models.Customer;
-
-                            }
-                        }
-                    }
+                    
                 }
             }
         }
