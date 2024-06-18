@@ -48,50 +48,121 @@
 
             private async void ButtonSave_Click(object sender, RoutedEventArgs e)
             {
-                try
+            try
+            {
+                int orderDetailIdTmp = -1;
+
+                decimal price, discount, tax, shippingCost;
+                int orderId, watchId, amount;
+
+                if (!int.TryParse(txtOrderId.Text, out orderId))
                 {
-                    int orderDetailIdTmp = -1;
-                    int.TryParse(txtOrderDetailId.Text, out orderDetailIdTmp);
-                    var item = await _orderdetailbusiness.GetById(orderDetailIdTmp);
-                    if (item.Data == null)
-                    {
-                        var orderDetail = new OrderDetail
-                        {
-                            Id = orderDetailIdTmp,
-                            OrderId = int.Parse(txtOrderId.Text),
-                            WatchId = int.Parse(txtWatchId.Text),
-                            Price = int.Parse(txtPrice.Text),
-                            Amount = int.Parse(txtAmount.Text)
-                        };
-
-                        var result = await _orderdetailbusiness.Save(orderDetail);
-                        MessageBox.Show(result.Message, "Save");
-                    }
-                    else
-                    {
-                        var orderDetail = item.Data as OrderDetail;
-                        orderDetail.OrderId = int.Parse(txtOrderId.Text);
-                        orderDetail.WatchId = int.Parse(txtWatchId.Text);
-                        orderDetail.Price = int.Parse(txtPrice.Text);
-                        orderDetail.Amount = int.Parse(txtAmount.Text);
-
-                        var result = await _orderdetailbusiness.Update(orderDetail);
-                        MessageBox.Show(result.Message, "Update");
-                    }
-
-                    txtOrderDetailId.Text = string.Empty;
-                    txtOrderId.Text = string.Empty;
-                    txtWatchId.Text = string.Empty;
-                    txtPrice.Text = string.Empty;
-                    txtAmount.Text = string.Empty;
-                    this.LoadGrdOrderDetail();
+                    MessageBox.Show("Invalid OrderId", "Error");
+                    return;
                 }
-                catch (Exception ex)
+                if (!int.TryParse(txtWatchId.Text, out watchId))
                 {
-                    MessageBox.Show(ex.ToString(), "Error");
+                    MessageBox.Show("Invalid WatchId", "Error");
+                    return;
+                }
+                if (!decimal.TryParse(txtPrice.Text, out price))
+                {
+                    MessageBox.Show("Invalid Price", "Error");
+                    return;
+                }
+                if (!int.TryParse(txtAmount.Text, out amount))
+                {
+                    MessageBox.Show("Invalid Amount", "Error");
+                    return;
+                }
+                if (!decimal.TryParse(txtDiscount.Text, out discount))
+                {
+                    MessageBox.Show("Invalid Discount", "Error");
+                    return;
+                }
+                if (!decimal.TryParse(txtTax.Text, out tax))
+                {
+                    MessageBox.Show("Invalid Tax", "Error");
+                    return;
+                }
+                if (!decimal.TryParse(txtShipCost.Text, out shippingCost))
+                {
+                    MessageBox.Show("Invalid Shipping Cost", "Error");
+                    return;
                 }
 
+                DateTime? shipmentDate = txtShipDate.SelectedDate;
+                DateTime? estimatedDeliveryDate = txtEstimatedDeliveryDate.SelectedDate;
+
+                if (shipmentDate == null)
+                {
+                    MessageBox.Show("Please select Shipment Date", "Error");
+                    return;
+                }
+
+                if (estimatedDeliveryDate == null)
+                {
+                    MessageBox.Show("Please select Estimated Delivery Date", "Error");
+                    return;
+                }
+                int.TryParse(txtOrderDetailId.Text, out orderDetailIdTmp);
+                var item = await _orderdetailbusiness.GetById(orderDetailIdTmp);
+                if (item.Data == null)
+                {
+                    var orderDetail = new OrderDetail
+                    {
+                        Id = orderDetailIdTmp,
+                        OrderId = orderId,
+                        WatchId = watchId,
+                        Price = price,
+                        Amount = amount,
+                        Discount = discount,
+                        Tax = tax,
+                        ShippingCost = shippingCost,
+                        ShipmentDate = shipmentDate.Value,
+                        EstimatedDeliveryDate = estimatedDeliveryDate.Value,
+                    };
+
+                    var result = await _orderdetailbusiness.Save(orderDetail);
+                    MessageBox.Show(result.Message, "Save");
+                }
+                else
+                {
+                    var orderDetail = item.Data as OrderDetail;
+                    orderDetail.OrderId = orderId;
+                    orderDetail.WatchId = watchId;
+                    orderDetail.Price = price;
+                    orderDetail.Amount = amount;
+                    orderDetail.Discount = discount;
+                    orderDetail.Tax = tax;
+                    orderDetail.ShippingCost = shippingCost;
+                    orderDetail.ShipmentDate = shipmentDate.Value;
+                    orderDetail.EstimatedDeliveryDate = estimatedDeliveryDate.Value;
+
+                    var result = await _orderdetailbusiness.Update(orderDetail);
+                    MessageBox.Show(result.Message, "Update");
+                }
+
+                // Clear textboxes and refresh grid
+                txtOrderDetailId.Text = string.Empty;
+                txtOrderId.Text = string.Empty;
+                txtWatchId.Text = string.Empty;
+                txtPrice.Text = string.Empty;
+                txtAmount.Text = string.Empty;
+                txtDiscount.Text = string.Empty;
+                txtTax.Text = string.Empty;
+                txtShipCost.Text = string.Empty;
+                txtShipDate.SelectedDate = null;
+                txtEstimatedDeliveryDate.SelectedDate = null;
+
+                this.LoadGrdOrderDetail();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
+        }
             private async void grdOrderDetail_ButtonDelete_Click(object sender, RoutedEventArgs e)
             {
                 if (sender is Button button && button.CommandParameter is int id)
@@ -116,6 +187,11 @@
             txtWatchId.Text = string.Empty;
             txtPrice.Text = string.Empty;
             txtAmount.Text = string.Empty;
+            txtDiscount.Text = string.Empty;
+            txtTax.Text = string.Empty;
+            txtShipCost.Text = string.Empty;
+            txtShipDate.SelectedDate = null;
+            txtEstimatedDeliveryDate.SelectedDate = null;
             this.LoadGrdOrderDetail();
             }
 
@@ -148,7 +224,12 @@
                                 txtOrderId.Text = orderDetail.OrderId.ToString();
                                 txtPrice.Text = orderDetail.Price.ToString();
                                 txtAmount.Text = orderDetail.Amount.ToString();
-                            }
+                                txtDiscount.Text = orderDetail.Discount.ToString();
+                                txtTax.Text = orderDetail.Tax.ToString();
+                                txtShipCost.Text = orderDetail.ShippingCost.ToString();
+                                txtShipDate.SelectedDate = orderDetail.ShipmentDate;
+                                txtEstimatedDeliveryDate.SelectedDate = orderDetail.EstimatedDeliveryDate;
+                        }
                         }
 
                     }
@@ -177,11 +258,19 @@
                                 txtOrderId.Text = orderDetail.OrderId.ToString();
                                 txtPrice.Text = orderDetail.Price.ToString();
                                 txtAmount.Text = orderDetail.Amount.ToString();
-                            }
+                                txtDiscount.Text = orderDetail.Discount.ToString();
+                                txtTax.Text = orderDetail.Tax.ToString();
+                                txtShipCost.Text = orderDetail.ShippingCost.ToString();
+                                txtShipDate.SelectedDate = orderDetail.ShipmentDate;
+                                txtEstimatedDeliveryDate.SelectedDate = orderDetail.EstimatedDeliveryDate;
+
+                        }
                         }
 
                     }
                 }
             }
-        }
+
+   
+    }
     }
