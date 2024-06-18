@@ -3,19 +3,70 @@
 
 @{
     ViewData["Title"] = "Index";
+    
 }
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">VTET PLATFORM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<form method="get" class="row">
+    <div class="form-group col-md-4">
+        <label for="searchField">Search Field</label>
+        <select name="searchField" id="searchField" class="form-control">
+            <option value="OrderFullName">Order Full Name</option>
+            <option value="WatchFullName">Watch Full Name</option>
+            <option value="Amount">Amount</option>
+            <option value="Price">Price</option>
+            <option value="ShipmentDate">Shipment Date</option>
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="searchTerm">Search Term</label>
+        <input type="text" name="searchTerm" id="searchTerm" value="@Request.Query["searchTerm"]" class="form-control" />
+    </div>
+    <div class="form-group col-md-2 align-self-end">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<div class="text-end my-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</div>
 
 @if (Model.OrderDetail != null && Model.OrderDetail.Count > 0)
 {
     <table class="table">
         <thead>
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.OrderDetail[0].Price)
                 </th>
@@ -28,6 +79,21 @@
                 <th>
                     @Html.DisplayNameFor(model => model.OrderDetail[0].Watch)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Discount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Tax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].ShippingCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].ShipmentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].EstimatedDeliveryDate)
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -35,6 +101,9 @@
             @foreach (var item in Model.OrderDetail)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
@@ -48,6 +117,21 @@
                         @Html.DisplayFor(modelItem => item.Watch.FullName)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShippingCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipmentDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstimatedDeliveryDate)
+                    </td>
+                    <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                         <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
@@ -56,6 +140,23 @@
             }
         </tbody>
     </table>
+     <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageIndex == 1 ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+            @for (var i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+
 }
 else
 {
