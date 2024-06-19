@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VTET.Business.Base;
@@ -18,13 +19,15 @@ namespace VTET.Business
         Task<IBusinessResult> Delete(int evaluationID);
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(int evaluationid);
+        Task<IBusinessResult> GetByIdAsync(int evaluationid);
+        Task<List<Evaluation>> SearchEvaluationAsync(string searchString);
     }
     public class evaluationBusiness : IEvaluationBusiness
     {
         //private readonly evaluationDAO _DAO;
 
         private readonly UnitOfWork _unitOfWork;
-
+        private List<Evaluation> _evaluationList;
         public evaluationBusiness()
         {
             //neu no null moi tao => tiet kiem bo nho　
@@ -114,6 +117,7 @@ namespace VTET.Business
                 var evaluation = await _unitOfWork.EvaluationRepository.GetAllAsync();
                 if (evaluation == null || !evaluation.Any())
                 {
+
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
@@ -147,6 +151,41 @@ namespace VTET.Business
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
-        
+
+        public async Task<IBusinessResult> GetByIdAsync(int evaluationid)
+        {
+            try
+            {
+                var watch = await _unitOfWork.EvaluationRepository.FirstOrDefaultAsync(m => m.Id == evaluationid);
+                if (watch == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, watch);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+
+        // Assuming MovieRepository is an instance of GenericRepository<Movie>
+
+        public async Task<List<Evaluation>> SearchEvaluationAsync(string searchString)
+        {
+            Expression<Func<Evaluation, bool>> predicate = null;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                predicate = m => m.Comment.Contains(searchString);
+            }
+
+            return await _unitOfWork.EvaluationRepository.SearchAsync(predicate);
+        }
+
+
     }
 }

@@ -20,7 +20,8 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
         return connectionString;
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
+      => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection"));
+
 
     public virtual DbSet<Customer> Customers { get; set; }
 
@@ -36,7 +37,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
     {
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC0729D180AE");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC075E2FB946");
 
             entity.ToTable("Customer");
 
@@ -56,7 +57,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
         modelBuilder.Entity<Evaluation>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC072EA84939");
+            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3214EC07CF11ECBE");
 
             entity.Property(e => e.CreateDate)
                 .HasDefaultValueSql("(getdate())")
@@ -68,12 +69,12 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
             entity.HasOne(d => d.Watch).WithMany(p => p.Evaluations)
                 .HasForeignKey(d => d.WatchId)
-                .HasConstraintName("FK__Evaluatio__Watch__208CD6FA");
+                .HasConstraintName("FK__Evaluatio__Watch__5441852A");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC0716557269");
+            entity.HasKey(e => e.Id).HasName("PK__Orders__3214EC077AC77A5D");
 
             entity.Property(e => e.Address).HasMaxLength(50);
             entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
@@ -87,12 +88,12 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Orders__Customer__236943A5");
+                .HasConstraintName("FK__Orders__Customer__571DF1D5");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC07C9519881");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC079619EFB3");
 
             entity.ToTable("OrderDetail");
 
@@ -107,16 +108,16 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__OrderDeta__Order__2180FB33");
+                .HasConstraintName("FK__OrderDeta__Order__5535A963");
 
             entity.HasOne(d => d.Watch).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.WatchId)
-                .HasConstraintName("FK__OrderDeta__Watch__22751F6C");
+                .HasConstraintName("FK__OrderDeta__Watch__5629CD9C");
         });
 
         modelBuilder.Entity<Watch>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC07C1CBDBD2");
+            entity.HasKey(e => e.Id).HasName("PK__Watch__3214EC07CA0A01AA");
 
             entity.ToTable("Watch");
 
@@ -137,7 +138,7 @@ public partial class Net1704_221_8_VTETPlatformContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Watches)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Watch__Customer___245D67DE");
+                .HasConstraintName("FK__Watch__Customer___5812160E");
         });
 
         OnModelCreatingPartial(modelBuilder);
