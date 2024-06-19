@@ -46,6 +46,11 @@ namespace VTET.WpfApp
             p.Show();
         }
 
-
+        private async void Open_wWatch_Click(object sender, RoutedEventArgs e)
+        {
+            var p = new wWatch();
+            p.Owner = this;
+            p.Show();
+        }
     }
 }
