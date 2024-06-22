@@ -6,33 +6,45 @@
 }
 
 <header>
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">VTET PLATFORM</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+        <div class="px-4 px-lg-5 container">
+            <a class="navbar-brand" href="/HomePage">OrderDetail Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                    </li>
+
+
                 </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+
+
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                    </button>
+                </form>
+
             </div>
         </div>
     </nav>
+
 </header>
 
-<h1>Index</h1>
 
 <form method="get" class="row">
     <div class="form-group col-md-4">
@@ -54,7 +66,7 @@
     </div>
 </form>
 
-<div class="text-end my-3">
+<div class="my-3 text-end">
     <a asp-page="Create" class="btn btn-success">Create New</a>
 </div>
 

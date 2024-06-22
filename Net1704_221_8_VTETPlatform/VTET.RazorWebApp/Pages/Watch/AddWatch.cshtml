@@ -1,0 +1,185 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.Watch.AddWatchModel
+@{
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+<style>
+    label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .name-fields {
+        display: flex;
+        gap: 10px;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .rating {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+        .rating span {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+            .rating span.selected {
+                color: gold;
+            }
+</style>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Watch Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+
+
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+
+
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+<!-- FORM ADD Watch -->
+<h2 class="text-center">Sell Your Watch</h2>
+
+<div class="container">
+    <form id="feedback-form" method="post">
+        <div class="mb-3">
+            <label asp-for="Watches.FullName" class="form-label">FullName</label>
+            <input asp-for="Watches.FullName" class="form-control" required />
+            <span asp-validation-for="Watches.FullName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Watches.Type" class="form-label">Type</label>
+            <select asp-for="Watches.Type" class="form-select" required>
+                <option value="" disabled selected hidden>Type</option>
+                <option value="Old">Old</option>
+                <option value="New">New</option>
+            </select>
+            <span asp-validation-for="Watches.Type" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.Picture" class="form-label">Picture</label>
+            <input asp-for="Watches.Picture" class="form-control" required />
+            <span asp-validation-for="Watches.Picture" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Watches.Price" class="form-label">Price</label>
+            <input asp-for="Watches.Price" class="form-control" />
+            <span asp-validation-for="Watches.Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.EstimatePrice" class="form-label">Estimate Price</label>
+            <input asp-for="Watches.EstimatePrice" class="form-control" />
+            <span asp-validation-for="Watches.EstimatePrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.Condition" class="form-label">Condition</label>
+            <div class="rating" id="rarity-rating" data-bind="Watches.Condition">
+                <span data-value="1">★</span>
+                <span data-value="2">★</span>
+                <span data-value="3">★</span>
+                <span data-value="4">★</span>
+                <span data-value="5">★</span>
+            </div>
+            <input type="hidden" asp-for="Watches.Condition" />
+            <span asp-validation-for="Watches.Condition" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.Location" class="form-label">Location</label>
+            <input asp-for="Watches.Location" class="form-control" />
+            <span asp-validation-for="Watches.Location" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.Brand" class="form-label">Brand</label>
+            <input asp-for="Watches.Brand" class="form-control" />
+            <span asp-validation-for="Watches.Brand" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.Status" class="form-label">Status</label>
+            <input asp-for="Watches.Brand" value="Pending"  class="form-control" readonly />
+            <span asp-validation-for="Watches.Brand" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Watches.CustomerId" class="form-label">Customer ID</label>
+            <textarea asp-for="Watches.CustomerId" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Watches.CustomerId" class="text-danger"></span>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a class="btn btn-success" asp-page="./HomePage">Back to HomePage</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.rating').forEach(rating => {
+                rating.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'SPAN') {
+                        const value = e.target.getAttribute('data-value');
+                        const inputField = this.nextElementSibling;
+                        inputField.value = value;
+                        this.dataset.rating = value;
+                        this.querySelectorAll('span').forEach(span => {
+                            if (span.getAttribute('data-value') <= value) {
+                                span.classList.add('selected');
+                            } else {
+                                span.classList.remove('selected');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
