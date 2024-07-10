@@ -33,6 +33,7 @@ namespace VTET.Business
         {
             try
             {
+                
                 int result = await _unitOfWork.OrderDetailRepository.CreateAsync(orderDetail);
                 /*                _unitOfWork.OrderDetailRepository.PrepareCreate(orderDetail);
                                 _unitOfWork.OrderDetailRepository.SaveAsync();*/
