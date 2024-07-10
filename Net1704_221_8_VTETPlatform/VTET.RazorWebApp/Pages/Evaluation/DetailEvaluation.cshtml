@@ -1,0 +1,77 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.Evaluation.DetailEvaluationModel
+@{
+    ViewData["Title"] = "DetailEvaluationModel";
+}
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Evaluation Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+
+
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="text-center">
+    <h1 class="display-6">Evaluation DETAIL </h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-striped table-bordered table-hover table">
+            <thead>
+                <tr class="card-header">
+                    <th class="card-title text-center">EvaluationId</th>
+                    <th class="card-title text-center">Comment</th>
+                    <th class="card-title text-center">Rate</th>
+                    <th class="card-title text-center">EstimatePrice</th>
+                    <th class="card-title text-center">CreateDate</th>
+                    <th class="card-title text-center">WatchID</th>
+                </tr>
+            </thead>
+            <tbody class="tblevaluationList">
+                <tr>
+                    <td><input asp-for="Evaluation.Id" class="form-control" readonly /></td>
+                    <td><input asp-for="Evaluation.Comment" class="form-control" readonly /></td>
+                    <td><input asp-for="Evaluation.Rate" class="form-control" readonly /></td>
+                    <td><input asp-for="Evaluation.EstimatePrice" class="form-control" readonly /></td>
+                    <td><input asp-for="Evaluation.CreateDate" class="form-control" readonly /></td>
+                    <td><input asp-for="Evaluation.WatchId" class="form-control" readonly /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

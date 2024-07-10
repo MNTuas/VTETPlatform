@@ -3,24 +3,90 @@
 @{
 }
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse d-flex justify-content-center align-items-center collapse">
-            <ul class="navbar-nav">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        margin-top: 20px;
+        max-width: 1200px;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .thumbnail-images img {
+        width: 100px;
+        height: 70px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+
+    .overview, .details, .locations {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+        .details i {
+            margin-right: 10px;
+        }
+
+        .details .badge {
+            background-color: #e7f7e9;
+            color: #4caf50;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .locations iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 10px;
+        }
+
+    .price {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        float: right;
+    }
+</style>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Watch Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetail/Index">OrderDetail</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
                 </li>
+
             </ul>
+            
         </div>
     </div>
 </nav>
@@ -56,39 +122,8 @@
     </div>
 </div>
 
-@* FORM ADD Evaluation *@
-<h2>Add Evaluation</h2>
 
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="form-group">
-                <label asp-for="Evaluations.Comment" class="control-label"></label>
-                <input asp-for="Evaluations.Comment" class="form-control" />
-                <span asp-validation-for="Evaluations.Comment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.Rate" class="control-label"></label>
-                <input asp-for="Evaluations.Rate" class="form-control" />
-                <span asp-validation-for="Evaluations.Rate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.EstimatePrice" class="control-label"></label>
-                <input asp-for="Evaluations.EstimatePrice" class="form-control" />
-                <span asp-validation-for="Evaluations.EstimatePrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.WatchId" class="control-label"></label>
-                <input asp-for="Evaluations.WatchId" class="form-control" readonly value="@Model.Watches.Id" />
-                <span asp-validation-for="Evaluations.WatchId" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-2">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a class="btn btn-success" asp-page="Evaluation">BackToEvaluation</a>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 @section Scripts {
     @{

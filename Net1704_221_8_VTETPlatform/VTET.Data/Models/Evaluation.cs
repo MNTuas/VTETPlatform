@@ -11,7 +11,7 @@ public partial class Evaluation
 
     public string Comment { get; set; }
 
-    public string Status { get; set; }
+    public string Status { get; set; } 
 
     public int? Rarity { get; set; }
 
@@ -23,7 +23,7 @@ public partial class Evaluation
 
     public decimal? EstimatePrice { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateOnly? CreateDate { get; set; }
 
     public int? WatchId { get; set; }
 

@@ -36,6 +36,8 @@ namespace VTET.Business
         {
             try
             {
+                watch.Status = "Pending";
+
                 int result = await _unitOfWork.WatchRepository.CreateAsync(watch);
 
                 if (result > 0)

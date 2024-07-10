@@ -18,14 +18,18 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
     {
         private readonly IOrderBusiness _orderBusiness;
         private readonly ICustomerBusiness _customerBusiness;
-
+        private readonly IWatchBusiness _watchBusiness;
+        private readonly IOrderDetailBusiness _orderdetailBusiness;
         public CreateModel(VTET.Data.Models.Net1704_221_8_VTETPlatformContext context)
         {
             _orderBusiness ??= new OrderBusiness();
             _customerBusiness ??= new customerBusiness();
+            _watchBusiness ??= new watchBusiness();
+            _orderdetailBusiness ??= new OrderDetailBusiness();
+
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int? watchId)
         {
             var customerResult = await _customerBusiness.GetAll();
 
@@ -40,22 +44,63 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                 // For example, you might want to log the error or set ViewData["OrderId"] to an empty list
                 ViewData["CustomerId"] = new SelectList(new List<Models.Customer>(), "Id", "FullName");
             }
+            // Khởi tạo Order nếu chưa được khởi tạo
+            Order ??= new Models.Order();
+
+            if (watchId.HasValue)
+            {
+                var watchResult = await _watchBusiness.GetById(watchId.Value);
+                if (watchResult.Status == Const.SUCCESS_READ_CODE && watchResult.Data is Models.Watch watch)
+                {
+                    Watch = watch;
+                    Order.TotalPrice = Watch.Price;
+
+                }
+            }
             return Page();
         }
 
         [BindProperty]
         public Models.Order Order { get; set; } = default!;
 
-
+        [BindProperty]
+        public Models.Watch Watch { get; set; } = default!;
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? watchId)
         {
+    
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
             await _orderBusiness.Save(Order);
+            if (watchId.HasValue)
+            {
+                var watchResult = await _watchBusiness.GetById(watchId.Value);
+                if (watchResult.Status == Const.SUCCESS_READ_CODE && watchResult.Data is Models.Watch watch)
+                {
+                    
+                    Watch = watch;
+                    var orderDetail = new Models.OrderDetail
+                    {
+                        WatchId = Watch.Id,
+                        OrderId = Order.Id,
+                        Price = Watch.Price.Value,
+                        Amount = 1, // Assuming default amount is 1, you can modify as needed
+                        Discount = 10,
+                        Tax = 10,
+                        ShippingCost = Watch.Price.Value * 0.10m,
+                        ShipmentDate = Order.Date.Value, // Using Order.Date for ShipmentDate
+                        EstimatedDeliveryDate = Order.Date.Value.AddDays(3) // Using Order.Date for EstimatedDeliveryDate
+                    };
+
+                    await _orderdetailBusiness.Save(orderDetail);
+
+                }
+            }
+
+            
+           
 
             return RedirectToPage("./Index");
         }

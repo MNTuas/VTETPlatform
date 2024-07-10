@@ -132,5 +132,10 @@ namespace VTET.Data.Base
             return await _context.Set<T>().FirstOrDefaultAsync(code);
         }
 
+        public async Task<List<T>> SearchAsync(Expression<Func<T, bool>> code)
+        {
+            return await _dbSet.Where(code).ToListAsync();
+        }
+
     }
 }

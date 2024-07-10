@@ -6,93 +6,154 @@
     var watchs = Model.Watchs;
 }
 
+<style>
+    .FAKE {
+        color: red;
+    }
 
-<div class="text-center">
-    <h1 class="display-6">Welcome @Model.Fullname</h1>
-</div>
-<div class="text-center">
-    <h1 class="display-6">Evaluation management</h1>
-</div>
+    .REAL {
+        color: green;
+    }
+</style>
 
 
-
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse d-flex justify-content-center align-items-center collapse">
-            <ul class="navbar-nav">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="HomePage">Evaluation Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation/Evaluation">Evaluation</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetail/Index">OrderDetail</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+
+
             </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Welcome @Model.Fullname
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+
         </div>
     </div>
 </nav>
+<!-- filter-->
+<div class="col-md-12">
+    <form class="d-flex justify-content-between">
+        <div class="input-group w-75">
+            <input type="text" name="SearchComment" class="form-control" value="@(Model.SearchComment)" placeholder="Comment here..." aria-describedby="commentHelp" />
 
+            <select name="SearchStatus" class="form-select" value="@(Model.SearchStatus)" placeholder="Status here...">
+                <option value="" disabled selected hidden>Status</option>
+                <option value="REAL">Real</option>
+                <option value="FAKE">Fake</option>
+            </select>
 
+            <select name="SearchRate" class="form-select" value="@(Model.SearchRate)" placeholder="Rarity here..." aria-describedby="rarityHelp">
+                <option value="" disabled selected hidden>Rarity</option>
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
 
-    <div class="col-md-12">
-        <table class="table-striped table-bordered table-hover table">
-            <thead>
-                <tr class="card-header">
-                    <th class="card-title text-center">WatchId</th>
-                    <th class="card-title text-center">Comment</th>
-                    <th class="card-title text-center">Rate</th>
-                    <th class="card-title text-center">EstimatePrice</th>
-                    <th class="card-title text-center">CreateDate</th>
-                    <th class="card-title text-center">CreateBy</th>
-                    
-                </tr>
-            </thead>
-            <tbody class="tblevaluationList">
-                @if (evaluations != null && evaluations.Count > 0)
-                {
-                    foreach (var evaluation in evaluations)
-                    {
-                        <tr>
-                            <td>@evaluation.WatchId</td>
-                            <td>@evaluation.Comment</td>
-                            <td>@evaluation.Rate</td>
-                            <td>@evaluation.EstimatePrice</td>
-                            <td>@evaluation.CreateDate</td>
-       
-                            <td class="text-center">
-                                <button class="btn btn-sm btn-warning" onclick="editEvaluation(@evaluation.Id)">Edit</button>
-                                <form method="post" asp-page-handler="Delete" asp-route-id="@evaluation.Id">
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
+            <select name="SearchEvaluationType" class="form-select" value="@(Model.SearchEvaluationType)" placeholder="Evaluation Type here..." aria-describedby="evaluationTypeHelp">
+                <option value="" disabled selected hidden>Evaluation Type</option>
+                <option value="EASY">Easy</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HARD">Hard</option>
+            </select>
+        </div>
+
+        <button type="submit" id="search" class="btn btn-danger d-flex align-items-center">
+            Search
+            <i class="fa fa-search ms-2" aria-hidden="true"></i>
+        </button>
+    </form>
+
+   
+
+    <table class="table-striped table-bordered table-hover table">
+        <thead>
+            <tr class="card-header">
+                <th class="card-title text-center">WatchId</th>
+                <th class="card-title text-center">Status</th>
+                <th class="card-title text-center">Rate</th>
+                <th class="card-title text-center">EstimateType</th>
+                <th class="card-title text-center">EstimatePrice</th>
+                <th class="card-title text-center">Comment</th>
+                <th class="card-title text-center"></th>
+
+            </tr>
+        </thead>
+        <tbody class="tblevaluationList">
+            @if (evaluations != null && evaluations.Count > 0)
+            {
+                foreach (var evaluation in evaluations)
                 {
                     <tr>
-                        <td colspan="6" class="text-center">No Order Details available.</td>
+                        <td>@evaluation.WatchId</td>
+                        <td class="@evaluation.Status">@evaluation.Status</td>
+                        <td>@evaluation.Rate ★</td>
+                        <td>@evaluation.EvaluationType</td>
+                        <td>@evaluation.EstimatePrice</td>
+                        <td>@evaluation.Comment</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-warning" onclick="editEvaluation(@evaluation.Id)">Edit</button>
+                            <a class="btn btn-sm btn-warning" asp-page="./TestDetail" asp-route-id="@evaluation.Id">Detail</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@evaluation.Id" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 }
-            </tbody>
-        </table>
-    </div>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No Order Details available.</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 </div>
+</div>
+<!--Paging-->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-page="./Evaluation" asp-route-currentPage="@i" asp-route-searchName="@Model.SearchComment" asp-route-searchAddress="@Model.SearchStatus" asp-route-searchSurfaceType="@Model.SearchRate" asp-route-searchType="@Model.SearchEvaluationType">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
 
 @* WATCH HERE *@
 
 <div class="text-center">
     <h1 class="display-6">WATCH </h1>
 </div>
-
-
-<section class="py-5">
+<section class="">
     <div class="px-4 px-lg-5 mt-5 container">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             @if (watchs != null && watchs.Count > 0)
@@ -102,7 +163,7 @@
                     <div class="col mb-5 d-flex">
                         <div class="card h-100 d-flex flex-column">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaGMzeh4_3D06_QS97SvZeFq-F3OjUQsrNRA&s" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4 d-flex flex-column">
                                 <div class="text-center">
@@ -110,12 +171,13 @@
                                     <h5 class="fw-bolder">@watch.FullName</h5>
                                     <!-- Product price-->
                                     <p>@watch.Price</p>
+                                    <p>@watch.Status</p>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
                                 <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" asp-page="./Evaluation/AddEvaluation" asp-route-id="@watch.Id">Detail</a>
+                                    <a class="btn btn-outline-dark mt-auto" asp-page="./Evaluation/AddEvaluation" asp-route-id="@watch.Id">Check</a>
                                 </div>
                             </div>
                         </div>
@@ -127,8 +189,7 @@
 </section>
 
 
-
-
+<!--Edit evaluation-->
 <div class="modal fade" id="evaluationModal" tabindex="-1" aria-labelledby="evaluationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -151,8 +212,24 @@
                                 <input asp-for="Evaluation.WatchId" class="form-control" id="watchId" readonly />
                             </div>
                             <div class="col-md-6">
+                                <label for="watchId">Status</label>
+                                <input asp-for="Evaluation.Status" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-6">
                                 <label for="evaluationId">Comment</label>
                                 <input asp-for="Evaluation.Comment" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="evaluationId">Rarity</label>
+                                <input asp-for="Evaluation.Rarity" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="evaluationId">Attachments</label>
+                                <input asp-for="Evaluation.Attachments" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="evaluationId">EvaluationType</label>
+                                <input asp-for="Evaluation.EvaluationType" class="form-control" />
                             </div>
                             <div class="col-md-6">
                                 <label for="evaluationId">Rate</label>
@@ -162,7 +239,7 @@
                                 <label for="evaluationId">EstimatePrice</label>
                                 <input asp-for="Evaluation.EstimatePrice" class="form-control" />
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <label>@Model.Message</label>
                             </div>
@@ -198,39 +275,61 @@
             // Reset form khi modal bị ẩn
             $('#frm')[0].reset();
             $('#evaluationModalContent').html(`
-                        <div class="row">
-                                 <div class="col-md-6">
-                                        <label for="evaluationId">ID</label>
-                                        <input type="text" id="Evaluation_Id" name="Evaluation.Id" class="form-control" readonly />
+                                <div class="row">
+                                         <div class="col-md-6">
+                                                <label for="evaluationId">ID</label>
+                                                <input type="text" id="Evaluation_Id" name="Evaluation.Id" class="form-control" readonly />
+                                            </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Watch_ID</label>
+                                        <input type="text" id="Evaluation_WatchId" name="Evaluation.WatchId" class="form-control"  />
                                     </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Watch_ID</label>
-                                <input type="text" id="Evaluation_WatchId" name="Evaluation.WatchId" class="form-control"  />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Comment</label>
-                                <input type="text" id="Evaluation_Comment" name="Evaluation.Comment" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">Rate</label>
-                                <input type="text" id="Evaluation_Rate" name="Evaluation.Rate" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">EstimatePrice</label>
-                                <input type="text" id="Evaluation_EstimatePrice" name="Evaluation.EstimatePrice" class="form-control" />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="evaluationId">CreateDate</label>
-                                <input type="text" id="Evaluation_CreateDate" name="Evaluation.CreateDate" class="form-control" />
-                            </div>
-                            <div class="col-md-12">
-                                <label>@Model.Message</label>
-                            </div>
-                        </div>
-                    `); // Reset content
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Comment</label>
+                                        <input type="text" id="Evaluation_Comment" name="Evaluation.Comment" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">Rate</label>
+                                        <input type="text" id="Evaluation_Rate" name="Evaluation.Rate" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">EstimatePrice</label>
+                                        <input type="text" id="Evaluation_EstimatePrice" name="Evaluation.EstimatePrice" class="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="evaluationId">CreateDate</label>
+                                        <input type="text" id="Evaluation_CreateDate" name="Evaluation.CreateDate" class="form-control" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>@Model.Message</label>
+                                    </div>
+                                </div>
+                            `); // Reset content
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusCells = document.querySelectorAll("td");
+
+            statusCells.forEach(cell => {
+                if (cell.textContent.trim().toLowerCase() === 'FAKE') {
+                    cell.classList.add('FAKE');
+                } else if (cell.textContent.trim().toLowerCase() === 'REAL') {
+                    cell.classList.add('REAL');
+                }
+            });
+        });
+
+        function applyFilters() {
+            var name = document.getElementById('searchName').value;
+            var address = document.getElementById('searchAddress').value;
+            var surfaceType = document.getElementById('searchSurfaceType').value;
+            var type = document.getElementById('searchType').value;
+            var currentPage = 1; // Reset to first page on filter change
+
+            var url = `?currentPage=${currentPage}&searchName=${name}&searchAddress=${address}&searchSurfaceType=${surfaceType}&searchType=${type}`;
+            window.location.href = url;
+        }
 
 
     </script>
 }
-

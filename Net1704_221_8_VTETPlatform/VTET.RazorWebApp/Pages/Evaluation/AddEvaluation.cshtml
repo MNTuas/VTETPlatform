@@ -1,33 +1,82 @@
 ﻿@page
 @model AddEvaluationModel
 @{
-    ViewData["Title"] = "AddEvaluationModel";
+    ViewData["Title"] = "Add Evaluation";
 }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+<style>
+    label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse d-flex justify-content-center align-items-center collapse">
-            <ul class="navbar-nav">
+    .name-fields {
+        display: flex;
+        gap: 10px;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .rating {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+        .rating span {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+            .rating span.selected {
+                color: gold;
+            }
+</style>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Evaluation Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/AddEvaluation">Evaluation</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Order/Index">Order</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetail/Index">OrderDetail</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+
+
             </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                   
+                   
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+
         </div>
     </div>
 </nav>
 
 <div class="text-center">
-    <h1 class="display-6">WATCH DETAIL </h1>
+    <h1 class="display-6">WATCH DETAIL</h1>
 </div>
 
 <div class="row">
@@ -57,42 +106,110 @@
     </div>
 </div>
 
-@* FORM ADD Evaluation *@
-<h2>Add Evaluation</h2>
+<!-- FORM ADD Evaluation -->
+<h2 class="text-center">Add Evaluation</h2>
 
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="form-group">
-                <label asp-for="Evaluations.Comment" class="control-label"></label>
-                <input asp-for="Evaluations.Comment" class="form-control" />
-                <span asp-validation-for="Evaluations.Comment" class="text-danger"></span>
+<div class="container">
+    <form id="feedback-form" asp-page-handler="AddEvaluation" method="post">
+        <div class="mb-3">
+            <label asp-for="Evaluations.WatchId" class="form-label">Watch_ID</label>
+            <input asp-for="Evaluations.WatchId" value="@Model.Watches.Id" class="form-control" readonly />
+            <span asp-validation-for="Evaluations.WatchId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.EvaluationType" class="form-label">EvaluationType</label>
+            <select asp-for="Evaluations.EvaluationType" class="form-select" required>
+                <option value="" disabled selected hidden>EvaluationType</option>
+                <option value="EASY">Easy</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HARD">Hard</option>
+            </select>
+            <span asp-validation-for="Evaluations.EvaluationType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.EstimatePrice" class="form-label">Estimate Price</label>
+            <input asp-for="Evaluations.EstimatePrice" class="form-control" required />
+            <span asp-validation-for="Evaluations.EstimatePrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.Attachments" class="form-label">Attachments</label>
+            <input asp-for="Evaluations.Attachments" class="form-control" />
+            <span asp-validation-for="Evaluations.Attachments" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.Rarity" class="form-label">Rarity</label>
+            <div class="rating" id="rarity-rating" data-bind="Evaluations.Rarity">
+                <span data-value="1">★</span>
+                <span data-value="2">★</span>
+                <span data-value="3">★</span>
+                <span data-value="4">★</span>
+                <span data-value="5">★</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.Rate" class="control-label"></label>
-                <input asp-for="Evaluations.Rate" class="form-control" />
-                <span asp-validation-for="Evaluations.Rate" class="text-danger"></span>
+            <input type="hidden" asp-for="Evaluations.Rarity" />
+            <span asp-validation-for="Evaluations.Rarity" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.Rate" for="instruction-methods">Rate</label>
+            <div class="rating" id="instruction-methods" data-bind="Evaluations.Rate">
+                <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.EstimatePrice" class="control-label"></label>
-                <input asp-for="Evaluations.EstimatePrice" class="form-control" />
-                <span asp-validation-for="Evaluations.EstimatePrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Evaluations.WatchId" class="control-label"></label>
-                <input asp-for="Evaluations.WatchId" class="form-control" readonly value="@Model.Watches.Id" />
-                <span asp-validation-for="Evaluations.WatchId" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-2">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a class="btn btn-success" asp-page="Evaluation">BackToEvaluation</a>
-            </div>
-        </form>
-    </div>
+            <input type="hidden" asp-for="Evaluations.Rate" />
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.Status" class="form-label">Status</label>
+            <select asp-for="Evaluations.Status" class="form-select" required>
+                <option value="" disabled selected hidden>Status</option>
+                <option value="REAL">Real</option>
+                <option value="FAKE">Fake</option>
+            </select>
+            <span asp-validation-for="Evaluations.Status" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Evaluations.Comment" class="form-label">Comment</label>
+            <textarea asp-for="Evaluations.Comment" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Evaluations.Comment" class="text-danger"></span>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a class="btn btn-success" asp-page="./Evaluation">Back to Evaluation</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.rating').forEach(rating => {
+                rating.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'SPAN') {
+                        const value = e.target.getAttribute('data-value');
+                        const inputField = this.nextElementSibling;
+                        inputField.value = value;
+                        this.dataset.rating = value;
+                        this.querySelectorAll('span').forEach(span => {
+                            if (span.getAttribute('data-value') <= value) {
+                                span.classList.add('selected');
+                            } else {
+                                span.classList.remove('selected');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 }
