@@ -1,0 +1,156 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.CustomerPage.IndexModel
+@{
+}
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Header -->
+<header>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="px-4 px-lg-5 container">
+            <a class="navbar-brand" href="/HomePage">Order Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/CustomerPage/Index">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                    </li>
+
+
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+
+
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+<form method="get" class="row">
+    <div class="form-group col-md-2">
+        <label for="searchField">Filter: </label>
+        <select name="searchField" id="searchField" class="form-control">
+            <option value="FullName">FullName</option>
+            <option value="Gender">Gender</option>
+            <option value="Role">Role</option>
+            <option value="Phone">Phone</option>
+            <option value="CreateDate">CreateDate</option>
+            <option value="Email">Email</option>
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="searchTerm">Search: </label>
+        <input type="text" name="searchTerm" id="searchTerm" value="@Request.Query["searchTerm"]" class="form-control" />
+    </div>
+    <div class="form-group col-md-2 align-self-end">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+<div class="my-3 text-end">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</div>
+@if (Model.Customer != null && Model.Customer.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Role)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer[0].Birth)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Customer)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birth)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageIndex == 1 ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Previous</a>
+            </li>
+            @for (var i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Next</a>
+            </li>
+        </ul>
+    </nav>
+}
+else
+{
+    <p>No customer details available.</p>
+}

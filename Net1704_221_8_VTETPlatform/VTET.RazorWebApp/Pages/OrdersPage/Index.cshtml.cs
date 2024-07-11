@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using VTET.Business;
 using VTET.Data.Models;
-using static VTET.Business.CustomerBusiness;
+
 using Models = VTET.Data.Models;
 
 

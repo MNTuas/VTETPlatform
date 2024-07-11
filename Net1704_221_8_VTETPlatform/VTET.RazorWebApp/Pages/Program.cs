@@ -1,6 +1,5 @@
 using VTET.Business;
 using VTET.Data.Models;
-using static VTET.Business.CustomerBusiness;
 
 var builder = WebApplication.CreateBuilder(args);
 
