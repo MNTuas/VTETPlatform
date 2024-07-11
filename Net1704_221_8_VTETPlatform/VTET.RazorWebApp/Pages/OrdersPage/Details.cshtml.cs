@@ -9,7 +9,6 @@ using VTET.Business;
 using VTET.Data.Models;
 using Models = VTET.Data.Models;
 
-using static VTET.Business.CustomerBusiness;
 
 namespace VTET.RazorWebApp.Pages.OrdersPage
 {

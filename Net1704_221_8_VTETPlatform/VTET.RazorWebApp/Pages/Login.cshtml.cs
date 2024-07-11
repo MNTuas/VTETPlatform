@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using VTET.Business;
 using VTET.Common;
 using VTET.Data.Models;
-using static VTET.Business.CustomerBusiness;
 
 namespace VTET.RazorWebApp.Pages
 {

@@ -1,52 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using VTET.Business;
+using VTET.Common;
 using VTET.Data.Models;
 using Models = VTET.Data.Models;
 
-using VTET.Common;
-
-namespace VTET.RazorWebApp.Pages.OrdersPage
+namespace VTET.RazorWebApp.Pages.CustomerPage
 {
     public class EditModel : PageModel
     {
-        private readonly IOrderBusiness _orderBusiness;
         private readonly ICustomerBusiness _customerBusiness;
 
         public EditModel()
         {
-            _orderBusiness = new OrderBusiness();
             _customerBusiness = new customerBusiness();
         }
-
         [BindProperty]
-        public Models.Order Order { get; set; } = default!;
-
+        public Models.Customer Customer { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            var orderResult = _orderBusiness.GetById(id);
-            if (orderResult.Status <= 0 || orderResult.Result.Data == null)
+            var customerResult = _customerBusiness.GetById(id);
+            if (customerResult.Status <= 0 || customerResult.Result.Data == null)
             {
                 return NotFound();
             }
 
-            Order = (Models.Order)orderResult.Result.Data;
+            Customer = (Models.Customer)customerResult.Result.Data;
 
-            var customerResult = await _customerBusiness.GetAll();
-            if (customerResult.Status == Const.SUCCESS_READ_CODE && customerResult.Data is List<Models.Customer> customters)
-            {
-                ViewData["CustomerId"] = new SelectList(customters, "Id", "FullName");
-            }
-            else
-            {
-                ViewData["CustomerId"] = new SelectList(new List<Models.Customer>(), "Id", "FullName");
-            }
 
             return Page();
         }
@@ -60,7 +41,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                 return Page();
             }
 
-            var updateResult = await _orderBusiness.Update(Order);
+            var updateResult = await _customerBusiness.Update(Customer);
             if (updateResult.Status == Const.SUCCESS_UPDATE_CODE)
             {
                 return RedirectToPage("./Index");
@@ -73,9 +54,9 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             }
         }
 
-        private bool OrderExists(int id)
+        private bool CustomerExists(int id)
         {
-            var result = _orderBusiness.GetById(id);
+            var result = _customerBusiness.GetById(id);
             return result.Status > 0 && result.Result.Data != null;
         }
     }

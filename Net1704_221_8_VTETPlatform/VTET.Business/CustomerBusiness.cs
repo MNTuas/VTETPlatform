@@ -10,8 +10,7 @@ using VTET.Data;
 
 namespace VTET.Business
 {
-    public class CustomerBusiness
-    {
+
         public interface ICustomerBusiness
         {
             Task<IBusinessResult> Save(Customer customer);
@@ -174,4 +173,4 @@ namespace VTET.Business
 
         }
     }
-}
+
