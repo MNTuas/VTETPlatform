@@ -9,13 +9,7 @@
     <Grid>
         <Menu Height="30" Name="menu1" Margin="0,0,0,0" VerticalAlignment="Top" BorderThickness="2" FontSize="16" FontWeight="Bold">
             <MenuItem Header="Menu" IsCheckable="False" FontSize="16">
-                <MenuItem Header="Order Detail" IsCheckable="False" FontSize="12" Click="Open_wOrderDetail_Click">
-
-                </MenuItem>
                 
-                <MenuItem Header="Order" IsCheckable="False" FontSize="12" Click="Open_wOrder_Click">
-
-                </MenuItem>
                 <MenuItem Header="Evaluation" IsCheckable="False" FontSize="12" Click="Open_wEvaluation_Click">
 
                 </MenuItem>

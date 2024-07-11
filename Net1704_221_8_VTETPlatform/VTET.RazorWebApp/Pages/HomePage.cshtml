@@ -2,6 +2,7 @@
 @model VTET.RazorWebApp.Pages.HomePageModel
 @{
     var watchs = Model.Watches;
+    var evaluations = Model.Evaluations;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -153,7 +154,8 @@
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
                                             <div class="text-center">
                                                 <a class="btn btn-outline-dark mt-auto" asp-page="/OrdersPage/Create" asp-route-watchId="@watch.Id">Buy</a>
-                                                <a class="btn btn-outline-dark mt-auto" asp-page="./Watch/WatchDetail" asp-route-id="@watch.Id">Detail</a>
+                                                <a class="btn btn-outline-dark mt-auto" asp-page="./Watch/WatchDetail" asp-route-id="@watch.Id" >Detail</a>
+                                               
                                             </div>
                                         </div>
                                     </div>

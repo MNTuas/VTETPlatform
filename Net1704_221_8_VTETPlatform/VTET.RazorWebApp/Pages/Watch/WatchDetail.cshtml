@@ -1,6 +1,7 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.Watch.WatchDetailModel
 @{
+    var evaluations = Model.Evaluations;
 }
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -110,12 +111,14 @@
             </thead>
             <tbody class="tblwatchList">
                 <tr>
-                    <td><input asp-for="Watches.Id" class="form-control" readonly /></td>
+                    
+                    <td><a class="btn-outline-dark mt-auto" asp-page="/watch/test" asp-route-id="@Model.Watches.Id">@Model.Watches.Id</a></td>
+
                     <td><input asp-for="Watches.FullName" class="form-control" readonly /></td>
                     <td><input asp-for="Watches.Price" class="form-control" readonly /></td>
                     <td><input asp-for="Watches.EstimatePrice" class="form-control" readonly /></td>
                     <td><input asp-for="Watches.Condition" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.Location" class="form-control" readonly /></td>
+                    <td><a><input asp-for="Watches.Location" class="form-control" readonly /></a></td>
                 </tr>
             </tbody>
         </table>
@@ -123,7 +126,7 @@
 </div>
 
 
-
+       
 
 @section Scripts {
     @{

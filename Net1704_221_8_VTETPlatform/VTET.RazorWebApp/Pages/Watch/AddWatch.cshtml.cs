@@ -9,20 +9,13 @@ namespace VTET.RazorWebApp.Pages.Watch
     {
         private readonly IWatchBusiness _watchBusiness;
         public string Message { get; set; } = default;
-
         [BindProperty]
         public Models.Watch Watches { get; set; } = new Models.Watch();
-
+        //add watch
         public AddWatchModel(IWatchBusiness watchBusiness)
         {
-            _watchBusiness = watchBusiness;
+            _watchBusiness ??= watchBusiness;
         }
-
-        public void OnGet()
-        {
-            // Initialization or other logic for GET requests
-        }
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -33,7 +26,6 @@ namespace VTET.RazorWebApp.Pages.Watch
             await SaveWatch();
             return RedirectToPage("/HomePage");
         }
-
         private async Task SaveWatch()
         {
             var watchResult = await _watchBusiness.Save(Watches);
@@ -48,6 +40,4 @@ namespace VTET.RazorWebApp.Pages.Watch
             }
         }
     }
-
-
 }

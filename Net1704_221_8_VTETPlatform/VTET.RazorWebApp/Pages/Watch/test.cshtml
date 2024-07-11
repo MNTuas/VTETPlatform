@@ -1,0 +1,105 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.Watch.testModel
+@{
+    var evaluations = Model.Evaluations;
+}
+
+<style>
+    .FAKE {
+        color: red;
+    }
+
+    .REAL {
+        color: green;
+    }
+</style>
+
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="HomePage">Evaluation Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+
+
+            </ul>
+            
+
+        </div>
+    </div>
+</nav>
+
+<div class="col-md-12">
+
+    <table class="table-striped table-bordered table-hover table">
+        <thead>
+            <tr class="card-header">
+                <th class="card-title text-center">WatchId</th>
+                <th class="card-title text-center">Status</th>
+                <th class="card-title text-center">Rate</th>
+                <th class="card-title text-center">EstimateType</th>
+                <th class="card-title text-center">EstimatePrice</th>
+                <th class="card-title text-center">Comment</th>
+
+            </tr>
+        </thead>
+        <tbody class="tblevaluationList">
+            @if (evaluations != null && evaluations.Count > 0)
+            {
+                foreach (var evaluation in evaluations)
+                {
+                    <tr>
+                        <td>@evaluation.WatchId</td>
+                        <td class="@evaluation.Status">@evaluation.Status</td>
+                        <td>@evaluation.Rate ★</td>
+                        <td>@evaluation.EvaluationType</td>
+                        <td>@evaluation.EstimatePrice</td>
+                        <td>@evaluation.Comment</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No evaluation available for this Watch.</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+</div>
+
+@section scripts
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusCells = document.querySelectorAll("td");
+
+            statusCells.forEach(cell => {
+                if (cell.textContent.trim().toLowerCase() === 'FAKE') {
+                    cell.classList.add('FAKE');
+                } else if (cell.textContent.trim().toLowerCase() === 'REAL') {
+                    cell.classList.add('REAL');
+                }
+            });
+        });
+    </script>
+}
