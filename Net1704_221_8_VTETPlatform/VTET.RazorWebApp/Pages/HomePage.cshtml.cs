@@ -14,6 +14,7 @@ namespace VTET.RazorWebApp.Pages
         [BindProperty]
         public Models.Watch Watch { get; set; } = default;
         public List<Models.Watch> Watches { get; set; } = new List<Models.Watch>();
+        public List<Models.Evaluation> Evaluations { get; set; } = new List<Models.Evaluation>();
         public int CurrentPage { get; set; } = 1;
         public int PageSize { get; set; } = 10; // Number of records per page
         public int TotalPages { get; set; }
@@ -30,19 +31,16 @@ namespace VTET.RazorWebApp.Pages
             Watches = await GetWatchAsync(currentPage, SearchFullName, SearchType, SearchPrice, SearchBrand);
             
         }
-
         public async Task<IActionResult> OnPostAsync()
         {
             await this.SaveWatch();
             return RedirectToPage("./Watch");
         }
-
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             await this.DeleteWatch(id);
             return RedirectToPage("./Watch");
         }
-
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (ModelState.IsValid)
@@ -119,7 +117,6 @@ namespace VTET.RazorWebApp.Pages
                 return new List<Models.Watch>();
             }
         }
-
         public async Task<IActionResult> OnGetEditAsync(int id)
         {
             var watchResult = _watchBusiness.GetById(id);

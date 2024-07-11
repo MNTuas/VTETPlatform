@@ -28,8 +28,6 @@ namespace VTET.RazorWebApp.Pages
         public int TotalPages { get; set; }
 
         //
-
-
         [BindProperty]
         public string SearchComment { get; set; } = string.Empty;
         [BindProperty]
@@ -51,8 +49,7 @@ namespace VTET.RazorWebApp.Pages
             Watchs = GetWatch();
         }
 
-        
-
+       
         //update evaluation
         public async Task<IActionResult> OnPostEditAsync()
         {
@@ -203,7 +200,5 @@ namespace VTET.RazorWebApp.Pages
             }
             return Page();
         }
-        
-
     }
 }

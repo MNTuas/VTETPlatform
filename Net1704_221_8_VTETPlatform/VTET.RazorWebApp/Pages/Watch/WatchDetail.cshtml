@@ -1,66 +1,99 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.Watch.WatchDetailModel
 @{
+    var evaluations = Model.Evaluations;
 }
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-    }
+    
 
-    .container {
-        margin-top: 20px;
-        max-width: 1200px;
-    }
-
-    .main-image {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    .thumbnail-images img {
-        width: 100px;
-        height: 70px;
-        margin-right: 10px;
-        border-radius: 5px;
-    }
-
-    .overview, .details, .locations {
-        background-color: white;
+    .product-container {
+        display: flex;
+        background: white;
         padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
         border-radius: 10px;
-        margin-bottom: 20px;
+        max-width: 800px;
+        margin-left: 350px;
     }
 
-        .details i {
-            margin-right: 10px;
-        }
+    .image-container {
+        flex: 1;
+    }
 
-        .details .badge {
-            background-color: #e7f7e9;
-            color: #4caf50;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        .locations iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
+        .image-container img {
+            max-width: 100%;
             border-radius: 10px;
         }
 
-    .price {
-        background-color: #4caf50;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 18px;
-        float: right;
+    .product-details {
+        flex: 2;
+        padding-left: 20px;
     }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+
+    .price {
+        font-size: 20px;
+        color: red;
+        margin: 10px 0;
+    }
+
+    .description {
+        font-size: 16px;
+        color: #333;
+        margin: 20px 0;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+        button:hover {
+            background-color: #ff4500;
+        }
+
+    .categories {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .share {
+        margin-top: 20px;
+    }
+
+        .share p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .share a {
+            margin-right: 10px;
+        }
+
+        .share img {
+            width: 24px;
+            height: 24px;
+        }
+
 </style>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -95,38 +128,27 @@
     <h1 class="display-6">WATCH DETAIL </h1>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <table class="table-striped table-bordered table-hover table">
-            <thead>
-                <tr class="card-header">
-                    <th class="card-title text-center">WatchId</th>
-                    <th class="card-title text-center">FullName</th>
-                    <th class="card-title text-center">Price</th>
-                    <th class="card-title text-center">EstimatePrice</th>
-                    <th class="card-title text-center">Condition</th>
-                    <th class="card-title text-center">Location</th>
-                </tr>
-            </thead>
-            <tbody class="tblwatchList">
-                <tr>
-                    <td><input asp-for="Watches.Id" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.FullName" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.Price" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.EstimatePrice" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.Condition" class="form-control" readonly /></td>
-                    <td><input asp-for="Watches.Location" class="form-control" readonly /></td>
-                </tr>
-            </tbody>
-        </table>
+<div class="product-container">
+    <div class="image-container">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81-Fm8omZjL.jpg" alt="Green Apple">
+    </div>
+    <div class="product-details">
+        <h1>Full Name: @Model.Watches.FullName</h1>
+        <p class="price">Condition: @Model.Watches.Condition★</p>
+        <p class="price">@Model.Watches.Price - @Model.Watches.EstimatePrice </p>
+        <p class="description">Type: @Model.Watches.Type - Brand: @Model.Watches.Brand</p>
+        
+        <button><a class="btn-outline-dark mt-auto" asp-page="/watch/test" asp-route-id="@Model.Watches.Id">Check</a></button>
+        <p class="categories">Location:  @Model.Watches.Location - Date: @Model.Watches.CreateDate </p>
+        
     </div>
 </div>
 
-
-
+       
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+<td><a class="btn-outline-dark mt-auto" asp-page="/watch/test" asp-route-id="@Model.Watches.Id">@Model.Watches.Id</a></td>

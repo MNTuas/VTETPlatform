@@ -14,9 +14,8 @@ namespace VTET.RazorWebApp.Pages.Evaluation
         public string Message { get; set; }
         public DetailEvaluationModel(IEvaluationBusiness evaluationBusiness)
         {
-            _evaluationBusiness = evaluationBusiness;
+            _evaluationBusiness ??= evaluationBusiness;
         }
-
         public async Task<IActionResult> OnGetEvaluationDetailAsync(int id)
         {
             var evaluationResult = _evaluationBusiness.GetByIdAsync(id);

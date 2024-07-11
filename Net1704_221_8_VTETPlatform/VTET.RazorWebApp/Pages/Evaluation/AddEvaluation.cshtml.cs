@@ -11,16 +11,14 @@ namespace VTET.RazorWebApp.Pages.Evaluation
         private readonly IEvaluationBusiness _evaluationBusiness;
         private readonly IWatchBusiness _watchBusiness;
         public string Message { get; set; } = default;
-        public AddEvaluationModel(IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
-        {
-
-            _evaluationBusiness = evaluationBusiness;
-            _watchBusiness = watchBusiness;
-        }
-
         public Models.Watch Watches { get; set; }
         [BindProperty]
         public Models.Evaluation Evaluations { get; set; }
+        public AddEvaluationModel(IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
+        {
+            _evaluationBusiness ??= evaluationBusiness;
+            _watchBusiness ??= watchBusiness;
+        }    
         //watch detail here
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -34,7 +32,7 @@ namespace VTET.RazorWebApp.Pages.Evaluation
 
             return Page();
         }
-
+        
         //add evaluation
         public async Task<IActionResult> OnPostAsync()
         {
