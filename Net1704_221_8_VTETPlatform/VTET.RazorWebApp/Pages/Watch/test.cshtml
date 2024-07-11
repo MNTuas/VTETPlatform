@@ -50,13 +50,14 @@
 
     <table class="table-striped table-bordered table-hover table">
         <thead>
-            <tr class="card-header">
-                <th class="card-title text-center">WatchId</th>
+            <tr class="card-header">                
                 <th class="card-title text-center">Status</th>
                 <th class="card-title text-center">Rate</th>
+                <th class="card-title text-center">Rarity</th>
                 <th class="card-title text-center">EstimateType</th>
                 <th class="card-title text-center">EstimatePrice</th>
                 <th class="card-title text-center">Comment</th>
+                <th class="card-title text-center">CreateDate</th>
 
             </tr>
         </thead>
@@ -65,13 +66,14 @@
             {
                 foreach (var evaluation in evaluations)
                 {
-                    <tr>
-                        <td>@evaluation.WatchId</td>
+                    <tr>                       
                         <td class="@evaluation.Status">@evaluation.Status</td>
                         <td>@evaluation.Rate ★</td>
+                        <td>@evaluation.Rarity ★</td>
                         <td>@evaluation.EvaluationType</td>
                         <td>@evaluation.EstimatePrice</td>
                         <td>@evaluation.Comment</td>
+                        <td>@evaluation.CreateDate</td>
                     </tr>
                 }
             }
