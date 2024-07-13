@@ -12,9 +12,9 @@ namespace VTET.RazorWebApp.Pages.Watch
         [BindProperty]
         public Models.Watch Watches { get; set; } = new Models.Watch();
         //add watch
-        public AddWatchModel(IWatchBusiness watchBusiness)
+        public AddWatchModel()
         {
-            _watchBusiness ??= watchBusiness;
+            _watchBusiness ??= new watchBusiness();
         }
         public async Task<IActionResult> OnPostAsync()
         {

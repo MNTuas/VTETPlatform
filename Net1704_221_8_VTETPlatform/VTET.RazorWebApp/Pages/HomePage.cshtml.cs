@@ -81,7 +81,6 @@ namespace VTET.RazorWebApp.Pages
                         (c.Type?.ToLower().StartsWith(SearchType.ToLower()) ?? false) ||
                         (c.Type?.ToLower().Contains(" " + SearchType.ToLower()) ?? false)
                     ).ToList();
-
                 }
                 if (!string.IsNullOrEmpty(SearchPrice) && int.TryParse(SearchPrice, out int SearchRateInt))
                 {
@@ -95,11 +94,7 @@ namespace VTET.RazorWebApp.Pages
                     ).ToList();
 
                 }
-
-
-
                 int PageSize = 8; // Số mục tối đa trên mỗi trang
-
                 // Đếm tổng số mục
                 int totalCount = watches.Count;
                 TotalPages = (int)System.Math.Ceiling(totalCount / (double)PageSize);

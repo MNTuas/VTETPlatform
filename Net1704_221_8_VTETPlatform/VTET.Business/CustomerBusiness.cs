@@ -10,7 +10,6 @@ using VTET.Data;
 
 namespace VTET.Business
 {
-
         public interface ICustomerBusiness
         {
             Task<IBusinessResult> Save(Customer customer);
@@ -34,8 +33,6 @@ namespace VTET.Business
             {
                 try
                 {
-
-
                     int result = await _unitOfWork.CustomerRepository.CreateAsync(customer);
 
                     if (result > 0)

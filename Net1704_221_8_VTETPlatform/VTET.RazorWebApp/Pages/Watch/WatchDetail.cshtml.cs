@@ -12,12 +12,11 @@ namespace VTET.RazorWebApp.Pages.Watch
         public Models.Watch Watches { get; set; }
         [BindProperty]
         public Models.Evaluation Evaluations { get; set; }
-        public WatchDetailModel(IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
+        public WatchDetailModel()
         {
-            _evaluationBusiness ??= evaluationBusiness;
-            _watchBusiness ??= watchBusiness;
+            _evaluationBusiness ??= new evaluationBusiness();
+            _watchBusiness ??= new watchBusiness();
         }
-
         //watch detail here
         public async Task<IActionResult> OnGetAsync(int id)
         {

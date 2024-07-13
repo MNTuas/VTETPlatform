@@ -46,17 +46,16 @@ namespace VTET.RazorWebApp.Pages
         {
             Evaluations = await GetEvaluationAsync(currentPage, SearchComment, SearchStatus, SearchRate, SearchEvaluationType);
             Fullname = HttpContext.Session.GetString("email");
-            Watchs = GetWatch();
+            Watchs = GetWatch(); // Assuming GetWatch() returns something compatible with Watchs
         }
 
-       
+
+
         //update evaluation
         public async Task<IActionResult> OnPostEditAsync()
-        {
-           
-                await UpdateEvaluation();
-                return RedirectToPage("./Evaluation");
-            
+        {           
+            await UpdateEvaluation();
+            return RedirectToPage("./Evaluation");           
         }
         private async Task UpdateEvaluation()
         {
@@ -92,74 +91,62 @@ namespace VTET.RazorWebApp.Pages
         }
 
         //Evaluation here
-        private async Task<List<Models.Evaluation>> GetEvaluationAsync(int currentPage = 1, string SearchComment = "", string SearchStatus = "", string SearchRate = "", string SearchEvaluationType = "")
+        //dùng task list để trả về vì đang dùng async
+        public async Task<List<Models.Evaluation>> GetEvaluationAsync(int currentPage = 1, string searchComment = "", string searchStatus = "", string searchRate = "", string searchEvaluationType = "")
         {
             CurrentPage = currentPage;
-            SearchComment = SearchComment;
-            SearchStatus = SearchStatus;
-            SearchRate = SearchRate;
-            SearchEvaluationType = SearchEvaluationType;
+            SearchComment = searchComment;
+            SearchStatus = searchStatus;
+            SearchRate = searchRate;
+            SearchEvaluationType = searchEvaluationType;
 
             var evaluationResult = await _evaluationBusiness.GetAll();
-            if (evaluationResult == null)
-            {
-                // Handle the case where evaluationResult is null
-                throw new InvalidOperationException("Evaluation result cannot be null.");
-            }
-
             if (evaluationResult.Status > 0 && evaluationResult.Data != null)
             {
+                //ép kiểu về list giả định evaluation chưa list
                 var evaluations = (List<Models.Evaluation>)evaluationResult.Data;
+
+                // Filter evaluations based on search criteria
                 if (!string.IsNullOrEmpty(SearchComment))
                 {
                     evaluations = evaluations.Where(c =>
-                        (c.Comment?.ToLower().StartsWith(SearchComment.ToLower()) ?? false) ||
-                        (c.Comment?.ToLower().Contains(" " + SearchComment.ToLower()) ?? false)
+                        (c.Comment?.ToLower().Contains(SearchComment.ToLower()) ?? false)
                     ).ToList();
-
                 }
                 if (!string.IsNullOrEmpty(SearchStatus))
                 {
                     evaluations = evaluations.Where(c =>
-                        (c.Status?.ToLower().StartsWith(SearchStatus.ToLower()) ?? false) ||
-                        (c.Status?.ToLower().Contains(" " + SearchStatus.ToLower()) ?? false)
+                        (c.Status?.ToLower().Contains(SearchStatus.ToLower()) ?? false)
                     ).ToList();
-
                 }
-                if (!string.IsNullOrEmpty(SearchRate) && int.TryParse(SearchRate, out int SearchRateInt))
+                if (!string.IsNullOrEmpty(SearchRate) && int.TryParse(SearchRate, out int searchRateInt))
                 {
-                    evaluations = evaluations.Where(c => c.Rate == SearchRateInt).ToList();
+                    evaluations = evaluations.Where(c => c.Rate == searchRateInt).ToList();
                 }
-
                 if (!string.IsNullOrEmpty(SearchEvaluationType))
                 {
                     evaluations = evaluations.Where(c =>
-                        (c.EvaluationType?.ToLower().StartsWith(SearchEvaluationType.ToLower()) ?? false) ||
-                        (c.EvaluationType?.ToLower().Contains(" " + SearchEvaluationType.ToLower()) ?? false)
+                        (c.EvaluationType?.ToLower().Contains(SearchEvaluationType.ToLower()) ?? false)
                     ).ToList();
-
                 }
 
-
-                int PageSize = 4; // Số mục tối đa trên mỗi trang
-
-                // Đếm tổng số mục
+                // Pagination
+                int pageSize = 4; // Number of items per page
                 int totalCount = evaluations.Count;
-                TotalPages = (int)System.Math.Ceiling(totalCount / (double)PageSize);
+                TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
 
                 evaluations = evaluations
-                    .Skip((CurrentPage - 1) * PageSize)
-                    .Take(PageSize)
+                    .Skip((CurrentPage - 1) * pageSize)
+                    .Take(pageSize)
                     .ToList();
-
                 return evaluations;
             }
             else
             {
-                // Handle the case where evaluationResult.Data is null or Status <= 0
-                return new List<Models.Evaluation>();
+                throw new InvalidOperationException("Evaluation result cannot be null.");
             }
         }
+
         public async Task<IActionResult> OnGetEditAsync(int id)
         {
             var evaluationResult = _evaluationBusiness.GetById(id);
