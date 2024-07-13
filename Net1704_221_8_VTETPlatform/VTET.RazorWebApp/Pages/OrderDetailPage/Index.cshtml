@@ -46,25 +46,45 @@
 </header>
 
 
-<form method="get" class="row">
-    <div class="form-group col-md-4">
-        <label for="searchField">Search Field</label>
-        <select name="searchField" id="searchField" class="form-control">
-            <option value="OrderFullName">Order Full Name</option>
-            <option value="WatchFullName">Watch Full Name</option>
-            <option value="Amount">Amount</option>
-            <option value="Price">Price</option>
-            <option value="ShipmentDate">Shipment Date</option>
-        </select>
-    </div>
-    <div class="form-group col-md-6">
-        <label for="searchTerm">Search Term</label>
-        <input type="text" name="searchTerm" id="searchTerm" value="@Request.Query["searchTerm"]" class="form-control" />
+<form method="get">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="orderFullNameSearch">Order Full Name</label>
+            <input type="text" name="orderFullNameSearch" id="orderFullNameSearch" value="@Request.Query["orderFullNameSearch"]" class="form-control" />
+        </div>
+        <div class="form-group col-md-3">
+            <label for="watchFullNameSearch">Watch Full Name</label>
+            <input type="text" name="watchFullNameSearch" id="watchFullNameSearch" value="@Request.Query["watchFullNameSearch"]" class="form-control" />
+        </div>
+        <div class="form-group col-md-2">
+            <label for="amountSearch">Amount</label>
+            <input type="text" name="amountSearch" id="amountSearch" value="@Request.Query["amountSearch"]" class="form-control" />
+        </div>
+        <div class="form-group col-md-2">
+            <label for="priceSearch">Price</label>
+            <input type="text" name="priceSearch" id="priceSearch" value="@Request.Query["priceSearch"]" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="discountSearch">Discount</label>
+            <input type="text" name="discountSearch" id="discountSearch" value="@Request.Query["discountSearch"]" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="shipmentDateSearch">Shipment Date</label>
+            <input type="date" name="shipmentDateSearch" id="shipmentDateSearch" value="@Model.ShipmentDateSearch?.ToString("yyyy-MM-dd")" class="form-control" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="estimatedDeliveryDateSearch">Estimated Delivery Date</label>
+            <input type="date" name="estimatedDeliveryDateSearch" id="estimatedDeliveryDateSearch" value="@Model.EstimatedDeliveryDateSearch?.ToString("yyyy-MM-dd")" class="form-control" />
+        </div>
+
     </div>
     <div class="form-group col-md-2 align-self-end">
         <button type="submit" class="btn btn-primary">Search</button>
     </div>
 </form>
+
 
 <div class="my-3 text-end">
     <a asp-page="Create" class="btn btn-success">Create New</a>
@@ -155,21 +175,101 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item @(Model.PageIndex == 1 ? "disabled" : "")">
-                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Previous</a>
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex - 1)"
+                   asp-route-orderFullNameSearch="@Model.OrderFullNameSearch"
+                   asp-route-watchFullNameSearch="@Model.WatchFullNameSearch"
+                   asp-route-amountSearch="@Model.AmountSearch"
+                   asp-route-priceSearch="@Model.PriceSearch"
+                   asp-route-discountSearch="@Model.DiscountSearch"
+                   asp-route-shipmentDateSearch="@Model.ShipmentDateSearch?.ToString("yyyy-MM-dd")"
+                   asp-route-estimatedDeliveryDateSearch="@Model.EstimatedDeliveryDateSearch?.ToString("yyyy-MM-dd")">Previous</a>
             </li>
             @for (var i = 1; i <= Model.TotalPages; i++)
             {
                 <li class="page-item @(i == Model.PageIndex ? "active" : "")">
-                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">@i</a>
+                    <a class="page-link" asp-page="./Index" asp-route-pageIndex="@i"
+                       asp-route-orderFullNameSearch="@Model.OrderFullNameSearch"
+                       asp-route-watchFullNameSearch="@Model.WatchFullNameSearch"
+                       asp-route-amountSearch="@Model.AmountSearch"
+                       asp-route-priceSearch="@Model.PriceSearch"
+                       asp-route-discountSearch="@Model.DiscountSearch"
+                       asp-route-shipmentDateSearch="@Model.ShipmentDateSearch?.ToString("yyyy-MM-dd")"
+                       asp-route-estimatedDeliveryDateSearch="@Model.EstimatedDeliveryDateSearch?.ToString("yyyy-MM-dd")">@i</a>
                 </li>
             }
             <li class="page-item @(Model.PageIndex >= Model.TotalPages ? "disabled" : "")">
-                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-searchField="@Model.SearchField" asp-route-searchTerm="@Model.SearchTerm">Next</a>
+                <a class="page-link" asp-page="./Index" asp-route-pageIndex="@(Model.PageIndex + 1)"
+                   asp-route-orderFullNameSearch="@Model.OrderFullNameSearch"
+                   asp-route-watchFullNameSearch="@Model.WatchFullNameSearch"
+                   asp-route-amountSearch="@Model.AmountSearch"
+                   asp-route-priceSearch="@Model.PriceSearch"
+                   asp-route-discountSearch="@Model.DiscountSearch"
+                   asp-route-shipmentDateSearch="@Model.ShipmentDateSearch?.ToString("yyyy-MM-dd")"
+                   asp-route-estimatedDeliveryDateSearch="@Model.EstimatedDeliveryDateSearch?.ToString("yyyy-MM-dd")">Next</a>
             </li>
         </ul>
     </nav>
+
+
+
 }
 else
 {
-    <p>No order details available.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Order)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Watch)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Discount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].Tax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].ShippingCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].ShipmentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDetail[0].EstimatedDeliveryDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetail)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Price</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Order?.FullName</td>
+                    <td>@item.Watch?.FullName</td>
+                    <td>@item.Discount</td>
+                    <td>@item.Tax</td>
+                    <td>@item.ShippingCost</td>
+                    <td>@item.ShipmentDate</td>
+                    <td>@item.EstimatedDeliveryDate</td>
+                    <td>
+                        <!-- Add any action buttons here -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
