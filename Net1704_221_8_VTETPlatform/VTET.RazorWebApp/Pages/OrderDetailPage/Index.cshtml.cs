@@ -27,10 +27,25 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
         public int PageIndex { get; set; } = 1;
 
         [BindProperty(SupportsGet = true)]
-        public string SearchField { get; set; }
+        public string OrderFullNameSearch { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string SearchTerm { get; set; }
+        public string WatchFullNameSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int? AmountSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public decimal? PriceSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public decimal? DiscountSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? ShipmentDateSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? EstimatedDeliveryDateSearch { get; set; }
 
         public int PageSize { get; set; } = 10;
         public IList<Models.OrderDetail> OrderDetail { get; set; } = default!;
@@ -65,26 +80,39 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(SearchTerm) && !string.IsNullOrEmpty(SearchField))
+                    if (!string.IsNullOrEmpty(OrderFullNameSearch))
                     {
-                        switch (SearchField)
-                        {
-                            case "OrderFullName":
-                                OrderDetail = OrderDetail.Where(od => od.Order != null && od.Order.FullName != null && od.Order.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "WatchFullName":
-                                OrderDetail = OrderDetail.Where(od => od.Watch != null && od.Watch.FullName != null && od.Watch.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Amount":
-                                OrderDetail = OrderDetail.Where(od => od.Amount.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Price":
-                                OrderDetail = OrderDetail.Where(od => od.Price.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "ShipmentDate":
-                                OrderDetail = OrderDetail.Where(od => od.ShipmentDate.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                        }
+                        OrderDetail = OrderDetail.Where(od => od.Order != null && od.Order.FullName != null && od.Order.FullName.ToLower().Contains(OrderFullNameSearch.ToLower())).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(WatchFullNameSearch))
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.Watch != null && od.Watch.FullName != null && od.Watch.FullName.ToLower().Contains(WatchFullNameSearch.ToLower())).ToList();
+                    }
+
+                    if (AmountSearch.HasValue)
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.Amount == AmountSearch.Value).ToList();
+                    }
+
+                    if (PriceSearch.HasValue)
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.Price == PriceSearch.Value).ToList();
+                    }
+
+                    if (DiscountSearch.HasValue)
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.Discount == DiscountSearch.Value).ToList();
+                    }
+
+                    if (ShipmentDateSearch.HasValue)
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.ShipmentDate.HasValue && od.ShipmentDate.Value.Date == ShipmentDateSearch.Value.Date).ToList();
+                    }
+
+                    if (EstimatedDeliveryDateSearch.HasValue)
+                    {
+                        OrderDetail = OrderDetail.Where(od => od.EstimatedDeliveryDate.HasValue && od.EstimatedDeliveryDate.Value.Date == EstimatedDeliveryDateSearch.Value.Date).ToList();
                     }
 
                     TotalPages = (int)Math.Ceiling(OrderDetail.Count / (double)PageSize);
@@ -95,5 +123,7 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
                 }
             }
         }
+
+
     }
 }
