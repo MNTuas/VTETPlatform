@@ -6,15 +6,13 @@ namespace VTET.RazorWebApp.Pages.Evaluation
 {
     public class DetailEvaluationModel : PageModel
     {
-        private readonly IEvaluationBusiness _evaluationBusiness = new evaluationBusiness();
-
+        private readonly IEvaluationBusiness _evaluationBusiness ;
         [BindProperty]
         public Models.Evaluation Evaluation { get; set; }
-
         public string Message { get; set; }
-        public DetailEvaluationModel(IEvaluationBusiness evaluationBusiness)
+        public DetailEvaluationModel()
         {
-            _evaluationBusiness ??= evaluationBusiness;
+           _evaluationBusiness ??= new evaluationBusiness();
         }
         public async Task<IActionResult> OnGetEvaluationDetailAsync(int id)
         {
@@ -25,7 +23,6 @@ namespace VTET.RazorWebApp.Pages.Evaluation
             }
             return Page();
         }
-
     }
 }
 

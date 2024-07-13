@@ -97,10 +97,6 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
 
                 }
             }
-
-            
-           
-
             return RedirectToPage("./Index");
         }
     }

@@ -14,10 +14,10 @@ namespace VTET.RazorWebApp.Pages.Evaluation
         public Models.Watch Watches { get; set; }
         [BindProperty]
         public Models.Evaluation Evaluations { get; set; }
-        public AddEvaluationModel(IEvaluationBusiness evaluationBusiness, IWatchBusiness watchBusiness)
+        public AddEvaluationModel()
         {
-            _evaluationBusiness ??= evaluationBusiness;
-            _watchBusiness ??= watchBusiness;
+            _evaluationBusiness ??= new evaluationBusiness();
+            _watchBusiness ??= new watchBusiness();
         }    
         //watch detail here
         public async Task<IActionResult> OnGetAsync(int id)
@@ -31,8 +31,7 @@ namespace VTET.RazorWebApp.Pages.Evaluation
             Watches = watchResult.Data as Models.Watch;
 
             return Page();
-        }
-        
+        }       
         //add evaluation
         public async Task<IActionResult> OnPostAsync()
         {
@@ -49,8 +48,6 @@ namespace VTET.RazorWebApp.Pages.Evaluation
         }
         private async Task SaveEvaluation()
         {
-
-
             // Assuming the Save method accepts email as an additional parameter
             var evaluationResult = await _evaluationBusiness.Save(Evaluations);
 

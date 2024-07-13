@@ -9,11 +9,10 @@ namespace VTET.RazorWebApp.Pages.Watch
         private readonly IEvaluationBusiness _evaluationBusiness;
         [BindProperty]
         public List<Models.Evaluation> Evaluations { get; set; } = new List<Models.Evaluation>();
-        public testModel(IEvaluationBusiness evaluationBusiness)
+        public testModel()
         {
-           _evaluationBusiness ??= evaluationBusiness;
+           _evaluationBusiness ??= new evaluationBusiness();
         }
-
         public async Task OnGetAsync(int id)
         {
             Evaluations = GetEvaluation(id);

@@ -1,4 +1,4 @@
-using VTET.Business;
+﻿using VTET.Business;
 using VTET.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//Khởi tạo chuong trình trang login
 builder.Services.AddMvc().AddRazorPagesOptions(options =>
 {
     options.Conventions.AddPageRoute("/Login", "");
