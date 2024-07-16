@@ -251,25 +251,6 @@ else
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var item in Model.OrderDetail)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Price</td>
-                    <td>@item.Amount</td>
-                    <td>@item.Order?.FullName</td>
-                    <td>@item.Watch?.FullName</td>
-                    <td>@item.Discount</td>
-                    <td>@item.Tax</td>
-                    <td>@item.ShippingCost</td>
-                    <td>@item.ShipmentDate</td>
-                    <td>@item.EstimatedDeliveryDate</td>
-                    <td>
-                        <!-- Add any action buttons here -->
-                    </td>
-                </tr>
-            }
-        </tbody>
+      
     </table>
 }
