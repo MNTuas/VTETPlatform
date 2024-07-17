@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VTET.Data.Models;
 
@@ -9,22 +10,36 @@ public partial class OrderDetail
 {
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Watch ID is required.")]
     public int? WatchId { get; set; }
 
+    [Required(ErrorMessage = "Order ID is required.")]
     public int? OrderId { get; set; }
 
+    [Required(ErrorMessage = "Price is required.")]
+    [Range(0, double.MaxValue, ErrorMessage = "Price must be greater than or equal to 0.")]
     public decimal? Price { get; set; }
 
+    [Required(ErrorMessage = "Amount is required.")]
+    [Range(0, int.MaxValue, ErrorMessage = "Amount must be greater than or equal to 0.")]
     public int? Amount { get; set; }
 
+    [Required(ErrorMessage = "Discount is required.")]
+    [Range(0, double.MaxValue, ErrorMessage = "Discount must be greater than or equal to 0.")]
     public decimal? Discount { get; set; }
 
+    [Required(ErrorMessage = "Tax is required.")]
+    [Range(0, double.MaxValue, ErrorMessage = "Tax must be greater than or equal to 0.")]
     public decimal? Tax { get; set; }
 
+    [Required(ErrorMessage = "Shipping cost is required.")]
+    [Range(0, double.MaxValue, ErrorMessage = "Shipping cost must be greater than or equal to 0.")]
     public decimal? ShippingCost { get; set; }
 
+    [Required(ErrorMessage = "Shipment date is required.")]
     public DateTime? ShipmentDate { get; set; }
 
+    [Required(ErrorMessage = "Estimated delivery date is required.")]
     public DateTime? EstimatedDeliveryDate { get; set; }
 
     public virtual Order Order { get; set; }
