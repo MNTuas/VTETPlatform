@@ -10,7 +10,6 @@ using VTET.Data.Models;
 
 using Models = VTET.Data.Models;
 
-
 namespace VTET.RazorWebApp.Pages.OrdersPage
 {
     public class IndexModel : PageModel
@@ -28,12 +27,33 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
         public int PageIndex { get; set; } = 1;
 
         [BindProperty(SupportsGet = true)]
-        public string SearchField { get; set; }
+        public string OrderEmailSearch { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string SearchTerm { get; set; }
+        public string OrderFullNameSearch { get; set; }
 
-        public int PageSize { get; set; } = 10;
+        [BindProperty(SupportsGet = true)]
+        public string CustomerFullNameSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string PhoneNumberSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public decimal? TotalPriceSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? DateSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string AddressSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string NotesSearch { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string PaymentMethodSearch { get; set; }
+
+        public int PageSize { get; set; } = 5;
         public IList<Models.Order> Order { get; set; } = default!;
         public int TotalPages { get; set; }
 
@@ -52,55 +72,62 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                             var customerResult = await _customerBusiness.GetById(item.CustomerId.Value);
                             if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
                             {
-
                                 item.Customer = customerResult.Data as Models.Customer;
-
                             }
                         }
                     }
-                    if (!string.IsNullOrEmpty(SearchTerm) && !string.IsNullOrEmpty(SearchField))
+
+                    if (!string.IsNullOrEmpty(OrderEmailSearch))
                     {
-                        switch (SearchField)
-                        {
-                            case "OrderEmail":
-                                Order = Order.Where(od => od.Email != null && od.Email != null && od.Email.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "OrderFullName":
-                                Order = Order.Where(od => od.FullName != null && od.FullName != null && od.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Customer":
-                                Order = Order.Where(od => od.Customer != null && !string.IsNullOrEmpty(od.Customer.FullName) && od.Customer.FullName.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Amount":
-                                Order = Order.Where(od => od.PhoneNumber != null && od.PhoneNumber.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Price":
-                                Order = Order.Where(od => od.TotalPrice != null && od.TotalPrice.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                           
-                            case "Date":
-                                Order = Order.Where(od => od.Date != null && od.Date.ToString().ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Address":
-                                Order = Order.Where(od => od.Address != null && od.Address != null && od.Address.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "Notes":
-                                Order = Order.Where(od => od.Notes != null && od.Notes != null && od.Notes.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                            case "PaymentMethod":
-                                Order = Order.Where(od => od.PaymentMethod != null && od.PaymentMethod != null && od.PaymentMethod.ToLower().Contains(SearchTerm.ToLower())).ToList();
-                                break;
-                        }
+                        Order = Order.Where(o => o.Email != null && o.Email.ToLower().Contains(OrderEmailSearch.ToLower())).ToList();
                     }
+
+                    if (!string.IsNullOrEmpty(OrderFullNameSearch))
+                    {
+                        Order = Order.Where(o => o.FullName != null && o.FullName.ToLower().Contains(OrderFullNameSearch.ToLower())).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(CustomerFullNameSearch))
+                    {
+                        Order = Order.Where(o => o.Customer != null && o.Customer.FullName != null && o.Customer.FullName.ToLower().Contains(CustomerFullNameSearch.ToLower())).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(PhoneNumberSearch))
+                    {
+                        Order = Order.Where(o => o.PhoneNumber != null && o.PhoneNumber.Contains(PhoneNumberSearch)).ToList();
+                    }
+
+                    if (TotalPriceSearch.HasValue)
+                    {
+                        Order = Order.Where(o => o.TotalPrice == TotalPriceSearch.Value).ToList();
+                    }
+
+                    if (DateSearch.HasValue)
+                    {
+                        Order = Order.Where(o => o.Date.HasValue && o.Date.Value.Date == DateSearch.Value.Date).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(AddressSearch))
+                    {
+                        Order = Order.Where(o => o.Address != null && o.Address.ToLower().Contains(AddressSearch.ToLower())).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(NotesSearch))
+                    {
+                        Order = Order.Where(o => o.Notes != null && o.Notes.ToLower().Contains(NotesSearch.ToLower())).ToList();
+                    }
+
+                    if (!string.IsNullOrEmpty(PaymentMethodSearch))
+                    {
+                        Order = Order.Where(o => o.PaymentMethod != null && o.PaymentMethod.ToLower().Contains(PaymentMethodSearch.ToLower())).ToList();
+                    }
+
                     TotalPages = (int)Math.Ceiling(Order.Count / (double)PageSize);
 
-                    
                     int startIndex = (PageIndex - 1) * PageSize;
                     Order = Order.Skip(startIndex).Take(PageSize).ToList();
-                    
                 }
             }
         }
     }
-
 }
