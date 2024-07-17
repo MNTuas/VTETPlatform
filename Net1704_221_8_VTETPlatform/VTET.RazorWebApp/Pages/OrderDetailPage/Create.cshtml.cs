@@ -34,13 +34,13 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
             // Check if the result is successful and has data
             if (ordersResult.Status == Const.SUCCESS_READ_CODE && ordersResult.Data is List<Models.Order> orders)
             {
-                ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
+                ViewData["OrderId"] = new SelectList(orders, "Id", "FullName");
             }
             else
             {
                 // Handle error or no data case if needed
                 // For example, you might want to log the error or set ViewData["OrderId"] to an empty list
-                ViewData["OrderId"] = new SelectList(new List<Models.Order>(), "Id", "Id");
+                ViewData["OrderId"] = new SelectList(new List<Models.Order>(), "Id", "FullName");
             }
             var watchResult = await _watchbusiness.GetAll();
 
