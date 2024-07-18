@@ -1,70 +1,127 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.OrdersPage.CreateModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Order";
 }
-<h1>Create</h1>
-<h4>Order</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Order.Email" class="control-label"></label>
-                <input asp-for="Order.Email" class="form-control" />
-                <span asp-validation-for="Order.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.FullName" class="control-label"></label>
-                <input asp-for="Order.FullName" class="form-control" />
-                <span asp-validation-for="Order.FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.PhoneNumber" class="control-label"></label>
-                <input asp-for="Order.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Order.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.Date" class="control-label"></label>
-                <input asp-for="Order.Date" class="form-control" />
-                <span asp-validation-for="Order.Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.TotalPrice" class="control-label"></label>
-                <input asp-for="Order.TotalPrice" class="form-control" min="0" step="0.01" />
-                <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.CustomerId" class="control-label"></label>
-                <select asp-for="Order.CustomerId" class="form-control" asp-items="@(ViewData["CustomerId"] as SelectList)"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.Address" class="control-label"></label>
-                <input asp-for="Order.Address" class="form-control" />
-                <span asp-validation-for="Order.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.Notes" class="control-label"></label>
-                <input asp-for="Order.Notes" class="form-control" />
-                <span asp-validation-for="Order.Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.PaymentMethod" class="control-label"></label>
-                <input asp-for="Order.PaymentMethod" class="form-control" />
-                <span asp-validation-for="Order.PaymentMethod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+<style>
+    label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        margin-top: 5px;
+    }
+</style>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Order Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center">
+    <h1 class="display-6">Create Order</h1>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Order.Email" class="control-label">Email</label>
+                    <input asp-for="Order.Email" class="form-control" />
+                    <span asp-validation-for="Order.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.FullName" class="control-label">Full Name</label>
+                    <input asp-for="Order.FullName" class="form-control" />
+                    <span asp-validation-for="Order.FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.PhoneNumber" class="control-label">Phone Number</label>
+                    <input asp-for="Order.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Order.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Date" class="control-label">Date</label>
+                    <input asp-for="Order.Date" class="form-control" />
+                    <span asp-validation-for="Order.Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.TotalPrice" class="control-label">Total Price</label>
+                    <input asp-for="Order.TotalPrice" class="form-control" min="0" step="0.01" />
+                    <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.CustomerId" class="control-label">Customer</label>
+                    <select asp-for="Order.CustomerId" class="form-control" asp-items="@(ViewData["CustomerId"] as SelectList)"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Address" class="control-label">Address</label>
+                    <input asp-for="Order.Address" class="form-control" />
+                    <span asp-validation-for="Order.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Notes" class="control-label">Notes</label>
+                    <textarea asp-for="Order.Notes" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Order.Notes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.PaymentMethod" class="control-label">Payment Method</label>
+                    <input asp-for="Order.PaymentMethod" class="form-control" />
+                    <span asp-validation-for="Order.PaymentMethod" class="text-danger"></span>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a class="btn btn-success" asp-page="./Index">Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
 }

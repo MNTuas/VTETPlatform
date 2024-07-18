@@ -46,45 +46,50 @@
 </header>
 
 
-<form method="get">
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="orderFullNameSearch">Order Full Name</label>
+<form method="get" id="searchForm">
+    <div class="row g-3">
+        <div class="col-md-4 col-lg-3">
+            <label for="orderFullNameSearch" class="form-label">Order Full Name</label>
             <input type="text" name="orderFullNameSearch" id="orderFullNameSearch" value="@Request.Query["orderFullNameSearch"]" class="form-control" />
         </div>
-        <div class="form-group col-md-3">
-            <label for="watchFullNameSearch">Watch Full Name</label>
+        <div class="col-md-4 col-lg-3">
+            <label for="watchFullNameSearch" class="form-label">Watch Full Name</label>
             <input type="text" name="watchFullNameSearch" id="watchFullNameSearch" value="@Request.Query["watchFullNameSearch"]" class="form-control" />
         </div>
-        <div class="form-group col-md-2">
-            <label for="amountSearch">Amount</label>
-            <input type="text" name="amountSearch" id="amountSearch" value="@Request.Query["amountSearch"]" class="form-control" />
+        <div class="col-md-4 col-lg-3">
+            <label for="amountSearch" class="form-label">Amount</label>
+            <input type="number" name="amountSearch" id="amountSearch" value="@Request.Query["amountSearch"]" class="form-control" />
         </div>
-        <div class="form-group col-md-2">
-            <label for="priceSearch">Price</label>
-            <input type="text" name="priceSearch" id="priceSearch" value="@Request.Query["priceSearch"]" class="form-control" />
+        <div class="col-md-4 col-lg-3">
+            <label for="priceSearch" class="form-label">Price</label>
+            <input type="number" step="0.01" name="priceSearch" id="priceSearch" value="@Request.Query["priceSearch"]" class="form-control" />
         </div>
-
-        <div class="form-group col-md-2">
-            <label for="discountSearch">Discount</label>
-            <input type="text" name="discountSearch" id="discountSearch" value="@Request.Query["discountSearch"]" class="form-control" />
+        <div class="col-md-4 col-lg-3">
+            <label for="discountSearch" class="form-label">Discount</label>
+            <input type="number" step="0.01" name="discountSearch" id="discountSearch" value="@Request.Query["discountSearch"]" class="form-control" />
         </div>
-
-        <div class="form-group col-md-6">
-            <label for="shipmentDateSearch">Shipment Date</label>
+        <div class="col-md-4 col-lg-3">
+            <label for="taxSearch" class="form-label">Tax</label>
+            <input type="number" step="0.01" name="taxSearch" id="taxSearch" value="@Request.Query["taxSearch"]" class="form-control" />
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="shippingCostSearch" class="form-label">Shipping Cost</label>
+            <input type="number" step="0.01" name="shippingCostSearch" id="shippingCostSearch" value="@Request.Query["shippingCostSearch"]" class="form-control" />
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="shipmentDateSearch" class="form-label">Shipment Date</label>
             <input type="date" name="shipmentDateSearch" id="shipmentDateSearch" value="@Model.ShipmentDateSearch?.ToString("yyyy-MM-dd")" class="form-control" />
         </div>
-        <div class="form-group col-md-6">
-            <label for="estimatedDeliveryDateSearch">Estimated Delivery Date</label>
+        <div class="col-md-4 col-lg-3">
+            <label for="estimatedDeliveryDateSearch" class="form-label">Estimated Delivery Date</label>
             <input type="date" name="estimatedDeliveryDateSearch" id="estimatedDeliveryDateSearch" value="@Model.EstimatedDeliveryDateSearch?.ToString("yyyy-MM-dd")" class="form-control" />
         </div>
-
-    </div>
-    <div class="form-group col-md-2 align-self-end">
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+         
+        </div>
     </div>
 </form>
-
 
 <div class="my-3 text-end">
     <a asp-page="Create" class="btn btn-success">Create New</a>
