@@ -1,73 +1,129 @@
 ﻿@page
 @model VTET.RazorWebApp.Pages.OrdersPage.DeleteModel
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Order";
 }
-<h1>Delete</h1>
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.FullName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.FullName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.PhoneNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.PhoneNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Date)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.TotalPrice)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.TotalPrice)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Customer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Customer.FullName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Notes)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Notes)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.PaymentMethod)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.PaymentMethod)
-        </dd>
-    </dl>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+<style>
+    label {
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
 
-    <form method="post">
-        <input type="hidden" asp-for="Order.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+    input[type="text"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 4px;
+        margin-top: 2px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        font-size: 0.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 7px;
+    }
+
+    .form-control {
+        margin-top: 2px;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-2 px-lg-3 container">
+        <a class="navbar-brand" href="/HomePage">Order Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrdersPage/Index">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/OrderDetailPage/Index">OrderDetail</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center">
+    <h3 class="mb-3">Delete Order</h3>
 </div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h5>Are you sure you want to delete this order?</h5>
+            <form method="post">
+                <input type="hidden" asp-for="Order.Id" />
+
+                <div class="form-group">
+                    <label asp-for="Order.Email" class="control-label">Email</label>
+                    <input asp-for="Order.Email" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.FullName" class="control-label">Full Name</label>
+                    <input asp-for="Order.FullName" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.PhoneNumber" class="control-label">Phone Number</label>
+                    <input asp-for="Order.PhoneNumber" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Date" class="control-label">Date</label>
+                    <input asp-for="Order.Date" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.TotalPrice" class="control-label">Total Price</label>
+                    <input asp-for="Order.TotalPrice" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Customer.FullName" class="control-label">Customer</label>
+                    <input asp-for="Order.Customer.FullName" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Address" class="control-label">Address</label>
+                    <input asp-for="Order.Address" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.Notes" class="control-label">Notes</label>
+                    <textarea asp-for="Order.Notes" class="form-control form-control-sm" rows="2" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order.PaymentMethod" class="control-label">Payment Method</label>
+                    <input asp-for="Order.PaymentMethod" class="form-control form-control-sm" readonly />
+                </div>
+                <div class="d-grid gap-2 d-md-block mt-3">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    <a class="btn btn-success btn-sm" asp-page="./Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+}

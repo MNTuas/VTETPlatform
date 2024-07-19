@@ -52,7 +52,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                 if (watchResult.Status == Const.SUCCESS_READ_CODE && watchResult.Data is Models.Watch watch)
                 {
                     Watch = watch;
-                    Order.TotalPrice = Watch.Price;
+                    Order.TotalPrice = Watch.EstimatePrice;
 
                 }
             }
@@ -84,11 +84,11 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                     {
                         WatchId = Watch.Id,
                         OrderId = Order.Id,
-                        Price = Watch.Price.Value,
+                        Price = Watch.EstimatePrice.Value,
                         Amount = 1, // Assuming default amount is 1, you can modify as needed
                         Discount = 10,
                         Tax = 10,
-                        ShippingCost = Watch.Price.Value * 0.10m,
+                        ShippingCost = Watch.EstimatePrice.Value * 0.10m,
                         ShipmentDate = Order.Date.Value, // Using Order.Date for ShipmentDate
                         EstimatedDeliveryDate = Order.Date.Value.AddDays(3) // Using Order.Date for EstimatedDeliveryDate
                     };

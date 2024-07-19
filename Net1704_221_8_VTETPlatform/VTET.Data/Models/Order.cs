@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VTET.Data.Models;
 
@@ -9,22 +10,29 @@ public partial class Order
 {
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Email is required")]
     public string Email { get; set; }
 
+    [Required(ErrorMessage = "Full Name is required")]
     public string FullName { get; set; }
 
+    [Required(ErrorMessage = "Phone Number is required")]
     public string PhoneNumber { get; set; }
 
+    [Required(ErrorMessage = "Date is required")]
     public DateTime? Date { get; set; }
 
+    [Required(ErrorMessage = "Total Price is required")]
+    [Range(0, double.MaxValue, ErrorMessage = "Total Price must be a positive number.")]
     public decimal? TotalPrice { get; set; }
-
+    [Required(ErrorMessage = "Customer is required")]
     public int? CustomerId { get; set; }
 
+    [Required(ErrorMessage = "Address is required")]
     public string Address { get; set; }
-
     public string Notes { get; set; }
 
+    [Required(ErrorMessage = "Payment Method is required")]
     public string PaymentMethod { get; set; }
 
     public virtual Customer Customer { get; set; }
