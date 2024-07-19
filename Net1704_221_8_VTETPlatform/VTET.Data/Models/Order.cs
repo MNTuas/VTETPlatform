@@ -30,7 +30,6 @@ public partial class Order
 
     [Required(ErrorMessage = "Address is required")]
     public string Address { get; set; }
-
     public string Notes { get; set; }
 
     [Required(ErrorMessage = "Payment Method is required")]

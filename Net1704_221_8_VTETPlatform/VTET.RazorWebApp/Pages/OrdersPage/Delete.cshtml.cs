@@ -15,10 +15,14 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
     public class DeleteModel : PageModel
     {
         private readonly IOrderBusiness _orderBusiness;
+        private readonly ICustomerBusiness _customerBusiness;
+
 
         public DeleteModel()
         {
             _orderBusiness ??= new OrderBusiness();
+            _customerBusiness ??= new customerBusiness();
+
         }
 
         [BindProperty]
@@ -30,6 +34,16 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             if (orderResult.Status > 0 && orderResult.Result.Data != null)
             {
                 Order = (Models.Order)orderResult.Result.Data;
+
+                if (Order.CustomerId.HasValue)
+                {
+                    var customerResult = await _customerBusiness.GetById(Order.CustomerId.Value);
+                    if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
+                    {
+                        Order.Customer = customerResult.Data as Models.Customer;
+                    }
+                }
+
                 return Page();
             }
             else
