@@ -117,7 +117,7 @@
                         <td>@evaluation.Comment</td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-warning" onclick="editEvaluation(@evaluation.Id)">Edit</button>
-                            <a class="btn btn-sm btn-warning" asp-page="./TestDetail" asp-route-id="@evaluation.Id">Detail</a>
+                            <a class="btn btn-sm btn-warning" asp-page="./Evaluation/DetailEvaluation" asp-route-id="@evaluation.Id">Detail</a>
                             <form method="post" asp-page-handler="Delete" asp-route-id="@evaluation.Id" class="d-inline">
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>

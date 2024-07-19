@@ -82,10 +82,11 @@ namespace VTET.RazorWebApp.Pages
                         (c.Type?.ToLower().Contains(" " + SearchType.ToLower()) ?? false)
                     ).ToList();
                 }
-                if (!string.IsNullOrEmpty(SearchPrice) && int.TryParse(SearchPrice, out int SearchRateInt))
+                if (!string.IsNullOrEmpty(SearchPrice) && decimal.TryParse(SearchPrice, out decimal SearchRateInt))
                 {
                     watches = watches.Where(c => c.Price == SearchRateInt).ToList();
                 }
+
                 if (!string.IsNullOrEmpty(SearchBrand))
                 {
                     watches = watches.Where(c =>

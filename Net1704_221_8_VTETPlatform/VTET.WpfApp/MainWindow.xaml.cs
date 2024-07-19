@@ -34,12 +34,7 @@ namespace VTET.WpfApp
         }
 
 
-        private async void Open_wOrder_Click(object sender, RoutedEventArgs e)
-        {
-            var p = new wOrder();
-            p.Owner = this;
-            p.Show();
-        }
+      
 
         private async void Open_wWatch_Click(object sender, RoutedEventArgs e)
         {
