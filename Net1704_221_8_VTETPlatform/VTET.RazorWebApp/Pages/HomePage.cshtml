@@ -20,6 +20,11 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <style>
+        .disabled-link {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
         .bg-dark {
             background-image: url('https://i.pinimg.com/736x/cf/aa/35/cfaa35e5bcfe32fdf9072bb298b1c4b7.jpg');
             background-size: cover;
@@ -61,8 +66,9 @@
 </head>
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="px-4 px-lg-5 container">
+            <img style="height:80px" src="https://thumbs.dreamstime.com/b/watches-frame-logo-design-template-isolated-white-background-watches-frame-logo-design-template-isolated-white-background-271940994.jpg" />
             <a class="navbar-brand" href="#!">VTET PLATFORM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
@@ -106,7 +112,7 @@
     <div class="container-fluid full-height">
         <div class="row full-height">
             <!-- Sidebar filter -->
-            <form class="col-lg-3 bg-light sidebar p-4">
+            <form class="col-lg-3 sidebar p-4">
                 <div class="p-4 rounded border">
                     <h4 class="fw-bolder">Filter By</h4>
                     <hr>
@@ -139,21 +145,23 @@
                                 <div class="col mb-5 d-flex">
                                     <div class="card h-100 d-flex flex-column">
                                         <!-- Product image-->
-                                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuXCGC0oDqzWgNQxiD-EzF18vt2DGvPHreaA&s" alt="Watch image" />
+                                        <img class="card-img-top" src="@watch.Picture" alt="Watch image" />
                                         <!-- Product details-->
                                         <div class="card-body p-4 d-flex flex-column">
                                             <div class="text-center">
                                                 <!-- Product name-->
                                                 <h5 class="fw-bolder">@watch.FullName</h5>
-                                                <p style="color:red" class="fw-bolder">@watch.Type</p>
+                                                <p style="color:red" class="fw-bolder">@watch.Type - @watch.Brand</p>
                                                 <!-- Product price-->
                                                 <p>@watch.Price - @watch.EstimatePrice</p>
+                                                <p class="fw-bolder">@watch.Status</p>
                                             </div>
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
                                             <div class="text-center">
-                                                <a class="btn btn-outline-dark mt-auto" asp-page="/OrdersPage/Create" asp-route-watchId="@watch.Id">Buy</a>
+
+                                                <a id="buy" class="btn btn-outline-dark mt-auto" asp-page="/OrdersPage/Create" asp-route-watchId="@watch.Id" >Buy</a>
                                                 <a class="btn btn-outline-dark mt-auto" asp-page="./Watch/WatchDetail" asp-route-id="@watch.Id" >Detail</a>
                                                
                                             </div>
@@ -188,3 +196,16 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
+<script>
+    var link = document.getElementById("buy");
+
+    // Điều chỉnh dựa trên trạng thái
+    if (watchStatus === "pending") {
+        link.classList.add("disabled-link");
+        link.href = "#"; // Ngăn không cho liên kết hoạt động
+    } else {
+        link.classList.remove("disabled-link");
+        link.href = "/OrdersPage/Create?watchId=" + encodeURIComponent(link.getAttribute('asp-route-watchId')); // Hoặc giữ lại liên kết gốc
+    }
+</script>

@@ -10,6 +10,7 @@ namespace VTET.RazorWebApp.Pages
     {
         private readonly IWatchBusiness _watchBusiness = new watchBusiness();
         public string Message { get; set; } = default;
+        public bool IsPending { get; set; }
 
         [BindProperty]
         public Models.Watch Watch { get; set; } = default;
@@ -119,6 +120,7 @@ namespace VTET.RazorWebApp.Pages
             if (watchResult.Status > 0 && watchResult.Result.Data != null)
             {
                 Watch = (Models.Watch)watchResult.Result.Data;
+                //IsPending = Watch.Status == "Pending";
             }
             return Page();
         }

@@ -79,7 +79,7 @@
 <h2 class="text-center">Sell Your Watch</h2>
 
 <div class="container">
-    <form id="feedback-form" method="post">
+    <form id="feedback-form" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label asp-for="Watches.FullName" class="form-label">FullName</label>
             <input asp-for="Watches.FullName" class="form-control" required />
@@ -97,9 +97,14 @@
 
         <div class="mb-3">
             <label asp-for="Watches.Picture" class="form-label">Picture</label>
-            <input asp-for="Watches.Picture" class="form-control" required />
-            <span asp-validation-for="Watches.Picture" class="text-danger"></span>
-        </div>
+            <input type="hidden" asp-for="Watches.Picture" class="form-control" id="Image" required />
+        <div class="mb-3">
+                <label for="customFile">Image</label>
+                <input type="file" class="form-control" id="customFile" name="FileUpload" accept=".jpg, .png" onchange="previewImage2(event)" />
+                <img id="imagePreview2" src="" alt="Image Preview" style="display:none; width: 100px; margin-top: 10px;" />
+                <span asp-validation-for="FileUpload" class="text-danger"></span>
+                
+        </div>    
         <div class="mb-3">
             <label asp-for="Watches.Price" class="form-label">Price</label>
             <input asp-for="Watches.Price" class="form-control" />
@@ -139,7 +144,7 @@
 
         <div class="mb-3">
             <label asp-for="Watches.Status" class="form-label">Status</label>
-            <input asp-for="Watches.Brand" value="Pending"  class="form-control" readonly />
+            <input asp-for="Watches.Status" value="Pending" class="form-control" readonly />
             <span asp-validation-for="Watches.Brand" class="text-danger"></span>
         </div>
 
@@ -181,5 +186,24 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        function previewImage2(event) {
+            var input = event.target;
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var img = document.getElementById('imagePreview2');
+                    img.src = reader.result;
+                    img.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert("No file selected");
+            }
+        }
     </script>
 }

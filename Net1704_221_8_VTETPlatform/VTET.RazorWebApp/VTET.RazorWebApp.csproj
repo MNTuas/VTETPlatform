@@ -32,4 +32,8 @@
     <ProjectReference Include="..\VTET.Data\VTET.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\image\" />
+  </ItemGroup>
+
 </Project>
