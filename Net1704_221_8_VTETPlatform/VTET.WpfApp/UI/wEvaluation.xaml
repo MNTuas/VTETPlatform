@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VTET.WpfApp.UI"
         mc:Ignorable="d"
-        Title="wEvaluation" Height="768" Width="1398">
+        Title="wEvaluation" Height="992" Width="1627">
     <Grid>
         <StackPanel Orientation="Vertical">
             <GroupBox Header="Order Form" Margin="10">
@@ -62,7 +62,7 @@
                         <DataGridTextColumn Header="Comment" Binding="{Binding Path=Comment}" Visibility="Visible"/>
                         <DataGridTextColumn Header="Rate" Binding="{Binding Path=Rate}" Width="100"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="EstimatePrice" Binding="{Binding Path=EstimatePrice}" Visibility="Visible"/>
-
+                        <DataGridTextColumn Header="CreateDate" Binding="{Binding Path=CreateDate}" Visibility="Visible"/>
                         <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" Width="50"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="WatchId" Binding="{Binding Path=WatchId}" Width="50"  IsReadOnly="True"/>
 

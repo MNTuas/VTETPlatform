@@ -1,0 +1,154 @@
+﻿@page
+@model VTET.RazorWebApp.Pages.Watch.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+<style>
+    label {
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+
+    .form-control-plaintext {
+        font-size: 0.8rem;
+        padding: 4px;
+        margin-top: 2px;
+    }
+
+    .form-group {
+        margin-bottom: 7px;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="px-4 px-lg-5 container">
+        <a class="navbar-brand" href="/HomePage">Watch Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/WatchDetailPage/Index">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/WatchDetailPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Evaluation">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/WatchsPage/Index">Watch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/WatchDetailPage/Index">WatchDetail</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">( ͡° ͜ʖ ͡°)</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center">
+    <h1 class="display-6">Edit Watch</h1>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Watch.Id" />
+
+                <div class="form-group">
+                    <label asp-for="Watch.FullName">FullName</label>
+                    <input asp-for="Watch.FullName" class="form-control" readonly />
+                    <span asp-validation-for="Watch.FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Type">Type</label>
+                    <input asp-for="Watch.Type" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Type" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Picture">Picture</label>
+                    <input asp-for="Watch.Picture" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Picture" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Condition">Condition</label>
+                    <input asp-for="Watch.Condition" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Condition" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Location">Location</label>
+                    <input asp-for="Watch.Location" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Location" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Brand">Brand</label>
+                    <input asp-for="Watch.Brand" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Brand" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.Status">Status</label>
+                    <input asp-for="Watch.Status" value="Available" class="form-control" readonly />
+                    <span asp-validation-for="Watch.Status" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.CreateDate">CreateDate</label>
+                    <input asp-for="Watch.CreateDate" class="form-control" rows="3" readonly></input>
+                    <span asp-validation-for="Watch.CreateDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Watch.CustomerId">CustomerId</label>
+                    <input asp-for="Watch.CustomerId" class="form-control" rows="3" readonly></input>
+                    <span asp-validation-for="Watch.CustomerId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Watch.Price">Price</label>
+                    <input asp-for="Watch.Price" class="form-control" rows="3" readonly></input>
+                    <span asp-validation-for="Watch.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Watch.EstimatePrice">EstimatePrice</label>
+                    <input asp-for="Watch.EstimatePrice" class="form-control" rows="3"></input>
+                    <span asp-validation-for="Watch.EstimatePrice" class="text-danger"></span>
+                </div>
+
+                
+
+                <div class="form-group">
+                    <input type="submit" value="SAVE" class="btn btn-primary" />
+                    <a asp-page="./Index" class="btn btn-success">BACK TO LIST</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

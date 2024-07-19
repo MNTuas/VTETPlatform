@@ -14,13 +14,16 @@ namespace VTET.RazorWebApp.Pages.Evaluation
         {
            _evaluationBusiness ??= new evaluationBusiness();
         }
-        public async Task<IActionResult> OnGetEvaluationDetailAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            var evaluationResult = _evaluationBusiness.GetByIdAsync(id);
-            if (evaluationResult.Status > 0 && evaluationResult.Result.Data != null)
+            var watchResult = await _evaluationBusiness.GetByIdAsync(id);
+            if (watchResult == null || watchResult.Data == null)
             {
-                Evaluation = (Models.Evaluation)evaluationResult.Result.Data;
+                return NotFound();
             }
+
+            Evaluation = watchResult.Data as Models.Evaluation;
+
             return Page();
         }
     }

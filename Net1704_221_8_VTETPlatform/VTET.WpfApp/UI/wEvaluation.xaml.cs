@@ -15,6 +15,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using VTET.Data.Models;
 using VTET.Business;
+using System.ComponentModel.DataAnnotations;
 
 namespace VTET.WpfApp.UI
 {
@@ -50,32 +51,48 @@ namespace VTET.WpfApp.UI
             {
                 int evaluationIdTmp = -1;
                 int.TryParse(txtEvaluationId.Text, out evaluationIdTmp);
+
                 var item = await _evaluationbusiness.GetById(evaluationIdTmp);
+                Evaluation evaluation;
+
                 if (item.Data == null)
                 {
-                    var evaluation = new Evaluation
+                    evaluation = new Evaluation
                     {
                         Id = evaluationIdTmp,
                         Comment = txtComment.Text,
-                        Rate = int.Parse(txtRate.Text), 
-                        EstimatePrice = int.Parse(txtEstimatePrice.Text),
+                        Rate = int.Parse(txtRate.Text),
+                        EstimatePrice = decimal.Parse(txtEstimatePrice.Text),
                         CreateDate = DateTime.Now,
                         WatchId = int.Parse(txtWatchId.Text),
-                        
                     };
+                }
+                else
+                {
+                    evaluation = item.Data as Evaluation;
+                    evaluation.Comment = txtComment.Text;
+                    evaluation.Rate = int.Parse(txtRate.Text);
+                    evaluation.EstimatePrice = decimal.Parse(txtEstimatePrice.Text);
+                    evaluation.WatchId = int.Parse(txtWatchId.Text);
+                }
 
+                // Validate the evaluation object
+                var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+                var context = new ValidationContext(evaluation);
+                if (!System.ComponentModel.DataAnnotations.Validator.TryValidateObject(evaluation, context, validationResults, true))
+                {
+                    string errorMessages = string.Join("\n", validationResults.Select(r => r.ErrorMessage));
+                    MessageBox.Show(errorMessages, "Validation Error");
+                    return;
+                }
+
+                if (item.Data == null)
+                {
                     var result = await _evaluationbusiness.Save(evaluation);
                     MessageBox.Show(result.Message, "Save");
                 }
                 else
                 {
-                    var evaluation = item.Data as Evaluation;
-                    evaluation.Comment = txtComment.Text;
-                    evaluation.Rate = int.Parse(txtRate.Text);
-                    evaluation.EstimatePrice = int.Parse(txtEstimatePrice.Text);   
-                    evaluation.WatchId = int.Parse(txtWatchId.Text);
-                   
-
                     var result = await _evaluationbusiness.Update(evaluation);
                     MessageBox.Show(result.Message, "Update");
                 }
@@ -86,13 +103,12 @@ namespace VTET.WpfApp.UI
                 txtEstimatePrice.Text = string.Empty;
                 txtCreateDate.Text = string.Empty;
                 txtWatchId.Text = string.Empty;
-                this.LoadGrdEvaluation();
+                LoadGrdEvaluation();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show(ex.Message, "Error");
             }
-
         }
         private async void grdEvaluation_ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +126,6 @@ namespace VTET.WpfApp.UI
                 }
             }
         }
-
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             txtEvaluationId.Text = string.Empty;
@@ -121,14 +136,6 @@ namespace VTET.WpfApp.UI
             txtWatchId.Text = string.Empty;
             this.LoadGrdEvaluation();
         }
-
-
-
-
-
-
-
-
         private async Task grdEvaluation_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
             //MessageBox.Show("Double Click on Grid");
@@ -158,7 +165,6 @@ namespace VTET.WpfApp.UI
                 }
             }
         }
-
         private async void grdevaluation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //MessageBox.Show("Double Click on Grid");

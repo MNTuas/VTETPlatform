@@ -6,16 +6,17 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    
+ 
 
     .product-container {
         display: flex;
         background: white;
         padding: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 0 10px black;
         border-radius: 10px;
         max-width: 800px;
         margin-left: 350px;
+        margin-top: 100px;
     }
 
     .image-container {
@@ -130,7 +131,7 @@
 
 <div class="product-container">
     <div class="image-container">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81-Fm8omZjL.jpg" alt="Green Apple">
+        <img src="@Model.Watches.Price" >
     </div>
     <div class="product-details">
         <h1>Full Name: @Model.Watches.FullName</h1>
@@ -139,10 +140,13 @@
         <p class="description">Type: @Model.Watches.Type - Brand: @Model.Watches.Brand</p>
         
         <button><a class="btn-outline-dark mt-auto" asp-page="/watch/test" asp-route-id="@Model.Watches.Id">Check</a></button>
+        <button><a class="btn-outline-dark mt-auto" asp-page="/watch/edit" asp-route-id="@Model.Watches.Id">Change Price</a></button>
         <p class="categories">Location:  @Model.Watches.Location - Date: @Model.Watches.CreateDate </p>
         
     </div>
+
 </div>
+
 
        
 
