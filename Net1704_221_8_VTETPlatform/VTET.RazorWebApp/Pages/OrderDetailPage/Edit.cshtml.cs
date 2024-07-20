@@ -43,11 +43,11 @@ namespace VTET.RazorWebApp.Pages.OrderDetailPage
             var ordersResult = await _orderbusiness.GetAll();
             if (ordersResult.Status == Const.SUCCESS_READ_CODE && ordersResult.Data is List<Models.Order> orders)
             {
-                ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
+                ViewData["OrderId"] = new SelectList(orders, "Id", "FullName");
             }
             else
             {
-                ViewData["OrderId"] = new SelectList(new List<Models.Order>(), "Id", "Id");
+                ViewData["OrderId"] = new SelectList(new List<Models.Order>(), "Id", "FullName");
             }
 
 

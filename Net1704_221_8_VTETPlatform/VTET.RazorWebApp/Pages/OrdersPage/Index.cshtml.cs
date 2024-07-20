@@ -22,7 +22,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             _orderBusiness ??= new OrderBusiness();
             _customerBusiness ??= new customerBusiness();
         }
-
+        //lay du lieu tu request, cho phep tim va phan trang
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;
 
@@ -53,7 +53,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
         [BindProperty(SupportsGet = true)]
         public string PaymentMethodSearch { get; set; }
 
-        public int PageSize { get; set; } = 5;
+        public int PageSize { get; set; } = 10;
         public IList<Models.Order> Order { get; set; } = default!;
         public int TotalPages { get; set; }
 
@@ -122,6 +122,7 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
                         Order = Order.Where(o => o.PaymentMethod != null && o.PaymentMethod.ToLower().Contains(PaymentMethodSearch.ToLower())).ToList();
                     }
 
+                    //
                     TotalPages = (int)Math.Ceiling(Order.Count / (double)PageSize);
 
                     int startIndex = (PageIndex - 1) * PageSize;

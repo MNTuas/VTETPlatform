@@ -16,17 +16,19 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
     {
         private readonly IOrderBusiness _orderBusiness;
         private readonly ICustomerBusiness _customerBusiness;
-
+        private readonly IOrderDetailBusiness _orderDetailBusiness;
 
         public DeleteModel()
         {
             _orderBusiness ??= new OrderBusiness();
             _customerBusiness ??= new customerBusiness();
-
+            _orderDetailBusiness ??= new OrderDetailBusiness();
         }
 
         [BindProperty]
         public Models.Order Order { get; set; } = default!;
+        [TempData]
+        public string ErrorMessage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -58,16 +60,14 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             {
                 return NotFound();
             }
-
             var orderResult = await _orderBusiness.Delete(id);
             if (orderResult.Status > 0)
             {
                 return RedirectToPage("./Index");
             }
 
-
-            return Page();
-
+            ErrorMessage = "Cannot delete due to own Order Detail";
+            return await OnGetAsync(id);
         }
     }
 }

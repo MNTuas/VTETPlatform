@@ -40,7 +40,6 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             else
             {
                 // Handle error or no data case if needed
-                // For example, you might want to log the error or set ViewData["OrderId"] to an empty list
                 ViewData["CustomerId"] = new SelectList(new List<Models.Customer>(), "Id", "FullName");
             }
             // Khởi tạo Order nếu chưa được khởi tạo
@@ -58,13 +57,12 @@ namespace VTET.RazorWebApp.Pages.OrdersPage
             }
             return Page();
         }
-
-        [BindProperty]
+        
+        [BindProperty] //auto nhan du lieu tu form khi submit
         public Models.Order Order { get; set; } = default!;
 
         [BindProperty]
         public Models.Watch Watch { get; set; } = default!;
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(int? watchId)
         {
     
